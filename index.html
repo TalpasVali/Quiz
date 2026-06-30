@@ -123,9 +123,11 @@
       <div id="quiz-screen" class="card hidden">
         <!-- Progress Bar & Header -->
         <div class="quiz-header">
-          <div class="quiz-meta">
+          <div class="quiz-meta" style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; width: 100%;">
             <span id="quiz-category" class="badge">Materia</span>
-            <span id="quiz-question-number" class="progress-text">Întrebarea 1/10</span>
+            <span id="question-db-id" class="badge badge-db-id">ID: -</span>
+            <span id="question-pdf-ref" class="badge badge-pdf-ref">PDF: -</span>
+            <span id="quiz-question-number" class="progress-text" style="margin-left: auto;">Întrebarea 1/10</span>
           </div>
           <div class="progress-bar-container">
             <div id="progress-bar-fill"></div>

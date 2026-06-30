@@ -1533,3 +1533,20 @@ body.theme-sepia #ai-explanation-loading {
   color: var(--text-muted) !important;
 }
 
+/* Question Identification Badges */
+.badge-db-id {
+  background: rgba(124, 77, 255, 0.12) !important;
+  color: var(--secondary) !important;
+  border: 1px solid var(--border-light) !important;
+  font-size: 0.72rem !important;
+  padding: 4px 8px !important;
+}
+
+.badge-pdf-ref {
+  background: rgba(0, 229, 255, 0.12) !important;
+  color: var(--primary) !important;
+  border: 1px solid var(--border-light) !important;
+  font-size: 0.72rem !important;
+  padding: 4px 8px !important;
+}
+

@@ -4500,6 +4500,29 @@ function loadQuestion() {
   quizCategoryBadge.textContent = currentQuestion.subcategorie
     ? `${currentQuestion.materie} - ${currentQuestion.subcategorie}`
     : currentQuestion.materie;
+
+  // Update ID and PDF badges
+  const dbIdBadge = document.getElementById("question-db-id");
+  const pdfRefBadge = document.getElementById("question-pdf-ref");
+  if (dbIdBadge) dbIdBadge.textContent = `ID: ${currentQuestion.id}`;
+
+  let pdfRef = "";
+  if (currentQuestion.referinta_sursa) {
+    const parts = currentQuestion.referinta_sursa.split(",");
+    if (parts.length > 1) {
+      pdfRef = parts[parts.length - 1].trim();
+    }
+  }
+  if (pdfRefBadge) {
+    if (pdfRef) {
+      pdfRefBadge.textContent = `PDF: ${pdfRef}`;
+      pdfRefBadge.classList.remove("hidden");
+    } else {
+      pdfRefBadge.textContent = "";
+      pdfRefBadge.classList.add("hidden");
+    }
+  }
+
   quizQuestionNumber.textContent = `Întrebarea ${currentQuestionIndex + 1}/${filteredQuestions.length}`;
 
   // Update Progress Bar
@@ -4947,11 +4970,24 @@ function renderStudyQuestions(questions) {
       `;
     }
 
+    // Compute PDF reference badge for Study Mode header
+    let pdfRef = "";
+    if (q.referinta_sursa) {
+      const parts = q.referinta_sursa.split(",");
+      if (parts.length > 1) {
+        pdfRef = parts[parts.length - 1].trim();
+      }
+    }
+    const pdfBadgeHtml = pdfRef
+      ? `<span class="badge badge-pdf-ref" style="font-size: 0.65rem; padding: 2px 6px;">PDF: ${pdfRef}</span>`
+      : "";
+
     card.innerHTML = `
       <div class="study-q-header">
         <div class="study-q-title-wrapper">
-          <div class="study-q-meta">
+          <div class="study-q-meta" style="display: flex; align-items: center; gap: 6px;">
             <span class="study-q-id">ÎNTREBAREA #${q.id}</span>
+            ${pdfBadgeHtml}
             <span class="badge" style="font-size: 0.65rem; padding: 2px 6px;">${q.subcategorie ? `${q.materie} (${q.subcategorie})` : q.materie}</span>
           </div>
           <span class="study-q-text">${escapeHtml(q.enunt)}</span>
