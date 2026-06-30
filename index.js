@@ -2403,7 +2403,7 @@ const fallbackQuizData = [
     "id": 123,
     "materie": "Limbaje de programare și inginerie software",
     "subcategorie": "Proiectarea aplicațiilor software",
-    "enunt": "Fie următoarea diagramă de clase.\nCare secvență de cod Java descrie corect și complet relațiile claseiProiect?",
+    "enunt": "Fie următoarea diagramă de clase.\nCare secvență de cod Java descrie corect și complet relațiile clasei Proiect?",
     "cod_sursa": "",
     "variante": {
       "a": "class Proiect extends Student {\nprivate Collection <DiagramaUML> diagramele = new ArrayList<>();\nprivate CodSursa codul;\n...}",
@@ -2422,7 +2422,7 @@ const fallbackQuizData = [
     "id": 124,
     "materie": "Limbaje de programare și inginerie software",
     "subcategorie": "Proiectarea aplicațiilor software",
-    "enunt": "Fie următoarea diagramă de clase.\nCare secvență de cod Java descrie corect și complet relațiile claseiRevista?",
+    "enunt": "Fie următoarea diagramă de clase.\nCare secvență de cod Java descrie corect și complet relațiile clasei Revista?",
     "cod_sursa": "",
     "variante": {
       "a": "class Revista extends RevistaOnLine implements Produs {\nprivate Collection <Articol> articole;\n...}",
@@ -2460,7 +2460,7 @@ const fallbackQuizData = [
     "id": 126,
     "materie": "Limbaje de programare și inginerie software",
     "subcategorie": "Proiectarea aplicațiilor software",
-    "enunt": "Fie următoarea diagramă de clase.\nCare secvență de cod Java descrie corect și complet relația claseiProiectcu clasaStudent?",
+    "enunt": "Fie următoarea diagramă de clase.\nCare secvență de cod Java descrie corect și complet relația clasei Proiect cu clasa Student?",
     "cod_sursa": "",
     "variante": {
       "a": "class Student extends Proiect{...}\nclass Proiect{...}",
@@ -2550,7 +2550,7 @@ const fallbackQuizData = [
     "id": 130,
     "materie": "Limbaje de programare și inginerie software",
     "subcategorie": "Proiectarea aplicațiilor software",
-    "enunt": "Selectați perechea de termeni cu care se înlocuiesc spațiile libere din următoarea frază:\n\"În jocul Essence ‘Checkpoint construction’, un checkpoint este un set de. . . . . .ce trebuie în-\ndeplinite la un anume moment în timp, în cadrul unui efort de dezvoltare de software, ȘI este\ndefinit în termeni de. . . . . ..\"",
+    "enunt": "Selectați perechea de termeni cu care se înlocuiesc spațiile libere din următoarea frază:\n\"În jocul Essence ‘Checkpoint construction’, un checkpoint este un set de. . . . . .ce trebuie îndeplinite la un anume moment în timp, în cadrul unui efort de dezvoltare de software, ȘI este\ndefinit în termeni de. . . . . ..\"",
     "cod_sursa": "",
     "variante": {
       "a": "criterii / activități",
@@ -2759,7 +2759,7 @@ const fallbackQuizData = [
     "id": 140,
     "materie": "Limbaje de programare și inginerie software",
     "subcategorie": "Baze de date",
-    "enunt": "Care dintre interogările de mai jos selectează identificatorul (ID) și numele departamentelor care\nnu au angajați? Coloana DEPARTMENT_ID este comună tabelelor EMPLOYEES și DEPART-\nMENTS.",
+    "enunt": "Care dintre interogările de mai jos selectează identificatorul (ID) și numele departamentelor care\nnu au angajați? Coloana DEPARTMENT_ID este comună tabelelor EMPLOYEES și DEPARTMENTS.",
     "cod_sursa": "",
     "variante": {
       "a": "SELECT d.department_id, d.department_name\nFROM departments d\nWHERE NOT EXISTS (SELECT 1 FROM employees e WHERE e.department_id=d.department_id);",
@@ -2780,7 +2780,7 @@ const fallbackQuizData = [
     "id": 141,
     "materie": "Limbaje de programare și inginerie software",
     "subcategorie": "Baze de date",
-    "enunt": "Dacă se dorește afișarea tuturor locațiilor care nu au niciun departamenț precum și a departa-\nmentelor care nu au fost asignate niciunei locații, ce tip de JOIN între tabelele DEPARTMENTS\nși LOCATIONS va afișa aceste informații ca parte din liniile returnate?",
+    "enunt": "Dacă se dorește afișarea tuturor locațiilor care nu au niciun departamenț precum și a departamentelor care nu au fost asignate niciunei locații, ce tip de JOIN între tabelele DEPARTMENTS\nși LOCATIONS va afișa aceste informații ca parte din liniile returnate?",
     "cod_sursa": "",
     "variante": {
       "a": "NATURAL JOIN",
@@ -3687,7 +3687,7 @@ const fallbackQuizData = [
     "id": 188,
     "materie": "Sisteme de calcul",
     "subcategorie": "Sisteme de operare",
-    "enunt": "Se consideră un set de patru procese, cu timpi estimați de execuție 2, 3, 4 și 5. Fiecare dintre\nprocese are două execuții succesive separate printr-un ciclu de operații de intrare/ieșire. Planifi-\ncarea proceselor este FIFO. Știind că timpii de răspunș după cea de-a doua execuție, raportați\nla momentul 0, sunt 30,28,20,25, precizat ,i care sunt duratele operațiilor de intrare/ieșire pentru\ndouă dintre aceste procese.",
+    "enunt": "Se consideră un set de patru procese, cu timpi estimați de execuție 2, 3, 4 și 5. Fiecare dintre\nprocese are două execuții succesive separate printr-un ciclu de operații de intrare/ieșire. Planificarea proceselor este FIFO. Știind că timpii de răspuns după cea de-a doua execuție, raportați\nla momentul 0, sunt 30, 28, 20, 25, precizați care sunt duratele operațiilor de intrare/ieșire pentru\ndouă dintre aceste procese.",
     "cod_sursa": "",
     "variante": {
       "a": "7s ,i13",
@@ -3706,7 +3706,7 @@ const fallbackQuizData = [
     "id": 189,
     "materie": "Sisteme de calcul",
     "subcategorie": "Sisteme de operare",
-    "enunt": "Se consideră un set de patru procese, cu timpi estimați de execuție 2, 3, 4 și 5. Fiecare dintre\nprocese are două execuții succesive separate printr-un ciclu de operații de intrare/ieșire. Planifi-\ncarea inițială a proceselor este FIFO, după momentul 15, algoritmul de planificare este modificat\n\nla SJF. Știind că timpii de răspunș după cea de-a doua execuție, raportați la momentul 0, sunt\n22,25,20,30, și că timpii asociați operațiilor de intrare/ieșire sunt 3,7,13,17, precizați care dintre\nprocese nu pot avea operații de intrare/ieșire de durată 13.",
+    "enunt": "Se consideră un set de patru procese, cu timpi estimați de execuție 2, 3, 4 și 5. Fiecare dintre\nprocese are două execuții succesive separate printr-un ciclu de operații de intrare/ieșire. Planificarea inițială a proceselor este FIFO, după momentul 15, algoritmul de planificare este modificat\n\nla SJF. Știind că timpii de răspuns după cea de-a doua execuție, raportați la momentul 0, sunt\n22, 25, 20, 30, și că timpii asociați operațiilor de intrare/ieșire sunt 3, 7, 13, 17, precizați care dintre\nprocese nu pot avea operații de intrare/ieșire de durată 13.",
     "cod_sursa": "",
     "variante": {
       "a": "1s ,i3",
@@ -3725,7 +3725,7 @@ const fallbackQuizData = [
     "id": 190,
     "materie": "Sisteme de calcul",
     "subcategorie": "Sisteme de operare",
-    "enunt": "Se consideră un set de patru procese, cu timpi estimați de execuție 2, 3, 4 și 5. Fiecare dintre\nprocese are două execuții succesive separate printr-un ciclu de operații de intrare/ieșire. Planifi-\ncarea proceselor este SJF. Știind că timpii de răspunș după cea de-a doua execuție, raportați la\nmomentul 0, sunt 22,25,20,30, precizat ,i, în ordine crescătoare, care pot fi duratele operațiilor de\nintrare/ieșire pentru procesele3s ,i4, știind că procesul4a revenit în sistem înaintea procesului\n2.",
+    "enunt": "Se consideră un set de patru procese, cu timpi estimați de execuție 2, 3, 4 și 5. Fiecare dintre\nprocese are două execuții succesive separate printr-un ciclu de operații de intrare/ieșire. Planificarea proceselor este SJF. Știind că timpii de răspuns după cea de-a doua execuție, raportați la\nmomentul 0, sunt 22, 25, 20, 30, precizați, în ordine crescătoare, care pot fi duratele operațiilor de\nintrare/ieșire pentru procesele 3 și 4, știind că procesul 4 a revenit în sistem înaintea procesului\n2.",
     "cod_sursa": "",
     "variante": {
       "a": "3s ,i13",
@@ -4426,7 +4426,7 @@ const fallbackQuizData = [
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Rețele de calculatoare, Pb. 22",
     "imagine": ""
   }
-];;;;;;;;;;;;;
+];;;;;;;;;;;;;;
 
 // Initialize Application
 document.addEventListener("DOMContentLoaded", () => {
