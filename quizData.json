@@ -1537,10 +1537,10 @@
     "enunt": "Care este rezultatul execuției următoarei secvențe de cod?",
     "cod_sursa": "class A:\n    def __init__(self):\n        self.calcI(30)\n    def calcI(self, i):\n        self.i = 2 * i\n\nclass B(A):\n    def __init__(self):\n        super().__init__()\n        print(\"i from B is\", self.i)\n    def calcI(self, i):\n        self.i = 3 * i\n\nb = B()",
     "variante": {
-      "a": "Doar metoda__init__din clasaBeste invocată",
-      "b": "Metoda__init__din clasaAeste invocată s ,i se afișează“i from B is 0”.",
-      "c": "Metoda__init__din clasaAeste invocată s ,i se afișează“i from B is 60”.",
-      "d": "Metoda__init__din clasaAeste invocată s ,i se afișează“i from B is 90”."
+      "a": "Doar metoda __init__ din clasa B este invocată",
+      "b": "Metoda __init__ din clasa A este invocată și se afișează “i from B is 0”.",
+      "c": "Metoda __init__ din clasa A este invocată și se afișează “i from B is 60”.",
+      "d": "Metoda __init__ din clasa A este invocată și se afișează “i from B is 90”."
     },
     "raspuns_corect": [
       "d"
@@ -2387,10 +2387,10 @@
     "enunt": "Fie următoarea diagramă de clase.\nSelectați descrierea corectă și completă a relațiilor reprezentate în diagramă:",
     "cod_sursa": "",
     "variante": {
-      "a": "Asociere bidirecțională, între claseleProiectșiCodSursa; compoziție între claseleProiect\n(compozit)șiDiagramaUML(componenta); agregareîntreclaseleProiect(agregat)s ,iStudent\n(componenta); generalizare între interfațaIStudent(implementată) și clasaStudent(imple-\nmentează); realizare între clasaStudent(superclasa) și clasaBursier(subclasa)",
-      "b": "Asociere bidirecțională, între claseleProiectșiCodSursa; compoziție între claseleProiect\n(compozit)șiDiagramaUML(componenta); agregareîntreclaseleProiect(agregat)s ,iStudent\n(componenta); realizare între interfațaIStudent(implementată) s ,i clasaStudent(imple-\nmentează); generalizare între clasaStudent(superclasa) și clasaBursier(subclasa)",
-      "c": "Asociere bidirecțională, între claseleProiects ,iCodSursa; agregare între claseleProiect\n(agregat)șiDiagramaUML(componenta); compozițieîntreclaseleProiect(agregat)s ,iStudent\n(componenta); realizare între interfațaIStudent(implementată) s ,i clasaStudent(imple-\nmentează); generalizare între clasaStudent(superclasa) și clasaBursier(subclasa)",
-      "d": "Asocierebidirecțională, întreclaseleProiects ,iCodSursa; compozițieîntreclaseleDiagramaUML\n(compozit) șiProiect(componenta); agregare între claseleStudent(agregat) s ,iProiect\n(componenta); realizare între interfațaIStudent(implementată) s ,i clasaStudent(imple-\nmentează); generalizare între clasaStudent(superclasa) și clasaBursier(subclasa)"
+      "a": "Asociere bidirecțională, între clasele Proiect și CodSursa; compoziție între clasele Proiect (compozit) și DiagramaUML (componenta); agregare între clasele Proiect (agregat) și Student (componenta); generalizare între interfața IStudent (implementată) și clasa Student (implementează); realizare între clasa Student (superclasa) și clasa Bursier (subclasa)",
+      "b": "Asociere bidirecțională, între clasele Proiect și CodSursa; compoziție între clasele Proiect (compozit) și DiagramaUML (componenta); agregare între clasele Proiect (agregat) și Student (componenta); realizare între interfața IStudent (implementată) și clasa Student (implementează); generalizare între clasa Student (superclasa) și clasa Bursier (subclasa)",
+      "c": "Asociere bidirecțională, între clasele Proiect și CodSursa; agregare între clasele Proiect (agregat) și DiagramaUML (componenta); compoziție între clasele Proiect (agregat) și Student (componenta); realizare între interfața IStudent (implementată) și clasa Student (implementează); generalizare între clasa Student (superclasa) și clasa Bursier (subclasa)",
+      "d": "Asociere bidirecțională, între clasele Proiect și CodSursa; compoziție între clasele DiagramaUML (compozit) și Proiect (componenta); agregare între clasele Student (agregat) și Proiect (componenta); realizare între interfața IStudent (implementată) și clasa Student (implementează); generalizare între clasa Student (superclasa) și clasa Bursier (subclasa)"
     },
     "raspuns_corect": [
       "b"
@@ -3438,8 +3438,8 @@
     "variante": {
       "a": "toate",
       "b": "niciuna",
-      "c": "paginile 5 s ,i 7",
-      "d": "paginile 2, 5 s ,i"
+      "c": "paginile 5 și 7",
+      "d": "paginile 2, 5 și 7"
     },
     "raspuns_corect": [
       "c"

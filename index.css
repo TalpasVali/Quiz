@@ -602,7 +602,7 @@ code {
 
 /* Explanation card */
 .explanation-card {
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--bg-card);
   border: 1px solid var(--border-light);
   border-radius: 16px;
   padding: 20px;
@@ -635,7 +635,7 @@ code {
 .explanation-body {
   font-size: 0.92rem;
   line-height: 1.55;
-  color: #d1d5db;
+  color: var(--text-main);
 }
 
 .reference-badge {
