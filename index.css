@@ -379,6 +379,7 @@ h1 {
   line-height: 1.45;
   margin-bottom: 20px;
   color: #ffffff;
+  white-space: pre-line;
 }
 
 /* Source Code Block */
@@ -481,6 +482,7 @@ code {
   position: relative;
   overflow: hidden;
   width: 100%;
+  white-space: pre-line;
 }
 
 .choice-prefix {
@@ -980,7 +982,7 @@ tr:hover td {
 
 .study-q-card.expanded .study-q-text {
   -webkit-line-clamp: unset;
-  white-space: normal;
+  white-space: pre-line;
 }
 
 .study-q-arrow {
@@ -1028,6 +1030,7 @@ tr:hover td {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid var(--border-light);
   font-size: 0.9rem;
+  white-space: pre-line;
 }
 
 .study-choice-item.correct {
@@ -1455,5 +1458,39 @@ body.theme-sepia .leaderboard-section h3 {
 body.theme-light .study-choice-item.correct,
 body.theme-sepia .study-choice-item.correct {
   color: var(--text-main) !important;
+}
+
+/* Study Mode Code Block Styling */
+.code-block-container-study {
+  background: rgba(7, 9, 19, 0.85);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  overflow: hidden;
+}
+body.theme-light .code-block-container-study {
+  background: #f9fafb;
+}
+body.theme-sepia .code-block-container-study {
+  background: #eae1cc;
+}
+
+/* Monospace Font styling for options containing code */
+.code-choice {
+  font-family: 'Fira Code', 'Cascadia Code', Consolas, Monaco, 'Courier New', monospace !important;
+  font-size: 0.88em !important;
+  letter-spacing: -0.2px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 2px 6px;
+  border-radius: 6px;
+  border: 1px solid var(--border-light);
+  display: inline-block;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+body.theme-light .code-choice {
+  background: rgba(0, 0, 0, 0.03);
+}
+body.theme-sepia .code-choice {
+  background: rgba(92, 73, 50, 0.04);
 }
 

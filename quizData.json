@@ -367,7 +367,7 @@
     ],
     "explicatie": "Atenție, enunțul cere afirmațiile FALS. Regula ștergerii unui nod cu 2 copii dintr-un BST spune că el trebuie înlocuit fie cu PREDECESORUL său în inordine (elementul maxim din subarborele stâng), fie cu SUCCESORUL său în inordine (elementul minim din subarborele drept). Pentru nodul 40, subarborele stâng are maximul 38. Subarborele drept are minimul 44. Deci, înlocuirile valide sunt 38 și 44. Rezultă că afirmațiile care spun că poate fi înlocuit cu 35 sau 37 sunt FALȘ adică variantele A și B.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Algoritmi și structuri de date, Pb. 20",
-    "imagine": "images/diagram_20.png"
+    "imagine": "diagrame/diagrame_20.png"
   },
   {
     "id": 21,
@@ -386,7 +386,7 @@
     ],
     "explicatie": "Regula de aur la ștergerea unui nod cu doi descendenți dintr-un Arbore Binar de Căutare (BST) este să îl înlocuiești cu predecesorul său în inordine (valoarea maximă din subarborele stâng) sau cu succesorul său în inordine (valoarea minimă din subarborele drept). Conform figurii din culegere, pentru nodul 20, elementul maxim din subarborele stâng este 12, iar elementul minim din subarborele drept este 22. Deci, variantele A și D sunt corecte.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Algoritmi și structuri de date, Pb. 21",
-    "imagine": "images/diagram_21.png"
+    "imagine": "diagrame/diagrame_21.png"
   },
   {
     "id": 22,
@@ -404,7 +404,7 @@
     ],
     "explicatie": "Parcurgerea în postordine (Post-order) urmează secvența: Subarbore Stâng -> Subarbore Drept -> Rădăcină. Aplicând recursiv acest tipar pe arborele prezentat în culegere, nodurile frunză sunt procesate primele de jos în suș iar rădăcina finală (5) este ultima. Se obține secvența 1, 9, 2, 4, 3, 8, 6, 5.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Algoritmi și structuri de date, Pb. 22",
-    "imagine": "images/diagram_22.png"
+    "imagine": "diagrame/diagrame_22.png"
   },
   {
     "id": 23,
@@ -422,12 +422,12 @@
     ],
     "explicatie": "Parcurgerea în inordine (In-order) vizitează nodurile astfel: Subarbore Stâng -> Rădăcină -> Subarbore Drept. Dacă aplicăm manual această regulă pe desenul din culegere, pornim de la stânga extremă și urcăm. Rădăcina principală (10) se va afla la mijlocul șirului. Secvența corectă este 1, 2, 9, 10, 16, 4, 18, 3.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Algoritmi și structuri de date, Pb. 23",
-    "imagine": "images/diagram_22.png"
+    "imagine": "diagrame/diagrame_23.png"
   },
   {
     "id": 24,
     "materie": "Algoritmi și structuri de date",
-    "enunt": "Pentru 0 <= i, j < n definim relația bunic(i, j) dacă A[j] reține părintele părintelui nodului din A[i]. Formula ce definește relația bunic(i, j) în un min-heap binar este:",
+    "enunt": "Un min-heap binar este o structură de date care modelează un arbore binar aproape complet care are proprietatea de heap: Pentru orice nod N, dacă P este părintele lui N atunci cheia lui P este mai mică decât cheia lui N.\nImplementarea cu tablou a unui min-heap binar cu n noduri este un tablou A[0..2^m - 1] cu două atribute suplimentare: capacitatea A.length = 2^m - 1 și mărimea A.size = n, astfel încât A.size <= A.length. Elementele din nodurile min-heap-ului binar sunt reținute în primele n elemente ale lui A: rădăcina este reținută în A[0], iar dacă N este fiul stâng (resp. drept) al unui nod P reținut în A[i] atunci N este reținut în A[2*i + 1] (resp. A[2*i + 2]).\n\nPentru 0 <= i, j < n definim relația bunic(i, j) dacă A[j] reține părintele părintelui nodului din A[i]. Formula ce definește relația bunic(i, j) în un min-heap binar este:",
     "cod_sursa": "",
     "variante": {
       "a": "(4 * j + 3 <= i) și (i <= 4 * j + 6)",
@@ -446,7 +446,7 @@
   {
     "id": 25,
     "materie": "Algoritmi și structuri de date",
-    "enunt": "Numărul maxim de noduri în un min-heap binar cu adâncimea h este:",
+    "enunt": "Un min-heap binar este o structură de date care modelează un arbore binar aproape complet care are proprietatea de heap: Pentru orice nod N, dacă P este părintele lui N atunci cheia lui P este mai mică decât cheia lui N.\nImplementarea cu tablou a unui min-heap binar cu n noduri este un tablou A[0..2^m - 1] cu două atribute suplimentare: capacitatea A.length = 2^m - 1 și mărimea A.size = n, astfel încât A.size <= A.length. Elementele din nodurile min-heap-ului binar sunt reținute în primele n elemente ale lui A: rădăcina este reținută în A[0], iar dacă N este fiul stâng (resp. drept) al unui nod P reținut în A[i] atunci N este reținut în A[2*i + 1] (resp. A[2*i + 2]).\n\nNumărul maxim de noduri în un min-heap binar cu adâncimea h este:",
     "cod_sursa": "",
     "variante": {
       "a": "2^(h+1) - 1",
@@ -464,7 +464,7 @@
   {
     "id": 26,
     "materie": "Algoritmi și structuri de date",
-    "enunt": "(1) Dacă A este un min-heap binar atunci A este sortat în ordinea crescătoare a cheilor din noduri? (2) Dacă A este sortat în ordinea crescătoare a cheilor din noduri atunci A este un min-heap binar?",
+    "enunt": "Un min-heap binar este o structură de date care modelează un arbore binar aproape complet care are proprietatea de heap: Pentru orice nod N, dacă P este părintele lui N atunci cheia lui P este mai mică decât cheia lui N.\nImplementarea cu tablou a unui min-heap binar cu n noduri este un tablou A[0..2^m - 1] cu două atribute suplimentare: capacitatea A.length = 2^m - 1 și mărimea A.size = n, astfel încât A.size <= A.length. Elementele din nodurile min-heap-ului binar sunt reținute în primele n elemente ale lui A: rădăcina este reținută în A[0], iar dacă N este fiul stâng (resp. drept) al unui nod P reținut în A[i] atunci N este reținut în A[2*i + 1] (resp. A[2*i + 2]).\n\n(1) Dacă A este un min-heap binar atunci A este sortat în ordinea crescătoare a cheilor din noduri? (2) Dacă A este sortat în ordinea crescătoare a cheilor din noduri atunci A este un min-heap binar?",
     "cod_sursa": "",
     "variante": {
       "a": "(1) fals (2) adevărat",
@@ -482,7 +482,7 @@
   {
     "id": 27,
     "materie": "Algoritmi și structuri de date",
-    "enunt": "Timpul de execuție a operației de ștergere a nodului cu cheie minimă din un min-heap binar cu n noduri este:",
+    "enunt": "Un min-heap binar este o structură de date care modelează un arbore binar aproape complet care are proprietatea de heap: Pentru orice nod N, dacă P este părintele lui N atunci cheia lui P este mai mică decât cheia lui N.\nImplementarea cu tablou a unui min-heap binar cu n noduri este un tablou A[0..2^m - 1] cu două atribute suplimentare: capacitatea A.length = 2^m - 1 și mărimea A.size = n, astfel încât A.size <= A.length. Elementele din nodurile min-heap-ului binar sunt reținute în primele n elemente ale lui A: rădăcina este reținută în A[0], iar dacă N este fiul stâng (resp. drept) al unui nod P reținut în A[i] atunci N este reținut în A[2*i + 1] (resp. A[2*i + 2]).\n\nTimpul de execuție a operației de ștergere a nodului cu cheie minimă din un min-heap binar cu n noduri este:",
     "cod_sursa": "",
     "variante": {
       "a": "O(1)",
@@ -573,7 +573,7 @@
   {
     "id": 32,
     "materie": "Teoria grafurilor și combinatorică",
-    "enunt": "Protocolul IPv4 prevede că o adresă internet este un șir de 32 biți. Sunt 3 tipuri de adrese internet: Clasa A (începe cu 0), Clasa B (începe cu 10), Clasa C (începe cu 110). Câte adrese IPv4 diferite sunt disponibile pentru conexiunile de rețea din internet?",
+    "enunt": "În internet, format din rețele interconectate de calculatoare, fiecărei conexiuni de rețea dintr-un calculator i se atribuie o adresă internet. Protocolul IPv4 prevede că o adresă internet este un șir de 32 biți, format din un număr de rețea (netid) urmat de un număr de gazdă (hostid). Sunt 3 tipuri de adrese internet:\n(a) Clasa A: acestea sunt de forma 0b1b2b3b4...b7 (netid) | b8b9...b30b31 (hostid)\n(b) Clasa B: acestea sunt de forma 10b2b3b4...b15 (netid) | b16b17...b30b31 (hostid)\n(c) Clasa C: acestea sunt de forma 110b3b4b5...b23 (netid) | b24b25...b30b31 (hostid)\n\nCâte adrese IPv4 diferite sunt disponibile pentru conexiunile de rețea din internet?",
     "cod_sursa": "",
     "variante": {
       "a": "2^29 * 2^30 * 2^31",
@@ -604,7 +604,7 @@
     ],
     "explicatie": "Pentru a determina fluxul maxim într-o rețea de transport de la o sursă 's' la o destinație 't', se folosește algoritmul Ford-Fulkerson sau tăietura minimă (Min-Cut). Aplicând mental algoritmul pe graful problemei 6, saturând succesiv drumurile cele mai scurte/lungi și identificând gâtuirile de pe muchiile grafului, capacitatea maximă a fluxului care ajunge în nodul destinație 't' este calculată ca fiind 7.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Teoria grafurilor, Pb. 6",
-    "imagine": "images/diagram_33.png"
+    "imagine": "diagrame/diagrame_33.png"
   },
   {
     "id": 34,
@@ -622,7 +622,7 @@
     ],
     "explicatie": "Un arbore minim de acoperire (Minimum Spanning Tree) trebuie să conecteze toate nodurile grafului folosind numărul minim de muchii și costul total cel mai mic, fără a forma cicluri. Folosind un algoritm greedy precum Kruskal (luând mereu muchia cu costul cel mai mic rămasă disponibilă) sau Prim, și însumând ponderile muchiilor alese pe baza figurii din culegere, greutatea totală minimă care conectează toate nodurile este 229.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Teoria grafurilor, Pb. 7",
-    "imagine": "images/diagram_34.png"
+    "imagine": "diagrame/diagrame_34.png"
   },
   {
     "id": 35,
@@ -641,7 +641,7 @@
     ],
     "explicatie": "Pentru ca un graf neorientat și conex să fie Eulerian (adică să conțină un circuit care traversează fiecare muchie exact o dată), trebuie să îndeplinească o singură condiție absolută: gradul FIECĂRUI nod din graf trebuie să fie PAR. Dacă inspectăm vizual nodurile din figurile problemei 8, doar grafurile G2 și G3 conțin exclusiv noduri la care sunt conectate un număr par de muchii.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Teoria grafurilor, Pb. 8",
-    "imagine": "images/diagram_35.png"
+    "imagine": "diagrame/diagrame_35.png"
   },
   {
     "id": 36,
@@ -659,7 +659,7 @@
     ],
     "explicatie": "Un 'cuplaj perfect' într-un graf este o submulțime de muchii disjuncte (care nu împart niciun nod comun) ce reușesc să atingă absolut toate nodurile grafului exact o singură dată. Dacă un graf are un număr impar de noduri, este imposibil să aibă un cuplaj perfect. Analizând figurile, graful G1 permite formarea perechilor complete între toate nodurile sale, îndeplinind așadar condiția.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Teoria grafurilor, Pb. 9",
-    "imagine": "images/diagram_36.png"
+    "imagine": "diagrame/diagrame_36.png"
   },
   {
     "id": 37,
@@ -781,7 +781,7 @@
   {
     "id": 43,
     "materie": "Teoria grafurilor și combinatorică",
-    "enunt": "Fie G un graf simplu neorientat cu n noduri numerotate de la 1 la n, și A_G matricea lui de adiacență. Numărul de grafuri neorientate simple cu n noduri numerotate de la 1 la n este:",
+    "enunt": "Fie M_n mulțimea matricilor de dimensiune n x n cu elemente 0 sau 1. Pentru orice două matrici A, B ∈ M_n și 1 <= k <= n definim operațiile A ⊕ B și A ⊙_k B în felul următor: A ⊕ B = C ∈ M_n dacă C[i][j] = max(A[i][j], B[i][j]) și A ⊙_k B = D ∈ M_n dacă D[i][j] = A[i][k] * B[k][j] pentru toți 1 <= i, j <= n.\nFie G un graf simplu neorientat cu n noduri numerotate de la 1 la n, și A_G ∈ M_n matricea lui de adiacență.\n\nNumărul de grafuri neorientate simple cu n noduri numerotate de la 1 la n este:",
     "cod_sursa": "",
     "variante": {
       "a": "2^{n(n−1)/2}",
@@ -800,7 +800,7 @@
   {
     "id": 44,
     "materie": "Teoria grafurilor și combinatorică",
-    "enunt": "Fie M_n mulțimea matricilor n x n cu elemente 0 sau 1. Definim: A ⊕ B = C dacă C[i][j] = max(A[i][j], B[i][j]) și A ⊙_k B = D dacă D[i][j] = A[i][k] * B[k][j]. Complexitatea temporală a calculului matricii B în algoritmul următor este:",
+    "enunt": "Fie M_n mulțimea matricilor de dimensiune n x n cu elemente 0 sau 1. Pentru orice două matrici A, B ∈ M_n și 1 <= k <= n definim operațiile A ⊕ B și A ⊙_k B în felul următor: A ⊕ B = C ∈ M_n dacă C[i][j] = max(A[i][j], B[i][j]) și A ⊙_k B = D ∈ M_n dacă D[i][j] = A[i][k] * B[k][j] pentru toți 1 <= i, j <= n.\nFie G un graf simplu neorientat cu n noduri numerotate de la 1 la n, și A_G ∈ M_n matricea lui de adiacență.\nFie I_n matricea identitate de dimensiune n x n, și 1 <= p <= n. Se consideră algoritmul următor de calcul al matricii B ∈ M_n.\n\nComplexitatea temporală a calculului matricii B este:",
     "cod_sursa": "B = A_G ⊕ I_n;\nfor k := 1 to p do\n  C = B ⊕ (B ⊙_k B);\n  B = C;",
     "variante": {
       "a": "Θ(p * n^2)",
@@ -818,8 +818,8 @@
   {
     "id": 45,
     "materie": "Teoria grafurilor și combinatorică",
-    "enunt": "Pentru algoritmul de la problema anterioară, care din afirmațiile următoare este adevărată când B[i][j] = 1 la final?",
-    "cod_sursa": "",
+    "enunt": "Fie M_n mulțimea matricilor de dimensiune n x n cu elemente 0 sau 1. Pentru orice două matrici A, B ∈ M_n și 1 <= k <= n definim operațiile A ⊕ B și A ⊙_k B în felul următor: A ⊕ B = C ∈ M_n dacă C[i][j] = max(A[i][j], B[i][j]) și A ⊙_k B = D ∈ M_n dacă D[i][j] = A[i][k] * B[k][j] pentru toți 1 <= i, j <= n.\nFie G un graf simplu neorientat cu n noduri numerotate de la 1 la n, și A_G ∈ M_n matricea lui de adiacență.\nFie I_n matricea identitate de dimensiune n x n, și 1 <= p <= n. Se consideră algoritmul următor de calcul al matricii B ∈ M_n.\n\nCare din afirmațiile următoare este adevărată când B[i][j] = 1?",
+    "cod_sursa": "B = A_G ⊕ I_n;\nfor k := 1 to p do\n  C = B ⊕ (B ⊙_k B);\n  B = C;",
     "variante": {
       "a": "Există o cale de lungime cel mult p + 1 de la nodul i la nodul j.",
       "b": "Există o cale de lungime p de la nodul i la nodul j.",
@@ -836,7 +836,7 @@
   {
     "id": 46,
     "materie": "Logică computațională",
-    "enunt": "Considerați, în logica predicatelor, limbajul care conține următoarele simboluri: variabile, pentru care se folosesc litere mici; simboluri funcționale F : + binar, infix, − unar, prefix, ∗ binar, infix; simboluri predicative P: =, <, ≤ toate binare, infix; simboluri pentru constante C: 0, 1. Care din următoarele sunt termeni peste acest limbaj?",
+    "enunt": "Considerați, în logica predicatelor, limbajul care conține următoarele simboluri:\n• variabile, pentru care se folosesc litere mici;\n• simboluri funcționale F: + (binar, infix), − (unar, prefix), ∗ (binar, infix);\n• simboluri predicative P: =, <, ≤ (toate binare, infix);\n• simboluri pentru constante C: 0, 1.\n\nCare din următoarele sunt termeni peste acest limbaj?",
     "cod_sursa": "",
     "variante": {
       "a": "(0 ∗ x)− 1",
@@ -912,12 +912,12 @@
   {
     "id": 50,
     "materie": "Logică computațională",
-    "enunt": "Formula P ⇔ Q este (a) logic echivalentă cu conjuncția formulelor de mai joș (b) o consecință logică a formulelor de mai joș (c) logic echivalentă cu disjuncția formulelor de mai joș aceste formule fiind: Q ⇒ R, R ⇒ (P ∧ Q), P ⇒ (Q ∨ R).",
+    "enunt": "Formula P ⇔ Q este:\n\nAceste formule fiind:\n• Q ⇒ R\n• R ⇒ (P ∧ Q)\n• P ⇒ (Q ∨ R)",
     "cod_sursa": "",
     "variante": {
-      "a": "logic echivalentă cu conjuncția formulelor",
-      "b": "o consecință logică a formulelor",
-      "c": "logic echivalentă cu disjuncția formulelor"
+      "a": "logic echivalentă cu conjuncția formulelor de mai jos",
+      "b": "o consecință logică a formulelor de mai jos",
+      "c": "logic echivalentă cu disjuncția formulelor de mai jos"
     },
     "raspuns_corect": [
       "b"
@@ -1001,7 +1001,7 @@
     ],
     "explicatie": "Problema testează noțiunea de 'sistem funcțional complet' (mulțime adecvată de conectori), adică setul cu care poți scrie ORICE formulă logică posibilă. Setul {¬, ∨} este baza formei normale, deci e complet (a). Operatorul NȘI (NAND), notat cu {|}, este universal și suficient de unul singur pentru a exprima orice (c). Setul Fals și Implicație {⊥, →} este de asemenea complet deoarece negația e P→⊥, iar disjuncția se deduce tot de aici (d). În schimb, {∨, ∧} (b) este incomplet deoarece nu poate exprima niciodată negația.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Logică computațională, Pb. 9",
-    "imagine": ""
+    "imagine": "diagrame/diagrame_54.png"
   },
   {
     "id": 55,
@@ -1320,8 +1320,8 @@
   {
     "id": 72,
     "materie": "Limbaje formale și teoria automatelor",
-    "enunt": "Fie L limbajul generat de gramatica G = (VN, VT, S, P) unde VN = {S, A,B,C,X,Y,Z}, VT = {a, b, c}, și P = { S → λ|AX|BY|CZ, X → λ|BY|CZ, Y → λ|AX|CZ, Z → λ|AX|BY, A → a, B → b, C → c}. Alegeți răspunsurile corecte.",
-    "cod_sursa": "",
+    "enunt": "Fie L limbajul generat de gramatica G = (V_N, V_T, S, P), unde V_N = {S, A, B, C, X, Y, Z}, V_T = {a, b, c}, iar regulile de producție P sunt:\n\nAlegeți răspunsurile corecte.",
+    "cod_sursa": "S → λ | AX | BY | CZ\nX → λ | BY | CZ\nY → λ | AX | CZ\nZ → λ | AX | BY\nA → a\nB → b\nC → c",
     "variante": {
       "a": "L este limbaj regulat",
       "b": "L nu este limbaj regulat",
@@ -1337,8 +1337,8 @@
   {
     "id": 73,
     "materie": "Limbaje formale și teoria automatelor",
-    "enunt": "Fie L limbajul generat de gramatica de la exercițiul anterior. Care din afirmațiile următoare este adevărată?",
-    "cod_sursa": "",
+    "enunt": "Fie L limbajul generat de gramatica G = (V_N, V_T, S, P), unde V_N = {S, A, B, C, X, Y, Z}, V_T = {a, b, c}, iar regulile de producție P sunt:\n\nCare din afirmațiile următoare este adevărată?",
+    "cod_sursa": "S → λ | AX | BY | CZ\nX → λ | BY | CZ\nY → λ | AX | CZ\nZ → λ | AX | BY\nA → a\nB → b\nC → c",
     "variante": {
       "a": "L = {w ∈ VT∗ | w nu conține litere consecutive identice}",
       "b": "L = {w ∈ VT∗ | w conține litere consecutive identice}",
@@ -1355,8 +1355,8 @@
   {
     "id": 74,
     "materie": "Limbaje formale și teoria automatelor",
-    "enunt": "Fie L limbajul generat de gramatica de la exercițiul anterior. Fie s_n numărul șirurilor din L cu lungimea n. Pentru orice n > 1 are loc relația de recurență:",
-    "cod_sursa": "",
+    "enunt": "Fie L limbajul generat de gramatica G = (V_N, V_T, S, P), unde V_N = {S, A, B, C, X, Y, Z}, V_T = {a, b, c}, iar regulile de producție P sunt:\n\nFie s_n numărul șirurilor din L cu lungimea n. Pentru orice n > 1 are loc relația de recurență:",
+    "cod_sursa": "S → λ | AX | BY | CZ\nX → λ | BY | CZ\nY → λ | AX | CZ\nZ → λ | AX | BY\nA → a\nB → b\nC → c",
     "variante": {
       "a": "sn = 2 · sn−1",
       "b": "sn = 3 · sn−1",
@@ -1373,8 +1373,8 @@
   {
     "id": 75,
     "materie": "Limbaje formale și teoria automatelor",
-    "enunt": "Fie L limbajul generat de gramatica de la exercițiul anterior. Câte șiruri cu lungimea 4 conține L?",
-    "cod_sursa": "",
+    "enunt": "Fie L limbajul generat de gramatica G = (V_N, V_T, S, P), unde V_N = {S, A, B, C, X, Y, Z}, V_T = {a, b, c}, iar regulile de producție P sunt:\n\nCâte șiruri cu lungimea 4 conține L?",
+    "cod_sursa": "S → λ | AX | BY | CZ\nX → λ | BY | CZ\nY → λ | AX | CZ\nZ → λ | AX | BY\nA → a\nB → b\nC → c",
     "variante": {
       "a": "16",
       "b": "24",
@@ -1393,8 +1393,8 @@
     "id": 76,
     "materie": "Limbaje de programare și inginerie software",
     "subcategorie": "Limbajul Python",
-    "enunt": "Ce afișează următoarea secvență de cod:\ny = 9",
-    "cod_sursa": "def test(x = 42, y = 3):\nx = x + y\ny += 1\nprint(x, y)\ntest()",
+    "enunt": "Ce afișează următoarea secvență de cod?",
+    "cod_sursa": "y = 9\ndef test(x = 42, y = 3):\n    x = x + y\n    y += 1\n    print(x, y)\ntest()",
     "variante": {
       "a": "45 4",
       "b": "51 10",
@@ -1413,8 +1413,8 @@
     "id": 77,
     "materie": "Limbaje de programare și inginerie software",
     "subcategorie": "Limbajul Python",
-    "enunt": "Considerând secvența de cod:\ns = \"Timisoara\"\nCare dintre secvențele de cod de mai jos returnează șirul de caractere’aom’:",
-    "cod_sursa": "",
+    "enunt": "Considerând secvența de cod, care dintre secvențele de cod de mai jos returnează șirul de caractere 'aom'?",
+    "cod_sursa": "s = 'Timisoara'",
     "variante": {
       "a": "s[::-3]",
       "b": "s[::2]",
@@ -1492,8 +1492,8 @@
     "id": 81,
     "materie": "Limbaje de programare și inginerie software",
     "subcategorie": "Limbajul Python",
-    "enunt": "Care este rezultatul execuției următoarei secvențe de cod?\nnume1 = [’Maria’, ’Ioana’, ’Cristian’, ’Mirel’]\nnume2 = nume1\nnume3 = nume1[:]\nnume2[0] = ’Vasile’\nnume3[1] = ’Andrada’\nsum = 0\nfor ls in (nume1, nume2, nume3):\nif ls[0] == ’Vasile’:\nsum += 1\nif ls[1] == ’Andrada’:\nsum += 10\nprint(sum)",
-    "cod_sursa": "",
+    "enunt": "Care este rezultatul execuției următoarei secvențe de cod?",
+    "cod_sursa": "nume1 = ['Maria', 'Ioana', 'Cristian', 'Mirel']\nnume2 = nume1\nnume3 = nume1[:]\nnume2[0] = 'Vasile'\nnume3[1] = 'Andrada'\nsum = 0\nfor ls in (nume1, nume2, nume3):\n    if ls[0] == 'Vasile':\n        sum += 1\n    if ls[1] == 'Andrada':\n        sum += 10\nprint(sum)",
     "variante": {
       "a": "11",
       "b": "12",
@@ -1513,14 +1513,14 @@
     "id": 82,
     "materie": "Limbaje de programare și inginerie software",
     "subcategorie": "Limbajul Python",
-    "enunt": "Fie următoarea secvență de cod:",
-    "cod_sursa": "class Persoana(object):\ndef __init__(self, nume):\nself.nume = nume\ndef salut(self):\nprint (\"Salut\")\nclass Profesor(Persoana):\ndef __init__(self, nume, titlu):\nPersoana.__init__(self, nume)\nself.titlu = titlu\ndef salut(self):\nprint (\"Buna ziua\")\nprof1 = Profesor(\"Decebal Popescu\", \"Asistent\")\n\nCum putem apela metodasalut()din clasaPersoana?",
+    "enunt": "Fie următoarea secvență de cod. Cum putem apela metoda salut() din clasa Persoana?",
+    "cod_sursa": "class Persoana(object):\n    def __init__(self, nume):\n        self.nume = nume\n    def salut(self):\n        print (\"Salut\")\n\nclass Profesor(Persoana):\n    def __init__(self, nume, titlu):\n        Persoana.__init__(self, nume)\n        self.titlu = titlu\n    def salut(self):\n        print (\"Buna ziua\")\n\nprof1 = Profesor(\"Decebal Popescu\", \"Asistent\")",
     "variante": {
       "a": "Persoana.salut(prof1)",
       "b": "prof1.salut()",
       "c": "super(prof1).salut()",
       "d": "Persoana(prof1).salut()",
-      "e": "Nu putem apela metodasalut()din clasaPersoanadeoarece este supraîncărcată în clasa\nProfesor"
+      "e": "Nu putem apela metoda salut() din clasa Persoana deoarece este supraîncărcată în clasa Profesor"
     },
     "raspuns_corect": [
       "a",
@@ -1553,7 +1553,7 @@
     "id": 84,
     "materie": "Limbaje de programare și inginerie software",
     "subcategorie": "Limbajul Python",
-    "enunt": "Când este execută clauzafinallydintr-un bloctry: except:",
+    "enunt": "Când este executată clauza finally dintr-un bloc try-except?",
     "cod_sursa": "",
     "variante": {
       "a": "doar când nu are loc nici o excepție",
@@ -1593,8 +1593,8 @@
     "id": 86,
     "materie": "Limbaje de programare și inginerie software",
     "subcategorie": "Limbajul C",
-    "enunt": "Fie următoarea secvență de cod:",
-    "cod_sursa": "#define swap(a,b) {int aux; aux=a; a=b; b=aux;}\nfloat x=10.5, y=3.75;\nîn urma apeluluiswap(x, y);valorile variabilelorx, respectivyvor fi:",
+    "enunt": "Fie următoarea secvență de cod:\n\nÎn urma apelului swap(x, y), valorile variabilelor x, respectiv y vor fi:",
+    "cod_sursa": "#define swap(a,b) {int aux; aux=a; a=b; b=aux;}\nfloat x=10.5, y=3.75;",
     "variante": {
       "a": "x=3.75, y=10.5;",
       "b": "x=3.0, y=10.5;",
@@ -1768,15 +1768,16 @@
     "id": 95,
     "materie": "Limbaje de programare și inginerie software",
     "subcategorie": "Limbajul C",
-    "enunt": "Ce reprezintă declarația: int *(*f)(int *) ?\n(i) funcție ce primește argument pointer la întreg și întoarce pointer la întreg\n(ii) o declarație greșită\n(iii) pointer către o funcție care așteaptă ca argument un pointer la int și întoarce un pointer la\nint\n(iv) pointer către o funcție care întoarce un int",
-    "cod_sursa": "",
+    "enunt": "Ce reprezintă declarația următoare?\n\n(i) funcție ce primește argument pointer la întreg și întoarce pointer la întreg\n(ii) o declarație greșită\n(iii) pointer către o funcție care așteaptă ca argument un pointer la int și întoarce un pointer la int\n(iv) pointer către o funcție care întoarce un int",
+    "cod_sursa": "int *(*f)(int *);",
     "variante": {
       "a": "i",
       "b": "ii",
       "c": "iii",
       "d": "iv",
       "e": "nici una",
-      "f": "toate\n(g) i și iv"
+      "f": "toate",
+      "g": "i și iv"
     },
     "raspuns_corect": [
       "c"
@@ -1797,7 +1798,8 @@
       "c": "c",
       "d": "d",
       "e": "e",
-      "f": "f\n(g) abc"
+      "f": "f",
+      "g": "abc"
     },
     "raspuns_corect": [
       "b"
@@ -1996,8 +1998,8 @@
     "enunt": "Care din următoarele afirmații sunt adevărate?",
     "cod_sursa": "class Shape {\n    virtual void draw() = 0;\n};\nstruct Rectangle : Shape {\n    void addControlPoint(int x, int y);\n};\nint main() {\n    Rectangle c;\n    return 0;\n}",
     "variante": {
-      "a": "clasaRectanglenu poate fi\ninstanțiață deoarece metoda\naddControlPoint()nu este im-\nplementată",
-      "b": "clasaRectanglenu poate fi\ninstanțiață deoarece este clasă\nabstractă",
+      "a": "clasa Rectangle nu poate fi instanțiată deoarece metoda addControlPoint() nu este implementată",
+      "b": "clasa Rectangle nu poate fi instanțiată deoarece este clasă abstractă",
       "c": "codul se compilează cu succes"
     },
     "raspuns_corect": [
@@ -2171,8 +2173,8 @@
     "id": 115,
     "materie": "Limbaje de programare și inginerie software",
     "subcategorie": "Limbajul Java",
-    "enunt": "Se consideră următoarea secvență de cod:\nclass A implements Runnable {\nint counter = 0;\npublic void run() {\nwhile (true) counter ++;\n}\n}\npublic class Test{\npublic static",
-    "cod_sursa": "void main(String [] arg) {\nA a = new A();\n}\n}\nCare din variantele de mai jos instantiază și lansează în execuție un fir de execuție de tipul clasei\nA?",
+    "enunt": "Se consideră următoarea secvență de cod. Care din variantele de mai jos instantiază și lansează în execuție un fir de execuție de tipul clasei A?",
+    "cod_sursa": "class A implements Runnable {\n    int counter = 0;\n    public void run() {\n        while (true) counter ++;\n    }\n}\n\npublic class Test {\n    public static void main(String [] arg) {\n        A a = new A();\n    }\n}",
     "variante": {
       "a": "(new Thread()).start()",
       "b": "Thread a = new Thread(new A()); a.start( );",
@@ -2190,8 +2192,8 @@
     "id": 116,
     "materie": "Limbaje de programare și inginerie software",
     "subcategorie": "Limbajul Java",
-    "enunt": "Considerand următoarea secvență de cod, stabiliți care este ordinea execuției (in ipoteza că o\nclasă are un constructor, o metodă, un bloc static și un bloc de instanță):\npublic class A {\npublic A() {\nSystem.out.print(\"constructor; \");\n}\npublic void method() {\nSystem.out.print(\"method; \");\n}\n{\nSystem.out.print(\"instance block; \");\n}\nstatic {\nSystem.out.print(\"static block; \");\n}\npublic static",
-    "cod_sursa": "void main(String[] args) {\nA a = new A();\na.method();\n}\n}",
+    "enunt": "Considerând următoarea secvență de cod, stabiliți care este ordinea execuției (în ipoteza că o clasă are un constructor, o metodă, un bloc static și un bloc de instanță):",
+    "cod_sursa": "public class A {\n    public A() {\n        System.out.print(\"constructor; \");\n    }\n    public void method() {\n        System.out.print(\"method; \");\n    }\n    {\n        System.out.print(\"instance block; \");\n    }\n    static {\n        System.out.print(\"static block; \");\n    }\n    public static void main(String[] args) {\n        A a = new A();\n        a.method();\n    }\n}",
     "variante": {
       "a": "instance block; method; static block; constructor;",
       "b": "static block; instance block; constructor; method;",
@@ -2260,7 +2262,8 @@
       "c": "răspunsul sistemului la evenimente externe",
       "d": "interacțiuni între obiecte din sistem",
       "e": "structura datelor",
-      "f": "interacțiunile actorilor cu sistemul\n(g) fluxul de prelucrare a datelor în sistem"
+      "f": "interacțiunile actorilor cu sistemul",
+      "g": "fluxul de prelucrare a datelor în sistem"
     },
     "raspuns_corect": [
       "b",
@@ -2319,12 +2322,15 @@
     "enunt": "Fie următoarea diagramă de clase.\nBifați afirmațiile adevărate.",
     "cod_sursa": "",
     "variante": {
-      "a": "Un obiect de tipComputerScienceconține o colecție de obiecte de tipStudent",
-      "b": "ClasaQuestionnaireare un atribut public de tipString",
-      "c": "ClasaComputerScienceare operat ,ia publicăaddStudent(s:Student)",
-      "d": "ClasaComputerScienceare operat ,ia privatăsetSchedule(s:String)",
-      "e": "ClasaTutoreste superclasă pentru clasaMasterand",
-      "f": "ClasaComputerSciencedefines ,te o compoziție de obiecte de tipQuestionnaire.\n(g) Între clasaComputerSciences ,i clasaTutorexistă o asociere unidirecțională.\n(h) ClasaComputerSciencemos ,tenește interfațaSpecialization.\n(i) ClasaTutordefines ,te un agregat de obiecte de tipMasterand."
+      "a": "Un obiect de tip ComputerScience conține o colecție de obiecte de tip Student",
+      "b": "Clasa Questionnaire are un atribut public de tip String",
+      "c": "Clasa ComputerScience are operația publică addStudent(s:Student)",
+      "d": "Clasa ComputerScience are operația privată setSchedule(s:String)",
+      "e": "Clasa Tutor este superclasă pentru clasa Masterand",
+      "f": "Clasa ComputerScience definește o compoziție de obiecte de tip Questionnaire.",
+      "g": "Între clasa ComputerScience și clasa Tutor există o asociere unidirecțională.",
+      "h": "Clasa ComputerScience moștenește interfața Specialization.",
+      "i": "Clasa Tutor definește un agregat de obiecte de tip Masterand."
     },
     "raspuns_corect": [
       "a",
@@ -2334,7 +2340,7 @@
     ],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Proiectarea aplicațiilor software, Pb. 5",
-    "imagine": "images/diagram_122.png"
+    "imagine": "diagrame/diagrame_122.png"
   },
   {
     "id": 123,
@@ -2353,7 +2359,7 @@
     ],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Proiectarea aplicațiilor software, Pb. 6",
-    "imagine": "images/diagram_122.png"
+    "imagine": "diagrame/diagrame_123.png"
   },
   {
     "id": 124,
@@ -2372,7 +2378,7 @@
     ],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Proiectarea aplicațiilor software, Pb. 7",
-    "imagine": "images/diagram_122.png"
+    "imagine": "diagrame/diagrame_124.png"
   },
   {
     "id": 125,
@@ -2391,7 +2397,7 @@
     ],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Proiectarea aplicațiilor software, Pb. 8",
-    "imagine": "images/diagram_122.png"
+    "imagine": "diagrame/diagrame_125.png"
   },
   {
     "id": 126,
@@ -2411,18 +2417,18 @@
     ],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Proiectarea aplicațiilor software, Pb. 9",
-    "imagine": "images/diagram_122.png"
+    "imagine": "diagrame/diagrame_126.png"
   },
   {
     "id": 127,
     "materie": "Limbaje de programare și inginerie software",
     "subcategorie": "Proiectarea aplicațiilor software",
-    "enunt": "Fie următoarea diagramă de secvențe.\nCe operații ale claseiControlerInscriererezultă din aceasta?",
+    "enunt": "Fie următoarea diagramă de secvențe.\nCe operații ale clasei ControlerInscriere rezultă din aceasta?",
     "cod_sursa": "",
     "variante": {
       "a": "getCursuri()",
       "b": "display(listaCursuriOferite)",
-      "c": "inscriere(studenț listaCursuriSelectate)",
+      "c": "inscriere(student, listaCursuriSelectate)",
       "d": "Plan(listaCursuriSelectate)",
       "e": "addPlan(planCurent)",
       "f": "displayMsg(”OK”)"
@@ -2433,7 +2439,7 @@
     ],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Proiectarea aplicațiilor software, Pb. 10",
-    "imagine": "images/diagram_127.png"
+    "imagine": "diagrame/diagrame_127.png"
   },
   {
     "id": 128,
@@ -2447,7 +2453,8 @@
       "c": "listaCursuriSelectate",
       "d": "curent",
       "e": "Student",
-      "f": "Plan\n(g) planCurent"
+      "f": "Plan",
+      "g": "planCurent"
     },
     "raspuns_corect": [
       "a",
@@ -2457,7 +2464,7 @@
     ],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Proiectarea aplicațiilor software, Pb. 11",
-    "imagine": "images/diagram_127.png"
+    "imagine": "diagrame/diagrame_128.png"
   },
   {
     "id": 129,
@@ -2480,7 +2487,7 @@
     ],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Proiectarea aplicațiilor software, Pb. 12",
-    "imagine": "images/diagram_129.png"
+    "imagine": "diagrame/diagrame_129.png"
   },
   {
     "id": 130,
@@ -2520,7 +2527,7 @@
     ],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Proiectarea aplicațiilor software, Pb. 14",
-    "imagine": ""
+    "imagine": "diagrame/diagrame_131.png"
   },
   {
     "id": 132,
@@ -2534,7 +2541,11 @@
       "c": "Evitarea încuibării multiple de instrucțiuni condiționale",
       "d": "Jurnalizarea interacțiunii utilizatorilor cu programul",
       "e": "Înlocuirea corpului unei metode cu un nou algoritm mai clar care returnează același rezultat",
-      "f": "Minimizarea adâncimii ierahiilor de clase\n\n(g) Salvare automată a datelor utilizatorului la intervale presetate\n(h) Identificarea aspectelor care variază ale unei aplicații și separarea lor de cele care nu variază\n(i) Verificare valori date de intrare față de domeniul definit cu reguli de intrare\n(j) Folosire aserțiuni pentru verificare rezultat de la un serviciu extern"
+      "f": "Minimizarea adâncimii ierahiilor de clase",
+      "g": "Salvare automată a datelor utilizatorului la intervale presetate",
+      "h": "Identificarea aspectelor care variază ale unei aplicații și separarea lor de cele care nu variază",
+      "i": "Verificare valori date de intrare față de domeniul definit cu reguli de intrare",
+      "j": "Folosire aserțiuni pentru verificare rezultat de la un serviciu extern"
     },
     "raspuns_corect": [
       "a",
@@ -2551,8 +2562,8 @@
     "id": 133,
     "materie": "Limbaje de programare și inginerie software",
     "subcategorie": "Baze de date",
-    "enunt": "Se consideră tabela R(A) conținând înregistrările {(1), (2)} și tranzacțiile\n(T1) UPDATE R SET A = A*2\n(T2) SELECT AVG(A) FROM R; SELECT MAX(A) FROM R\nDacă tranzacția T2 se execută folosind nivelul de izolarerepeatable read, care dintre următoarele\nafirmații este adevărată",
-    "cod_sursa": "",
+    "enunt": "Se consideră tabela R(A) conținând înregistrările {(1), (2)} și tranzacțiile T1 și T2. Dacă tranzacția T2 se execută folosind nivelul de izolare repeatable read, care dintre următoarele afirmații este adevărată?",
+    "cod_sursa": "(T1) UPDATE R SET A = A * 2\n(T2) SELECT AVG(A) FROM R; SELECT MAX(A) FROM R",
     "variante": {
       "a": "Dacă AVG(A) = 1.5 atunci MAX(A) poate să ia valorile 2 sau 4",
       "b": "AVG(A) va fi întodeauna 1.5 iar MAX(A) = 2",
@@ -2573,10 +2584,10 @@
     "enunt": "Trei dintre expresiile relaționale de mai jos returnează numele studenților care nu au aplicat\nla specializările CS sau PH. Care returnează altceva? (Observație: numele studenților pot fi\nduplicate.)",
     "cod_sursa": "",
     "variante": {
-      "a": "π sN ame(Student ▷ ◁\n(πsID (Student)−(π sID (σmajor= ′CS ′Apply)∪π sID (σmajor= ′P H′Apply))))",
-      "b": "π sN ame(Student ▷ ◁\n(πsID Student−π sID (σmajor= ′CS ′ ∨major= ′P H′Apply)))",
-      "c": "π sN ame(πsID,sN ameStudent−\nπsID,sN ame(Student ▷ ◁ πsID (σmajor= ′CS ′ ∨major= ′P H′Apply)))",
-      "d": "π sN ameStudent−\nπsN ame(Student ▷ ◁ πsID (σmajor= ′CS ′ ∨major= ′P H′Apply))"
+      "a": "π sName (Student ⋈ (π sID(Student) − (π sID(σ major='CS' Apply) ∪ π sID(σ major='PH' Apply))))",
+      "b": "π sName (Student ⋈ (π sID Student − π sID(σ major='CS' ∨ major='PH' Apply)))",
+      "c": "π sName (π sID, sName Student − π sID, sName (Student ⋈ π sID(σ major='CS' ∨ major='PH' Apply)))",
+      "d": "π sName Student − π sName (Student ⋈ π sID(σ major='CS' ∨ major='PH' Apply))"
     },
     "raspuns_corect": [
       "d"
@@ -2589,7 +2600,7 @@
     "id": 135,
     "materie": "Limbaje de programare și inginerie software",
     "subcategorie": "Baze de date",
-    "enunt": "Tabelul de mai jos conține un eșantion de date reprezentativ pentru toate dependențele funcționale\ndintr-un set de date real. Care sunt dependențele funcționale ce pot fi extrase din aceste date?\nA B C D E F\n100 Timișoara, str. Revolutiei TM 1234 PA Descriere A\n100 Timișoara, str. Revolutiei TM 123 PB Descriere B\n100 Timișoara, str. Revolutiei TM 10 A Descriere A\n101 Timișoara, str. Revolutiei TM 10 A Descriere A\n151 Deta, str. Principală TM 1234 PA Descriere A\n200 Arad, str. Republicii AR 1234 PB Descriere B",
+    "enunt": "Tabelul de mai jos conține un eșantion de date reprezentativ pentru toate dependențele funcționale dintr-un set de date real. Care sunt dependențele funcționale ce pot fi extrase din aceste date?",
     "cod_sursa": "",
     "variante": {
       "a": "A→{B, C}, E→{F}",
@@ -2603,7 +2614,7 @@
     ],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Baze de date, Pb. 3",
-    "imagine": ""
+    "imagine": "diagrame/diagrame_135.png"
   },
   {
     "id": 136,
@@ -2666,7 +2677,7 @@
     ],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Baze de date, Pb. 6",
-    "imagine": "images/diagram_138.png"
+    "imagine": "diagrame/diagrame_138.png"
   },
   {
     "id": 139,
@@ -2771,7 +2782,7 @@
     "id": 144,
     "materie": "Limbaje de programare și inginerie software",
     "subcategorie": "Baze de date",
-    "enunt": "Se dorește afișarea coloanelor FIRST_NAME și SALARY aferente angajaților din tabelul EM-\nPLOYEEScareauacelas ,ișef(MANAGER_ID)cualangajatuluiidentificatprinEMPLOYEE_ID\n= 101 și care au un salariu mai mare sau egal cu al aceluiași angajat identificat prin EM-\nPLOYEE_ID = 101. Care dintre interogările următoare vor afișa rezultatul dorit?",
+    "enunt": "Se dorește afișarea coloanelor FIRST_NAME și SALARY aferente angajaților din tabelul EMPLOYEES care au același șef (MANAGER_ID) cu al angajatului identificat prin EMPLOYEE_ID = 101 și care au un salariu mai mare sau egal cu al aceluiași angajat identificat prin EMPLOYEE_ID = 101. Care dintre interogările următoare vor afișa rezultatul dorit?",
     "cod_sursa": "",
     "variante": {
       "a": "SELECT first_name, salary\nFROM employees\nWHERE (manager_id, salary) >= ALL (SELECT manager_id, salary\nFROM employees WHERE employee_id = 101)\nAND employee_id <> 101;",
@@ -2906,8 +2917,8 @@
     "id": 151,
     "materie": "Sisteme de calcul",
     "subcategorie": "Arhitectura calculatoarelor",
-    "enunt": "Care este valoarea stocată la adresacdupă executarea următoarei secvențe de cod?\nx DAT A4B\ny DAT A F\nc DAT A0\nstart LDA x\nCM P y\nJ GE adr1\nADD y\nST A c\nJ M P adr2\nadr1SU B y\nST A c\nadr2ST OP\nEN D start",
-    "cod_sursa": "",
+    "enunt": "Care este valoarea stocată la adresa c după executarea următoarei secvențe de cod?",
+    "cod_sursa": "x     DATA 4B\ny     DATA F\nc     DATA 0\nstart LDA x\n      CMP y\n      JGE adr1\n      ADD y\n      STA c\n      JMP adr2\nadr1  SUB y\n      STA c\nadr2  STOP\n      END start",
     "variante": {
       "a": "3C 16",
       "b": "20 8",
@@ -3323,7 +3334,7 @@
     "id": 173,
     "materie": "Sisteme de calcul",
     "subcategorie": "Sisteme de operare",
-    "enunt": "Se consideră 5 segmente de memorie(A, B, C, D, E)cu mărimile2k,6k,4k,3k,4kși o memorie\ntotală de16k. În memorie se încarcă în ordine segmenteleA,B,C,D. Care dintre aceste segmente\nurmează să fie evacuat pentru a putea permite încărcarea ulterioară a segmentuluiE?",
+    "enunt": "Se consideră 5 segmente de memorie (A, B, C, D, E) cu mărimile 2k, 6k, 4k, 3k, 4k și o memorie\ntotală de 16k. În memorie se încarcă în ordine segmentele A, B, C, D. Care dintre aceste segmente\nurmează să fie evacuat pentru a putea permite încărcarea ulterioară a segmentuluiE?",
     "cod_sursa": "",
     "variante": {
       "a": "A",
@@ -3365,7 +3376,7 @@
     "id": 175,
     "materie": "Sisteme de calcul",
     "subcategorie": "Sisteme de operare",
-    "enunt": "Se consideră un set de10procese planificate conform algoritmului Round Robin. Se cunosc\nurmătoarele informații: cuanta utilizată este8, numărul final de comutări de context este25,\nvaloarea raportuluiT 1/T2 = 2.25, undeT 1 șiT 2 sunt timpii estimați de execuție pentru cel mai\nlung si cel mai scurt proceș pentru care timpul estimat de execuție depășește valoarea cuantei\n(cu cel putin 25%). Determinați cea mai mică valoare posibilă pentru perechea(T1, T2).",
+    "enunt": "Se consideră un set de 10 procese planificate conform algoritmului Round Robin. Se cunosc\nurmătoarele informații: cuanta utilizată este 8, numărul final de comutări de context este 25,\nvaloarea raportuluiT 1/T2 = 2.25, undeT 1 șiT 2 sunt timpii estimați de execuție pentru cel mai\nlung si cel mai scurt proceș pentru care timpul estimat de execuție depășește valoarea cuantei\n(cu cel putin 25%). Determinați cea mai mică valoare posibilă pentru perechea (T1, T2).",
     "cod_sursa": "",
     "variante": {
       "a": "27, 12",
@@ -3384,7 +3395,7 @@
     "id": 176,
     "materie": "Sisteme de calcul",
     "subcategorie": "Sisteme de operare",
-    "enunt": "Se consideră un set de 10 procese planificate conform algoritmuluii SJF, în care procesele sosesc\nîn sistem la momenteleT1 = 0, T2 = 13, T3 = 26. La fiecare moment sosesc cel puțin 3 procese, cu\ntimpi estimați de execuție diferiți. Dacă pentru proceseleP1, P5 șiP 7 avem timpii de așteptare\n0,0,0și timpii de răspuns14,3,6, identificați la ce moment a sosit procesulP1, apoi răspundeți la\nurmătoarea întrebare: determinați timpii estimați de execuție pentru cel puțin 6 procese, știind\ncă nu există perioade de pauză ale procesorului și că pot exista procese cu același timp estimat\nde execuție, sosite la momente diferite?",
+    "enunt": "Se consideră un set de 10 procese planificate conform algoritmului SJF, în care procesele sosesc\nîn sistem la momentele T1 = 0, T2 = 13, T3 = 26. La fiecare moment sosesc cel puțin 3 procese, cu\ntimpi estimați de execuție diferiți. Dacă pentru proceseleP1, P5 șiP 7 avem timpii de așteptare\n0,0,0și timpii de răspuns 14,3,6, identificați la ce moment a sosit procesulP1, apoi răspundeți la\nurmătoarea întrebare: determinați timpii estimați de execuție pentru cel puțin 6 procese, știind\ncă nu există perioade de pauză ale procesorului și că pot exista procese cu același timp estimat\nde execuție, sosite la momente diferite?",
     "cod_sursa": "",
     "variante": {
       "a": "3,4,5,6,7,8",
@@ -3403,7 +3414,7 @@
     "id": 177,
     "materie": "Sisteme de calcul",
     "subcategorie": "Sisteme de operare",
-    "enunt": "Un sistem pe 16 biți cu 8 pagini virtuale și 4 pagini cadru este folosit pentru paginare algoritmul\nFIFO. La un moment daț în memorie sunt mapate paginile(2,5,7,1). După acest moment vor fi\naccesate următoarele adrese:12411,16729,2560,9215,20952. Care va fi maparea paginilor după\nultima accesare, știind că următoarea pagină evacuată este prima pagină cadru?",
+    "enunt": "Un sistem pe 16 biți cu 8 pagini virtuale și 4 pagini cadru este folosit pentru paginare algoritmul\nFIFO. La un moment dat în memorie sunt mapate paginile (2, 5, 7, 1). După acest moment vor fi\naccesate următoarele adrese:12411,16729,2560,9215,20952. Care va fi maparea paginilor după\nultima accesare, știind că următoarea pagină evacuată este prima pagină cadru?",
     "cod_sursa": "",
     "variante": {
       "a": "5 2 0 4",
@@ -3422,7 +3433,7 @@
     "id": 178,
     "materie": "Sisteme de calcul",
     "subcategorie": "Sisteme de operare",
-    "enunt": "Un sistem pe 16 biți cu 8 pagini virtuale și 4 pagini cadru este folosit pentru paginare algoritmul\nCeasului, fără îmbătrânire. La un moment daț în memorie sunt mapate paginile(2,5,7,1)iar\nurmătoarea pagină testată va fi prima pagină cadru. După încercările de acces către paginile,\n1,2,3,4,5,7(nu neaparat în această ordine) maparea devine(1,5,7,2). Care dintre cele 4 pagini\ninițiale au avut bitul R setat?",
+    "enunt": "Un sistem pe 16 biți cu 8 pagini virtuale și 4 pagini cadru este folosit pentru paginare algoritmul\nCeasului, fără îmbătrânire. La un moment dat în memorie sunt mapate paginile (2, 5, 7, 1) iar\nurmătoarea pagină testată va fi prima pagină cadru. După încercările de acces către paginile,\n1,2,3,4,5,7(nu neaparat în această ordine) maparea devine (1, 5, 7, 2). Care dintre cele 4 pagini\ninițiale au avut bitul R setat?",
     "cod_sursa": "",
     "variante": {
       "a": "toate",
@@ -3441,7 +3452,7 @@
     "id": 179,
     "materie": "Sisteme de calcul",
     "subcategorie": "Sisteme de operare",
-    "enunt": "Se consideră 3 fire de control a execuției care partajează variabileleAșiB. Accesul către cele\ndouă variabile este nerestricționaț iar operațiile realizate sunț în fiecare fir de control a execuției,\nurmătoareleA=A+B, B=A−B, A=A−B. Precizați care dintre următoarele valori sunt\nposibile la sfârșitul execuției celor trei fire de control, atunci cândA= 5, B= 7",
+    "enunt": "Se consideră 3 fire de control a execuției care partajează variabilele A și B. Accesul către cele\ndouă variabile este nerestricționat iar operațiile realizate sunt în fiecare fir de control a execuției,\nurmătoareleA=A+B, B=A−B, A=A−B. Precizați care dintre următoarele valori sunt\nposibile la sfârșitul execuției celor trei fire de control, atunci cândA= 5, B= 7",
     "cod_sursa": "",
     "variante": {
       "a": "A= 5, B= 7",
@@ -3461,7 +3472,7 @@
     "id": 180,
     "materie": "Sisteme de calcul",
     "subcategorie": "Sisteme de operare",
-    "enunt": "Se consideră o situație simplă cu 6 procese și un singur tip de resurse. Starea sistemului este\ndescrisă prinAre= (4,2,0,5,1,4), M ax= (8,10,10,25,25,30), Disponibil=D. Determinați\nvaloarea minimăDpentru care starea este sigură și permite apoi alocarea a 3 resurse suplimentare\ncătre procesul al doilea.",
+    "enunt": "Se consideră o situație simplă cu 6 procese și un singur tip de resurse. Starea sistemului este\ndescrisă prin Alocare = (4,2,0,5,1,4), M ax= (8,10,10,25,25,30), Disponibil=D. Determinați\nvaloarea minimă D pentru care starea este sigură și permite apoi alocarea a 3 resurse suplimentare\ncătre procesul al doilea.",
     "cod_sursa": "",
     "variante": {
       "a": "D= 12",
@@ -3480,7 +3491,7 @@
     "id": 181,
     "materie": "Sisteme de calcul",
     "subcategorie": "Sisteme de operare",
-    "enunt": "Se consideră o situație simplă cu 6 procese și un singur tip de resurse. Starea sistemului este\ndescrisă prinAre= (4,2,0,5,1,4), M ax= (14,6,8,29,27,24), Disponibil=D. Determinați\nvaloarea minimăDpentru care starea este sigură și permite apoi alocarea a 3 resurse suplimentare\ncătre procesul al treilea.",
+    "enunt": "Se consideră o situație simplă cu 6 procese și un singur tip de resurse. Starea sistemului este\ndescrisă prin Alocare = (4,2,0,5,1,4), M ax= (14,6,8,29,27,24), Disponibil=D. Determinați\nvaloarea minimă D pentru care starea este sigură și permite apoi alocarea a 3 resurse suplimentare\ncătre procesul al treilea.",
     "cod_sursa": "",
     "variante": {
       "a": "D= 11",
@@ -3619,7 +3630,7 @@
     "id": 188,
     "materie": "Sisteme de calcul",
     "subcategorie": "Sisteme de operare",
-    "enunt": "Se consideră un set de patru procese, cu timpi estimați de execuție2,3,4s ,i5. Fiecare dintre\nprocese are două execuții succesive separate printr-un ciclu de operații de intrare/ieșire. Planifi-\ncarea proceselor este FIFO. Știind că timpii de răspunș după cea de-a doua execuție, raportați\nla momentul0, sunt30,28,20,25, precizat ,i care sunt duratele operațiilor de intrare/ieșire pentru\ndouă dintre aceste procese.",
+    "enunt": "Se consideră un set de patru procese, cu timpi estimați de execuție 2, 3, 4 și 5. Fiecare dintre\nprocese are două execuții succesive separate printr-un ciclu de operații de intrare/ieșire. Planifi-\ncarea proceselor este FIFO. Știind că timpii de răspunș după cea de-a doua execuție, raportați\nla momentul 0, sunt 30,28,20,25, precizat ,i care sunt duratele operațiilor de intrare/ieșire pentru\ndouă dintre aceste procese.",
     "cod_sursa": "",
     "variante": {
       "a": "7s ,i13",
@@ -3638,7 +3649,7 @@
     "id": 189,
     "materie": "Sisteme de calcul",
     "subcategorie": "Sisteme de operare",
-    "enunt": "Se consideră un set de patru procese, cu timpi estimați de execuție2,3,4s ,i5. Fiecare dintre\nprocese are două execuții succesive separate printr-un ciclu de operații de intrare/ieșire. Planifi-\ncarea inițială a proceselor este FIFO, după momentul15, algoritmul de planificare este modificat\n\nla SJF. Știind că timpii de răspunș după cea de-a doua execuție, raportați la momentul0, sunt\n22,25,20,30, și că timpii asociați operațiilor de intrare/ieșire sunt3,7,13,17, precizați care dintre\nprocese nu pot avea operații de intrare/ieșire de durată13.",
+    "enunt": "Se consideră un set de patru procese, cu timpi estimați de execuție 2, 3, 4 și 5. Fiecare dintre\nprocese are două execuții succesive separate printr-un ciclu de operații de intrare/ieșire. Planifi-\ncarea inițială a proceselor este FIFO, după momentul 15, algoritmul de planificare este modificat\n\nla SJF. Știind că timpii de răspunș după cea de-a doua execuție, raportați la momentul 0, sunt\n22,25,20,30, și că timpii asociați operațiilor de intrare/ieșire sunt 3,7,13,17, precizați care dintre\nprocese nu pot avea operații de intrare/ieșire de durată 13.",
     "cod_sursa": "",
     "variante": {
       "a": "1s ,i3",
@@ -3657,7 +3668,7 @@
     "id": 190,
     "materie": "Sisteme de calcul",
     "subcategorie": "Sisteme de operare",
-    "enunt": "Se consideră un set de patru procese, cu timpi estimați de execuție2,3,4s ,i5. Fiecare dintre\nprocese are două execuții succesive separate printr-un ciclu de operații de intrare/ieșire. Planifi-\ncarea proceselor este SJF. Știind că timpii de răspunș după cea de-a doua execuție, raportați la\nmomentul0, sunt22,25,20,30, precizat ,i, în ordine crescătoare, care pot fi duratele operațiilor de\nintrare/ieșire pentru procesele3s ,i4, știind că procesul4a revenit în sistem înaintea procesului\n2.",
+    "enunt": "Se consideră un set de patru procese, cu timpi estimați de execuție 2, 3, 4 și 5. Fiecare dintre\nprocese are două execuții succesive separate printr-un ciclu de operații de intrare/ieșire. Planifi-\ncarea proceselor este SJF. Știind că timpii de răspunș după cea de-a doua execuție, raportați la\nmomentul 0, sunt 22,25,20,30, precizat ,i, în ordine crescătoare, care pot fi duratele operațiilor de\nintrare/ieșire pentru procesele3s ,i4, știind că procesul4a revenit în sistem înaintea procesului\n2.",
     "cod_sursa": "",
     "variante": {
       "a": "3s ,i13",
@@ -3676,7 +3687,7 @@
     "id": 191,
     "materie": "Sisteme de calcul",
     "subcategorie": "Sisteme de operare",
-    "enunt": "Într-un sistem sunt definite patru pagini cadru și opt pagini virtuale. La un moment daț în\ntimpul utilizării unui algoritm de paginare, după înlocuirea unei pagini din memorie cu pagina\n3, maparea în memorie este3,6,4,2. Știind că bitul R este setat și pentru a treia pagină cadru,\nestimați maparea paginilor în memorie după încercări de acces către paginile3,7,2,1,3,5,0(cu\nmențiunea că primul moment este cel din enunț), folosind algoritmul FIFO.",
+    "enunt": "Într-un sistem sunt definite patru pagini cadru și opt pagini virtuale. La un moment dat în\ntimpul utilizării unui algoritm de paginare, după înlocuirea unei pagini din memorie cu pagina\n3, maparea în memorie este 3,6,4,2. Știind că bitul R este setat și pentru a treia pagină cadru,\nestimați maparea paginilor în memorie după încercări de acces către paginile 3,7,2,1,3,5,0(cu\nmențiunea că primul moment este cel din enunț), folosind algoritmul FIFO.",
     "cod_sursa": "",
     "variante": {
       "a": "0, 7, 5, 1",
@@ -3696,7 +3707,7 @@
     "id": 192,
     "materie": "Sisteme de calcul",
     "subcategorie": "Sisteme de operare",
-    "enunt": "Într-un sistem sunt definite patru pagini cadru și opt pagini virtuale. La un moment daț în\ntimpul utilizării unui algoritm de paginare, după înlocuirea unei pagini din memorie cu pagina\n3, maparea în memorie este3,6,4,2. Știind că bitul R este setat și pentru a treia pagină cadru,\nestimați maparea paginilor în memorie după încercări de acces către paginile3,7,2,1,3,5,0(cu\nmențiunea că primul moment este cel din enunț), folosind algoritmul ‘a doua șansă’ (SC).",
+    "enunt": "Într-un sistem sunt definite patru pagini cadru și opt pagini virtuale. La un moment dat în\ntimpul utilizării unui algoritm de paginare, după înlocuirea unei pagini din memorie cu pagina\n3, maparea în memorie este 3,6,4,2. Știind că bitul R este setat și pentru a treia pagină cadru,\nestimați maparea paginilor în memorie după încercări de acces către paginile 3,7,2,1,3,5,0(cu\nmențiunea că primul moment este cel din enunț), folosind algoritmul ‘a doua șansă’ (SC).",
     "cod_sursa": "",
     "variante": {
       "a": "3, 0, 1, 2",
@@ -3716,7 +3727,7 @@
     "id": 193,
     "materie": "Sisteme de calcul",
     "subcategorie": "Sisteme de operare",
-    "enunt": "Într-un sistem sunt definite patru pagini cadru și opt pagini virtuale. La un moment daț în timpul\nutilizării unui algoritm de paginare, după înlocuirea unei pagini din memorie cu pagina3, maparea\nîn memorie este3,6,4,2. S ,tiind că bitul R este setat și pentru a treia pagină cadru, estimați\nmaparea paginilor în memorie după încercări de acces către paginile3,7,2,1,3,5,0(cu mențiunea\ncă primul moment este cel din enunț), folosind algoritmul OPTIM (după ultimul moment se\nconsideră că paginile vor fi accesate în ordine strict crescătoare, de la0la7).",
+    "enunt": "Într-un sistem sunt definite patru pagini cadru și opt pagini virtuale. La un moment dat în timpul\nutilizării unui algoritm de paginare, după înlocuirea unei pagini din memorie cu pagina 3, maparea\nîn memorie este 3,6,4,2. S ,tiind că bitul R este setat și pentru a treia pagină cadru, estimați\nmaparea paginilor în memorie după încercări de acces către paginile 3,7,2,1,3,5,0(cu mențiunea\ncă primul moment este cel din enunț), folosind algoritmul OPTIM (după ultimul moment se\nconsideră că paginile vor fi accesate în ordine strict crescătoare, de la0la7).",
     "cod_sursa": "",
     "variante": {
       "a": "3, 1, 0, 2",
@@ -3793,7 +3804,7 @@
     "id": 197,
     "materie": "Sisteme de calcul",
     "subcategorie": "Sisteme de operare",
-    "enunt": "Să considerăm o linie de asamblare de fabricație în care diferiți muncitori efectuează diferite sarcini\npentru a asambla un produs:\n(1) Furnizorii de componente care furnizează componentele necesare pentru procesul de asam-\nblare,\n(2) Asamblorii care primesc componentele și le asamblează în produsul final,\n(3) Inspectorii, care verifică calitatea produselor finite pentru a se asigura că îndeplinesc stan-\ndardele cerute,\n(4)Ambalatorii, careprimescproduseleinspectates ,ileambaleazăpentruexpedieresaudistribut ,ie,\n(5) Transportatorii care primesc produsele ambalate și le pregătesc pentru transport către clienți\nsau comercianți.\nPrin relaționarea acestui model cu procesele din UNIX, ce formă de comunicare între procese\ndescrie cel mai bine această interacțiune?",
+    "enunt": "Să considerăm o linie de asamblare de fabricație în care diferiți muncitori efectuează diferite sarcini pentru a asambla un produs:\n\n(1) Furnizorii de componente, care furnizează componentele necesare pentru procesul de asamblare;\n(2) Asamblorii, care primesc componentele și le asamblează în produsul final;\n(3) Inspectorii, care verifică calitatea produselor finite pentru a se asigura că îndeplinesc standardele cerute;\n(4) Ambalatorii, care primesc produsele inspectate și le ambalează pentru expediere sau distribuție;\n(5) Transportatorii, care primesc produsele ambalate și le pregătesc pentru transport către clienți sau comercianți.\n\nPrin relaționarea acestui model cu procesele din UNIX, ce formă de comunicare între procese descrie cel mai bine această interacțiune?",
     "cod_sursa": "",
     "variante": {
       "a": "funcțiile fork pentru a crea procese",
