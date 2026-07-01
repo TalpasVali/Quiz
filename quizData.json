@@ -11,10 +11,7 @@
       "d": "Algoritmul are ordinul de complexitate O(n)",
       "e": "Algoritmul are ordinul de complexitate O(n * k)"
     },
-    "raspuns_corect": [
-      "b",
-      "d"
-    ],
+    "raspuns_corect": ["b", "d"],
     "explicatie": "B este corectă deoarece k numără lungimea secvenței curente de numere pozitive (cât timp x[i+k]>0), iar nr reține lungimea maximă găsită. D este corectă deoarece, deși sunt două bucle while imbricate, variabila i avansează direct peste elementele verificate (i=i+k+1). Astfel, fiecare element din tablou este parcurs cel mult de două ori, rezultând o complexitate de timp liniară O(n).",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Algoritmi și structuri de date, Pb. 1",
     "imagine": ""
@@ -30,9 +27,7 @@
       "c": "Algoritmul sortează crescător tabloul a",
       "d": "După aplicarea algoritmului, tabloul a satisface proprietatea a[i] ≤ a[n−1] pentru 0 ≤ i < n"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "Algoritmul execută o singură trecere printr-un algoritm asemănător Bubble Sort. Nu sortează întregul tablou (deci A și C sunt false), ci doar compară perechi adiacente și face swap dacă elementul din stânga e mai mic decât cel din dreapta. Consecința dieser singure treceri este că cel mai mic element din întregul tablou va fi împins spre dreapta până ajunge pe ultima poziție (a[n-1]). Astfel, toate celelalte elemente a[i] vor fi mai mari sau egale cu a[n-1].",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Algoritmi și structuri de date, Pb. 2",
     "imagine": ""
@@ -49,10 +44,7 @@
       "d": "algoritmul returnează produsul a*b indiferent de paritatea lui a",
       "e": "dacă a > 2b atunci numărul de operații de înmulțire efectuate este mai mic în cazul apelului alg(b,a) decât în cazul apelului alg(a,b)."
     },
-    "raspuns_corect": [
-      "d",
-      "e"
-    ],
+    "raspuns_corect": ["d", "e"],
     "explicatie": "Algoritmul implementează metoda 'Înmulțirii a la rousse' (sau înmulțirea țărănească) a două numere 'a' și 'b'. Variantele D și E sunt corecte. D: Funcționează bazat pe faptul că a*b = (a/2)*(2b) dacă a este par, și a*b = (a/2)*(2b) + b dacă a este impar. E: Numărul de apeluri recursive (și implicit de înmulțiri) depinde de numărul de înjumătățiri ale primului argument până devine 0 (log2(a)). Dacă a > 2b, atunci log2(b) < log2(a), deci apelul alg(b,a) va face mai puține împărțiri/înmulțiri.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Algoritmi și structuri de date, Pb. 3",
     "imagine": ""
@@ -67,9 +59,7 @@
       "b": "se sortează parțial a aplicănd algoritmul de sortare prin inserție în care ciclul exterior for i in range(1,n) se înlocuiește cu for i in range(1,11)",
       "c": "se sortează parțial a aplicând algoritmul de sortare prin selecție în care ciclul exterior for i in range(0,n-1) se înlocuiește cu for i in range(0,10)"
     },
-    "raspuns_corect": [
-      "c"
-    ],
+    "raspuns_corect": ["c"],
     "explicatie": "Avem n imens (10 miliarde) și căutăm doar cele mai mici 10 elemente. Varianta A (quicksort pe tot tabloul) face muncă inutilă O(n log n). Varianta B (inserție adaptată) va sorta doar primele 11 elemente, dar le ignoră pe restul care ar putea fi mai mici. Varianta C este corectă: 'Selection sort' funcționează găsind elementul minim din restul nesortat al tabloului și punându-l pe poziția curentă. Rulând doar ciclul exterior de 10 ori (for i in range(0,10)), algoritmul va căuta cele mai mici 10 elemente din tot tabloul și le va plasa în a[0..9], executând aprox. 10*n operații.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Algoritmi și structuri de date, Pb. 4",
     "imagine": ""
@@ -87,11 +77,7 @@
       "e": "T(n) aparține lui O(n)",
       "f": "T(n) aparține lui O(log n)"
     },
-    "raspuns_corect": [
-      "b",
-      "d",
-      "f"
-    ],
+    "raspuns_corect": ["b", "d", "f"],
     "explicatie": "Algoritmul determină numărul de biți '1' din reprezentarea binară a lui 'n' adunând valoarea lui n%2 la fiecare înjumătățire, deci B este corectă. Pentru analiza adunărilor T(n): baza este n<2 unde T(n)=0 (nicio adunare efectuată, doar se returnează n). Pentru n>=2, se execută o adunare ('+') între rezultatul recursiv și n%2, deci T(n) = T(n//2) + 1 (deci D este corectă, ignorând pe C). Din formula de recurență T(n) = T(n//2) + 1 rezultă o complexitate logaritmică a numărului de adunări, adică O(log n), deci F este corectă.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Algoritmi și structuri de date, Pb. 5",
     "imagine": ""
@@ -107,9 +93,7 @@
       "c": "sortarea unei liste scurte",
       "d": "nu este potrivit pentru nici un fel de sortare"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "QuickSort (Sortarea rapidă) are o eficiență foarte bună pe caz mediu (liste mari cu elemente aleatoare), operând în O(n log n). Este ineficient pe liste gata ordonate (cazul defavorabil O(n^2)) dacă alegerea pivotului nu este optimizată, și există algoritmi mai simpli (ca Insertion Sort) preferabili pentru liste foarte scurte.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Algoritmi și structuri de date, Pb. 6",
     "imagine": ""
@@ -125,9 +109,7 @@
       "c": "de 4 ori",
       "d": "de 5 ori"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "Dezvoltând recursivitatea pentru F5 obținem un arbore de apeluri: F5 = F4 + F3. F4 devine (F3 + F2), iar F3-ul original devine (F2 + F1). Deja avem de două ori F2. Din F4 derivă (F3 + F2) = (F2 + F1 + F2). În total, ramurile coboară la evaluarea lui F2 de exact 3 ori.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Algoritmi și structuri de date, Pb. 7",
     "imagine": ""
@@ -143,10 +125,7 @@
       "c": "Algoritmul nu este eficient atunci când avem mai mult de 1000 de elemente",
       "d": "Algoritmul realizează sortarea elementelor unui tablou"
     },
-    "raspuns_corect": [
-      "c",
-      "d"
-    ],
+    "raspuns_corect": ["c", "d"],
     "explicatie": "Atenție la formularea 'NU sunt adevărate'. Căutarea binară *necesită* un tablou deja sortat (A e adevărată) și *necesită* acces direct la element (B e adevărată - motiv pentru care funcționează pe array-uri, nu pe liste simplu înlănțuite). C este falsă (algoritmul este EXTREM de eficient pentru date mari datorită complexității logaritmice O(log n)), iar D este de asemenea falsă (căutarea caută, nu sortează).",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Algoritmi și structuri de date, Pb. 8",
     "imagine": ""
@@ -162,9 +141,7 @@
       "c": "s = c0 + c1 + . . .+ cp−1, n = ck ck−1 . . . c1 c0",
       "d": "n = ck ck−1 . . . cp"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "Invariantul unei bucle este proprietatea care se menține adevărată la începutul fiecărei iterații. După 'p' iterații complete, algoritmul (care calculează suma cifrelor) a adunat ultimele 'p' cifre în variabila 's', adică s = c0 + c1 + ... + cp-1. Variabila 'n' a fost tăiată la dreapta de 'p' ori (prin n//10), rămânând cu cifrele n = ck ck-1 ... cp. Prin urmare, b este afirmația corectă.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Algoritmi și structuri de date, Pb. 9",
     "imagine": ""
@@ -180,9 +157,7 @@
       "c": "La fiecare pas elementul care pare a fi cel mai promițător pe ansamblul problemei este selectat din A și adăugat la S.",
       "d": "La fiecare pas un element oarecare este selectat din A și adăugat la S."
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "Aceasta este definiția fundamentală a algoritmilor Greedy: ei fac alegerea local optimă la fiecare pas sperând că aceasta va duce la soluția global optimă (Varianta A). Nu se întorc asupra deciziilor luate (deci varianta B, specifică backtracking-ului, este falsă).",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Algoritmi și structuri de date, Pb. 10",
     "imagine": ""
@@ -197,9 +172,7 @@
       "b": "o structură de date implementată prin tipul tablou;",
       "c": "o structură de date circulară;"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "Aceasta este definiția exactă a listei simplu înlănțuite: fiecare nod conține datele și un pointer explicit (o referință) către următorul nod în memorie. Varianta B este falsă (tablourile au alocare contiguă, nu bazată pe pointeri), iar C se referă la liste circulare, care sunt un caz particular.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Algoritmi și structuri de date, Pb. 11",
     "imagine": ""
@@ -214,9 +187,7 @@
       "b": "Complexitatea (cea mai defavorabilă) pentru operațiile de inserare, ștergere sau căutare într-un arbore AVL este O(log n).",
       "c": "Complexitatea (cea mai defavorabilă) pentru operațiile de inserare, ștergere sau căutare într-un arbore splay tree este O(log n)."
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "Arborii AVL sunt arbori binari de căutare strict echilibrați, garantând o înălțime logaritmică, deci complexitatea în cel mai rău caz ('worst-case') este $O(\\log n)$. Varianta A este falsă deoarece un BST neechilibrat poate degenera într-o listă, având $O(n)$. Varianta C este falsă deoarece arborii Splay garantează $O(\\log n)$ doar amortizaț pe o serie de operații, dar o singură operație în cel mai rău caz poate lua $O(n)$.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Algoritmi și structuri de date, Pb. 12",
     "imagine": ""
@@ -232,9 +203,7 @@
       "c": "O(n).",
       "d": "Θ(log n)."
     },
-    "raspuns_corect": [
-      "c"
-    ],
+    "raspuns_corect": ["c"],
     "explicatie": "Deși operația efectivă de inserare a nodului (modificarea pointerilor) durează $O(1)$, pentru a menține lista sortată, trebuie mai întâi să traversezi lista secvențial pentru a găsi locul corect de inserare. În cel mai rău caz (elementul trebuie pus la final), asta presupune traversarea a 'n' elemente, rezultând o complexitate liniară de $O(n)$. Căutarea binară nu se poate aplica pe liste înlănțuite.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Algoritmi și structuri de date, Pb. 13",
     "imagine": ""
@@ -250,10 +219,7 @@
       "c": "o listă liniară cu restricție la intrare;",
       "d": "o listă liniară în care se manipulează mereu elementul cel mai recent introdus."
     },
-    "raspuns_corect": [
-      "b",
-      "d"
-    ],
+    "raspuns_corect": ["b", "d"],
     "explicatie": "Stiva (Stack) funcționează după principiul LIFO (Last In First Out - varianta B corectă). Toate operațiile (Push și Pop) se fac la un singur capăt (Top), ceea ce înseamnă că elementul extras este mereu ultimul introdus (varianta D corectă). Varianta A descrie o coadă.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Algoritmi și structuri de date, Pb. 14",
     "imagine": ""
@@ -269,10 +235,7 @@
       "c": "o lista liniară în care toate operațiile se efectuează doar la unul din capetele listei;",
       "d": "o listă liniară în care inserările se efectuează la un capăt al listei, iar suprimările și ori ce alt acces se efectuează la celălalt capăt al listei."
     },
-    "raspuns_corect": [
-      "b",
-      "d"
-    ],
+    "raspuns_corect": ["b", "d"],
     "explicatie": "Coada (Queue) funcționează pe principiul rândului la magazin: primul venit este primul serviț adică FIFO (First In First Out), deci B este corectă. Datele se adaugă la un capăt (Tail/Spate) și se extrag de la celălalt capăt (Head/Față), deci D este corectă. Varianta C descrie o stivă.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Algoritmi și structuri de date, Pb. 15",
     "imagine": ""
@@ -288,9 +251,7 @@
       "c": "liste skip;",
       "d": "arbori splay."
     },
-    "raspuns_corect": [
-      "c"
-    ],
+    "raspuns_corect": ["c"],
     "explicatie": "Conform grilei de corectare a examenului, varianta corectă asumată este C (liste skip). O 'Skip List' este o structură de date probabilistă construită peste o listă înlănțuită sortată, adăugând ierarhii de legături care permit omiterea (skip) unor secțiuni mari. Comportamentul este proiectat pentru a oferi un timp de căutare $O(\\log n)$. (Notă: riguros matematic, the worst-case este $O(n)$, dar în paradigma de predare a acestei materii, performanța de $O(\\log n)$ este definitorie pentru Skip Lists spre deosebire de o listă simplă care are mereu $O(n)$).",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Algoritmi și structuri de date, Pb. 16",
     "imagine": ""
@@ -306,9 +267,7 @@
       "c": "inordine;",
       "d": "postordine."
     },
-    "raspuns_corect": [
-      "c"
-    ],
+    "raspuns_corect": ["c"],
     "explicatie": "Într-un arbore binar de căutare (BST), nodurile din subarborele stâng au valori mai mici decât rădăcina, iar cele din subarborele drept au valori mai mari. Parcurgerea în 'Inordine' (In-order traversal) vizitează nodurile în secvența: Stânga - Rădăcină - Dreapta. Datorită proprietății BSȚ acest proces garantează vizitarea elementelor în ordine strict crescătoare.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Algoritmi și structuri de date, Pb. 17",
     "imagine": ""
@@ -324,9 +283,7 @@
       "c": "O(N * log2(N));",
       "d": "O(log2(N))."
     },
-    "raspuns_corect": [
-      "d"
-    ],
+    "raspuns_corect": ["d"],
     "explicatie": "Înălțimea arborelui este numărul maxim de pași de la rădăcină la o frunză. Înălțimea maximă (worst-case) se atinge când arborele degenerează într-o listă: $O(N)$. Înălțimea MINIMĂ (best-case) se atinge când arborele este perfect echilibrat (fiecare nod intern are exact 2 copii). Într-un arbore binar perfecț numărul de noduri este aproximativ $2^h$, de unde rezultă că înălțimea minimă $h$ este exponențial logaritm în bază 2 din numărul de noduri, adică $O(\\log_2(N))$.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Algoritmi și structuri de date, Pb. 18",
     "imagine": ""
@@ -342,10 +299,7 @@
       "c": "căutarea unui nod se face în (worst-case) O(N) dacă arborele nu este echilibrat.",
       "d": "căutarea unui nod se face în O(N * log2(N))."
     },
-    "raspuns_corect": [
-      "a",
-      "c"
-    ],
+    "raspuns_corect": ["a", "c"],
     "explicatie": "Într-un BST de căutare (Binary Search Tree), timpul de căutare depinde direct de înălțimea arborelui. Dacă este echilibraț înălțimea e logaritmică, deci căutarea e proporțională cu $\\log_2(N)$ (varianta A corectă). Dacă e complet dezechilibrat (fiecare nod are un singur copil, arătând ca o listă înlănțuită liniară), înălțimea e N, deci căutarea unui nod din capăt necesită parcurgerea tuturor nodurilor, având o complexitate liniară de $O(N)$ (varianta C corectă).",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Algoritmi și structuri de date, Pb. 19",
     "imagine": ""
@@ -361,10 +315,7 @@
       "c": "La ștergerea nodului 40, acesta va putea fi înlocuit de nodul 38",
       "d": "La ștergerea nodului 40, acesta va putea fi înlocuit de nodul 44"
     },
-    "raspuns_corect": [
-      "a",
-      "b"
-    ],
+    "raspuns_corect": ["a", "b"],
     "explicatie": "Atenție, enunțul cere afirmațiile FALS. Regula ștergerii unui nod cu 2 copii dintr-un BST spune că el trebuie înlocuit fie cu PREDECESORUL său în inordine (elementul maxim din subarborele stâng), fie cu SUCCESORUL său în inordine (elementul minim din subarborele drept). Pentru nodul 40, subarborele stâng are maximul 38. Subarborele drept are minimul 44. Deci, înlocuirile valide sunt 38 și 44. Rezultă că afirmațiile care spun că poate fi înlocuit cu 35 sau 37 sunt FALȘ adică variantele A și B.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Algoritmi și structuri de date, Pb. 20",
     "imagine": "diagrame/diagrame_20.png"
@@ -380,10 +331,7 @@
       "c": "La stergerea nodului 20, acesta va putea fi inlocuit cu nodul 23",
       "d": "La stergerea nodului 20, acesta va putea fi inlocuit cu nodul 22"
     },
-    "raspuns_corect": [
-      "a",
-      "d"
-    ],
+    "raspuns_corect": ["a", "d"],
     "explicatie": "Regula de aur la ștergerea unui nod cu doi descendenți dintr-un Arbore Binar de Căutare (BST) este să îl înlocuiești cu predecesorul său în inordine (valoarea maximă din subarborele stâng) sau cu succesorul său în inordine (valoarea minimă din subarborele drept). Conform figurii din culegere, pentru nodul 20, elementul maxim din subarborele stâng este 12, iar elementul minim din subarborele drept este 22. Deci, variantele A și D sunt corecte.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Algoritmi și structuri de date, Pb. 21",
     "imagine": "diagrame/diagrame_21.png"
@@ -399,9 +347,7 @@
       "c": "5,2,1,9,4,6,8,3",
       "d": "1,9,2,5,3,8,6,4"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "Parcurgerea în postordine (Post-order) urmează secvența: Subarbore Stâng -> Subarbore Drept -> Rădăcină. Aplicând recursiv acest tipar pe arborele prezentat în culegere, nodurile frunză sunt procesate primele de jos în suș iar rădăcina finală (5) este ultima. Se obține secvența 1, 9, 2, 4, 3, 8, 6, 5.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Algoritmi și structuri de date, Pb. 22",
     "imagine": "diagrame/diagrame_22.png"
@@ -417,9 +363,7 @@
       "c": "1,2,9,10,16,4,18,3",
       "d": "1,2,3,4,9,10,16,18"
     },
-    "raspuns_corect": [
-      "c"
-    ],
+    "raspuns_corect": ["c"],
     "explicatie": "Parcurgerea în inordine (In-order) vizitează nodurile astfel: Subarbore Stâng -> Rădăcină -> Subarbore Drept. Dacă aplicăm manual această regulă pe desenul din culegere, pornim de la stânga extremă și urcăm. Rădăcina principală (10) se va afla la mijlocul șirului. Secvența corectă este 1, 2, 9, 10, 16, 4, 18, 3.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Algoritmi și structuri de date, Pb. 23",
     "imagine": "diagrame/diagrame_23.png"
@@ -436,9 +380,7 @@
       "d": "(4 * j + 1 <= i) și (i <= 4 * j + 2)",
       "e": "(4 * i + 1 <= j) și (j <= 4 * i + 2)"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "Într-un array zero-indexed, fiii unui nod 'x' sunt '2x+1' și '2x+2'. Părintele unui nod 'i' este 'p = (i-1)//2'. Bunicul lui 'i' va fi 'j = (p-1)//2'. Rezolvând inegalitățile în sens invers pentru a afla intervalul în care se poate afla 'i' față de 'j' (care este echivalent cu a calcula fiii fiilor lui j), obținem: i aparține [4j+3, 4j+6]. Deci varianta A este corectă.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Algoritmi și structuri de date, Pb. 24",
     "imagine": ""
@@ -454,9 +396,7 @@
       "c": "h^2 - 1",
       "d": "2^(h-1) + 1"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "Numărul maxim de noduri într-un arbore binar (inclusiv un heap) de înălțime 'h' se obține atunci când arborele este perfect complet (fiecare nivel este plin). Nivelul 0 are 1 nod, nivelul 1 are 2, nivelul 2 are 4... nivelul h are 2^h. Suma unei progresii geometrice 2^0 + 2^1 + ... + 2^h este fix 2^(h+1) - 1.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Algoritmi și structuri de date, Pb. 25",
     "imagine": ""
@@ -472,9 +412,7 @@
       "c": "(1) adevărat (2) adevărat",
       "d": "(1) adevărat (2) fals"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "Proprietatea de min-heap impune doar ca un părinte să fie mai mic sau egal cu descendenții săi (A[i] <= A[2i+1] și A[i] <= A[2i+2]), nu impune o ordine globală. De exemplu, array-ul [1, 5, 3] este un min-heap valid, dar nu este sortaț deci (1) este fals. În schimb, dacă un tablou este complet sortat crescător, proprietatea de părinte mai mic decât copiii este automat garantată, deci (2) este adevărat. Varianta A este corectă.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Algoritmi și structuri de date, Pb. 26",
     "imagine": ""
@@ -490,9 +428,7 @@
       "c": "O(n log n)",
       "d": "O(n)"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "Ștergerea minimului (rădăcinii) într-un min-heap se face prin plasarea ultimului element din heap pe poziția rădăcinii, urmată de o 'cernere în jos' (Heapify-Down / Sift-Down) pentru a restabili proprietatea de heap. În cel mai rău caz, acest element va fi coborât până la baza arborelui. Cum heap-ul este un arbore aproape compleț înălțimea sa este logaritmică, rezultând un timp de execuție O(log n).",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Algoritmi și structuri de date, Pb. 27",
     "imagine": ""
@@ -508,9 +444,7 @@
       "c": "100",
       "d": "108"
     },
-    "raspuns_corect": [
-      "d"
-    ],
+    "raspuns_corect": ["d"],
     "explicatie": "Problema folosește Combinări. Pentru a alege 1 element din A (care are 3): C(3,1) = 3. Pentru a alege 2 elemente din B (care are 4): C(4,2) = 6. Pentru a alege 'cel puțin' 4 din C (care are 5) înseamnă fie 4, fie 5 elemente: C(5,4) + C(5,5) = 5 + 1 = 6. Numărul total de submulțimi se află prin înmulțire (regula produsului): 3 * 6 * 6 = 108. Deci D este corect.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Teoria grafurilor, Pb. 1",
     "imagine": ""
@@ -526,9 +460,7 @@
       "c": "92",
       "d": "136"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "Folosim Principiul includerii și excluderii. Numărul total de multipli de 7 până la 1000 este floor(1000 / 7) = 142. Dintre aceștia, trebuie să îi scădem pe cei care se divid și cu 3 (adică se divid cu 7 * 3 = 21). Numărul multiplilor de 21 este floor(1000 / 21) = 47. Răspunsul final este numărul multiplilor de 7 minus cei comuni cu 3: 142 - 47 = 95.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Teoria grafurilor, Pb. 2",
     "imagine": ""
@@ -545,9 +477,7 @@
       "d": "243",
       "e": "15"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "Deoarece ordinea nu contează și culorile se pot repeta, avem o problemă tipică de 'Combinări cu repetiție'. Formula este C(n + k - 1, k), unde 'n' este numărul de tipuri disponibile (3 culori) și 'k' este numărul de obiecte alese (5 trandafiri). Obținem C(3 + 5 - 1, 5) = C(7, 5). Știind că C(7, 5) = C(7, 2) = (7 * 6) / 2 = 21. Varianta A este corectă.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Teoria grafurilor, Pb. 3",
     "imagine": ""
@@ -563,9 +493,7 @@
       "c": "2917",
       "d": "144"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "Problema modelează Șirul lui Fibonacci. Un mesaj de 'n' secunde se poate obține fie adăugând un semnal A (1s) la un mesaj de n-1 secunde, fie adăugând un semnal B (2s) la un mesaj de n-2 secunde. Deci, recurența este a(n) = a(n-1) + a(n-2). Valorile inițiale sunt: a(1) = 1 (A) și a(2) = 2 (AA, B). Următorii termeni sunt: a(3)=3, a(4)=5, a(5)=8, a(6)=13, a(7)=21, a(8)=34, a(9)=55, a(10)=89.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Teoria grafurilor, Pb. 4",
     "imagine": ""
@@ -581,9 +509,7 @@
       "c": "7 * 2^29",
       "d": "2^32"
     },
-    "raspuns_corect": [
-      "c"
-    ],
+    "raspuns_corect": ["c"],
     "explicatie": "Calculăm adresele din fiecare clasă pe baza biților liberi rămași din totalul de 32. Clasa A începe cu '0' (1 bit blocat) -> rămân 31 de biți liberi (2^31 adrese). Clasa B începe cu '10' (2 biți blocați) -> rămân 30 de biți (2^30). Clasa C începe cu '110' (3 biți blocați) -> rămân 29 de biți (2^29). Total adrese = 2^31 + 2^30 + 2^29. Aducând toutul la puterea cea mai mică (2^29), obținem: (2^2 * 2^29) + (2^1 * 2^29) + (1 * 2^29) = (4 + 2 + 1) * 2^29 = 7 * 2^29.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Teoria grafurilor, Pb. 5",
     "imagine": ""
@@ -599,9 +525,7 @@
       "c": "6",
       "d": "7"
     },
-    "raspuns_corect": [
-      "d"
-    ],
+    "raspuns_corect": ["d"],
     "explicatie": "Pentru a determina fluxul maxim într-o rețea de transport de la o sursă 's' la o destinație 't', se folosește algoritmul Ford-Fulkerson sau tăietura minimă (Min-Cut). Aplicând mental algoritmul pe graful problemei 6, saturând succesiv drumurile cele mai scurte/lungi și identificând gâtuirile de pe muchiile grafului, capacitatea maximă a fluxului care ajunge în nodul destinație 't' este calculată ca fiind 7.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Teoria grafurilor, Pb. 6",
     "imagine": "diagrame/diagrame_33.png"
@@ -617,9 +541,7 @@
       "c": "230",
       "d": "234"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "Un arbore minim de acoperire (Minimum Spanning Tree) trebuie să conecteze toate nodurile grafului folosind numărul minim de muchii și costul total cel mai mic, fără a forma cicluri. Folosind un algoritm greedy precum Kruskal (luând mereu muchia cu costul cel mai mic rămasă disponibilă) sau Prim, și însumând ponderile muchiilor alese pe baza figurii din culegere, greutatea totală minimă care conectează toate nodurile este 229.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Teoria grafurilor, Pb. 7",
     "imagine": "diagrame/diagrame_34.png"
@@ -636,9 +558,7 @@
       "d": "G4",
       "e": "G1, G3"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "Pentru ca un graf neorientat și conex să fie Eulerian (adică să conțină un circuit care traversează fiecare muchie exact o dată), trebuie să îndeplinească o singură condiție absolută: gradul FIECĂRUI nod din graf trebuie să fie PAR. Dacă inspectăm vizual nodurile din figurile problemei 8, doar grafurile G2 și G3 conțin exclusiv noduri la care sunt conectate un număr par de muchii.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Teoria grafurilor, Pb. 8",
     "imagine": "diagrame/diagrame_35.png"
@@ -654,9 +574,7 @@
       "c": "G3",
       "d": "G4"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "Un 'cuplaj perfect' într-un graf este o submulțime de muchii disjuncte (care nu împart niciun nod comun) ce reușesc să atingă absolut toate nodurile grafului exact o singură dată. Dacă un graf are un număr impar de noduri, este imposibil să aibă un cuplaj perfect. Analizând figurile, graful G1 permite formarea perechilor complete între toate nodurile sale, îndeplinind așadar condiția.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Teoria grafurilor, Pb. 9",
     "imagine": "diagrame/diagrame_36.png"
@@ -673,9 +591,7 @@
       "d": "120",
       "e": "125"
     },
-    "raspuns_corect": [
-      "e"
-    ],
+    "raspuns_corect": ["e"],
     "explicatie": "Pentru a calcula câți arbori distincti se pot forma folosind un set de 'n' noduri etichetate (numerotate), se folosește 'Teorema (sau Formula) lui Cayley'. Formula este n^(n-2). În cazul nostru, n = 5, așadar numărul de arbori diferiți este 5^(5-2) = 5^3 = 5 * 5 * 5 = 125.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Teoria grafurilor, Pb. 10",
     "imagine": ""
@@ -693,9 +609,7 @@
       "e": "m^n",
       "f": "n^m"
     },
-    "raspuns_corect": [
-      "c"
-    ],
+    "raspuns_corect": ["c"],
     "explicatie": "Un cuplaj maxim într-un graf bipartit complet K_{m,n} (unde partițiile au dimensiunile m și n, cu m ≤ n) trebuie să acopere toate cele m noduri din partiția mai mică. Pentru primul din cele m noduri putem alege pereche oricare din cele n noduri din a doua partiție. Pentru al doilea nod alegem din cele n-1 rămase, și așa mai departe. Acesta este exact numărul de Aranjamente de n luate câte m, adică permutări parțiale, care se notează cu P(n,m) sau A_n^m.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Teoria grafurilor, Pb. 11",
     "imagine": ""
@@ -712,9 +626,7 @@
       "d": "n * (n − 1)",
       "e": "n"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "Un graf complet K_n are o muchie între oricare două perechi de noduri distincte. Deoarece numărul total de perechi neordonate posibile dintr-o mulțime de n noduri este Combinări de n luate câte 2, graful are exact C(n, 2) muchii. (Formula extinsă pentru C(n,2) este n(n-1)/2).",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Teoria grafurilor, Pb. 12",
     "imagine": ""
@@ -731,9 +643,7 @@
       "d": "C(n, 2)",
       "e": "P(n, 2)"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "Folosim Formula lui Euler pentru grafuri planare conexe: V - E + R = 2. Graful bipartit complet K_{n,2} are partițiile de dimensiuni n și 2. Numărul total de noduri este V = n + 2. Numărul de muchii este produsul dimensiunilor, adică E = n * 2 = 2n. Înlocuind în formulă obținem: (n + 2) - 2n + R = 2, adică -n + 2 + R = 2, ceea ce rezultă în R = n regiuni.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Teoria grafurilor, Pb. 13",
     "imagine": ""
@@ -749,9 +659,7 @@
       "c": "a_n = 2 * a_{n−1} + 3 * a_{n−2}",
       "d": "a_n = 2 * a_{n−1} + 3^{n−1}"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "Construim un șir valid de lungime n. Dacă el se termină în cifra 1 sau 2 (deci 2 variante posibile), restul șirului de lungime n-1 poate fi orice șir valid (a_{n-1}). Aici avem 2 * a_{n-1} posibilități. Dacă se termină în cifra 0, obligatoriu cifra de pe poziția n-1 trebuie să fie 1 sau 2 (ca să nu avem zerouri consecutive, deci 2 variante). Restul șirului de lungime n-2 poate fi orice șir valid (a_{n-2}). Obținem alte 2 * a_{n-2} posibilități. Adunând cele două scenarii, obținem a_n = 2*a_{n-1} + 2*a_{n-2}.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Teoria grafurilor, Pb. 14",
     "imagine": ""
@@ -769,11 +677,7 @@
       "e": "Orice graf ciclic C_n cu n ≥ 2 număr impar.",
       "f": "Orice graf bipartit K_{m,n}."
     },
-    "raspuns_corect": [
-      "a",
-      "d",
-      "f"
-    ],
+    "raspuns_corect": ["a", "d", "f"],
     "explicatie": "Un graf are număr cromatic 2 (poate fi colorat cu fix 2 culori astfel încât 2 noduri adiacente să nu aibă aceeași culoare) dacă și numai dacă este un graf bipartit. Arborii (a) nu au cicluri, deci sunt mereu bipartiți. Ciclurile pare (d) se pot colora alternant cu 2 culori. Orice graf bipartit (f) se împarte prin definiție în 2 mulțimi independente, deci folosește 2 culori. Grafurile complete K_n au număr cromatic n, iar ciclurile impare au 3, deci celelalte variante sunt false.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Teoria grafurilor, Pb. 15",
     "imagine": ""
@@ -790,9 +694,7 @@
       "d": "n− 1",
       "e": "n * (n− 1)"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "Un graf neorientat simplu cu n noduri poate avea maxim C(n, 2) = n(n-1)/2 muchii posibile. Pentru un graf oarecare, fiecare muchie dintre cele posibile are fix două stări independente: fie există, fie nu există. Aplicând regula produsului, numărul total de grafuri distincte este 2 ridicat la puterea numărului maxim de muchii, adică 2^{n(n-1)/2}.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Teoria grafurilor, Pb. 16",
     "imagine": ""
@@ -808,9 +710,7 @@
       "c": "Θ(p * n^3)",
       "d": "Θ(n), Θ(p * 2^n)"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "Algoritmul dat este nucleul algoritmului lui Roy-Warshall pentru închiderea tranzitivă (drumuri). În interiorul buclei 'for' (care se execută de 'p' ori), se calculează operația B ⊙_k B. Pentru un 'k' fixaț D[i][j] depinde doar de A[i][k] și B[k][j], calcul care trebuie făcut pentru toate cele n rânduri și n coloane. Aceasta înseamnă n * n = n^2 operații la fiecare pas. Rulându-se de p ori, complexitatea totală este Θ(p * n^2).",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Teoria grafurilor, Pb. 17",
     "imagine": ""
@@ -826,9 +726,7 @@
       "c": "Există o cale de la nodul i la nodul j care trece prin nodul p.",
       "d": "Există o cale de la nodul i la nodul j care trece prin toate nodurile din mulțimea {1, 2, . . . , p}."
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "Rularea algoritmului Roy-Warshall până la iterația 'p' garantează că la final B[i][j]=1 dacă și numai dacă există un drum de la nodul i la nodul j care folosește CA INTERMEDIARI doar noduri din mulțimea restrânsă {1, 2, ..., p}. Orice drum simplu care are nodurile intermediare dintr-o mulțime de dimensiune maximă 'p' poate conține maxim p noduri intermediare. Dacă avem p noduri intermediare, drumul are fix p+1 muchii (sari de la i, treci prin p noduri, ajungi la j). Deci, lungimea căii (în muchii) este obligatoriu de cel mult p+1.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Teoria grafurilor, Pb. 18",
     "imagine": ""
@@ -844,10 +742,7 @@
       "c": "x+ ((−1) ∗ 0)",
       "d": "0 ∗ (y + 1)"
     },
-    "raspuns_corect": [
-      "c",
-      "d"
-    ],
+    "raspuns_corect": ["c", "d"],
     "explicatie": "Un termen este format doar din constante, variabile și funcții aplicate pe alți termeni. Predicatele (precum <) formează formule, nu termeni, deci (b) este incorect. Funcția minus (-) este definită ca fiind 'unar, prefix', deci se aplică în fața unui singur termen. În (a), minusul e folosit ca operator infix (între doi termeni), deci sintaxa e greșită. În (c), minusul este prefix pentru 1, deci (-1) e un termen corecț iar în (d) se folosesc corect doar funcțiile binare + și *. Așadar, variantele C și D sunt corecte.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Logică computațională, Pb. 1",
     "imagine": ""
@@ -862,10 +757,7 @@
       "b": "((P ⇒ Q) ⇒ (Q ⇒ P)) are valoarea sub interpretare A (Adevărat)",
       "c": "((¬(P ∨ Q)) ∧ (¬Q)) are valoarea sub interpretare F (Fals)"
     },
-    "raspuns_corect": [
-      "b",
-      "c"
-    ],
+    "raspuns_corect": ["b", "c"],
     "explicatie": "Interpretarea {P, ¬Q} înseamnă că P este Adevărat (T), iar Q este Fals (F). În varianta (a), implicația (P ⇒ Q) devine (T ⇒ F) care este Fals. Deci toată conjuncția devine Falsă, nu Adevărată. În varianta (b), (P ⇒ Q) este Falș iar (Fals ⇒ orice) este Adevăraț deci (b) evaluează la Adevărat. În (c), (P ∨ Q) este Adevăraț negația este Falș deci conjuncția devine Falsă, ceea ce se potrivește cu afirmația variantei. Pentru urmare, (b) și (c) sunt afirmații corecte.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Logică computațională, Pb. 2",
     "imagine": ""
@@ -881,10 +773,7 @@
       "c": "dacă o formulă propozițională nu este validă, atunci negația sa este satisfiabilă",
       "d": "dacă o formulă propozițională nu este validă, atunci negația sa este validă"
     },
-    "raspuns_corect": [
-      "a",
-      "c"
-    ],
+    "raspuns_corect": ["a", "c"],
     "explicatie": "O formulă este 'validă' dacă e adevărată pentru orice interpretare (tautologie). Este 'satisfiabilă' dacă e adevărată pentru CEL PUȚIN o interpretare. (a) este corectă: ce e valabil mereu, este valabil și de cel puțin o dată. Dacă o formulă 'nu este validă', înseamnă că are cel puțin o interpretare pentru care e Falsă. (b) este greșită pentru că o formulă poate fi adevărată uneori și falsă alteori (contingentă, deci satisfiabilă dar nevalidă). (c) este corectă: dacă e falsă măcar o dată, negația ei va fi adevărată măcar o dată (deci satisfiabilă). (d) este greșită, deoarece negația e validă doar dacă formula inițială e mereu falsă (nesatisfiabilă).",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Logică computațională, Pb. 3",
     "imagine": ""
@@ -900,11 +789,7 @@
       "c": "a doua este o consecință logică a primeia",
       "d": "nu se relaționează în niciunul din modurile descrise."
     },
-    "raspuns_corect": [
-      "a",
-      "b",
-      "c"
-    ],
+    "raspuns_corect": ["a", "b", "c"],
     "explicatie": "Dacă aplicăm echivalențele logice pentru implicație (X ⇒ Y ≡ ¬X ∨ Y): Prima formulă devine ¬(F ∧ G) ∨ H, care prin De Morgan este ¬F ∨ ¬G ∨ H. A doua formulă devine ¬F ∨ (¬G ∨ H), adică ¬F ∨ ¬G ∨ H. Deoarece au aceeași formă redusă, sunt logic echivalente (a). Fiind echivalente, fiecare o implică pe cealaltă, deci prima este consecință pentru a doua (b) și a doua consecință pentru prima (c).",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Logică computațională, Pb. 4",
     "imagine": ""
@@ -919,9 +804,7 @@
       "b": "o consecință logică a formulelor de mai jos",
       "c": "logic echivalentă cu disjuncția formulelor de mai jos"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "O formulă este 'consecință logică' a unui set de premise dacă ori de câte ori premisele sunt toate Adevărate, formula este Adevărată. Presupunând P ≠ Q, se demonstrează că nu putem avea toate cele 3 premise Adevărate simultan (ex. P=A, Q=F face P ⇒ (Q ∨ R) Fals dacă R e F, iar dacă R e A, R ⇒ (P ∧ Q) devine Fals). Deci premisele sunt adevărate doar când P = Q. Asta înseamnă că premisele IMPLICĂ P ⇔ Q, fiind o consecință logică (b). Nu e o echivalență, deoarece există cazuri în care P ⇔ Q e Adevăraț dar premisele nu sunt (de ex: P=F, Q=F, R=A).",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Logică computațională, Pb. 5",
     "imagine": ""
@@ -937,12 +820,7 @@
       "c": "P ∧ ¬Q ∧ S",
       "d": "(P ∧ ¬Q ∧ S) ∨ ¬S"
     },
-    "raspuns_corect": [
-      "a",
-      "b",
-      "c",
-      "d"
-    ],
+    "raspuns_corect": ["a", "b", "c", "d"],
     "explicatie": "Forma Normală Disjunctivă (FND) înseamnă că o formulă este alcătuită dintr-o disjuncție (SAU) de conjuncții (ȘI) de literali (variabile sau negațiile lor). O variabilă singură 'P' este o FND formată dintr-o singură clauză cu un literal (a). '¬P ∨ Q' este disjuncția a două conjuncții de câte un literal (b). 'P ∧ ¬Q ∧ S' este o FND formată dintr-o singură conjuncție de 3 literali (c). '(P ∧ ¬Q ∧ S) ∨ ¬S' e disjuncția perfectă a două conjuncții (d). Toate sunt în FND.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Logică computațională, Pb. 6",
     "imagine": ""
@@ -957,9 +835,7 @@
       "b": "{P, ¬P, R, S}",
       "c": "{R, S}"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "Regula de rezoluție spune că poți elimina EXACT O pereche de literali complementari din două clauze, unind restul elementelor. Între {P, ¬Q, R} și {¬P, Q, S} avem două perechi complementare: P cu ¬P și Q cu ¬Q. Nu putem elimina ambele perechi deodată! Dacă eliminăm perechea Q cu ¬Q, rămânem cu reuniunea restului: {P, R} ∪ {¬P, S} = {P, ¬P, R, S}. Deci varianta (b) este un rezolvent corect (chiar dacă este o tautologie). Eliminarea ambelor ar da {R,S}, dar aceasta este o aplicare incorectă a regulii.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Logică computațională, Pb. 7",
     "imagine": ""
@@ -975,10 +851,7 @@
       "c": "verifica dacă ¬F1 ∨ . . . ∨ ¬Fn ∨ G este validă",
       "d": "verifica dacă F1 ∧ . . . ∧ Fn ∧ ¬G este nesatisfiabilă."
     },
-    "raspuns_corect": [
-      "c",
-      "d"
-    ],
+    "raspuns_corect": ["c", "d"],
     "explicatie": "Afirmația 'G este consecință logică din F1..Fn' este echivalentă cu 'formula (F1 ∧ ... ∧ Fn) ⇒ G este mereu adevărată (VALIDĂ)'. Transcriind implicația, obținem ¬(F1 ∧ ... ∧ Fn) ∨ G, care devine ¬F1 ∨ ... ∨ ¬Fn ∨ G (aceasta trebuie verificată dacă este validă, deci (c) este corectă). Alternativ, prin metoda reducerii la absurd, demonstrăm că 'Premisele ȘI (negația Concluziei) nu se pot întâmpla simultan', deci F1 ∧ ... ∧ Fn ∧ ¬G trebuie să fie nesatisfiabilă (d corectă).",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Logică computațională, Pb. 8",
     "imagine": ""
@@ -994,11 +867,7 @@
       "c": "{|}",
       "d": "{⊥, →}"
     },
-    "raspuns_corect": [
-      "a",
-      "c",
-      "d"
-    ],
+    "raspuns_corect": ["a", "c", "d"],
     "explicatie": "Problema testează noțiunea de 'sistem funcțional complet' (mulțime adecvată de conectori), adică setul cu care poți scrie ORICE formulă logică posibilă. Setul {¬, ∨} este baza formei normale, deci e complet (a). Operatorul NȘI (NAND), notat cu {|}, este universal și suficient de unul singur pentru a exprima orice (c). Setul Fals și Implicație {⊥, →} este de asemenea complet deoarece negația e P→⊥, iar disjuncția se deduce tot de aici (d). În schimb, {∨, ∧} (b) este incomplet deoarece nu poate exprima niciodată negația.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Logică computațională, Pb. 9",
     "imagine": "diagrame/diagrame_54.png"
@@ -1013,9 +882,7 @@
       "b": "{{P, ¬Q}, {P, R}, {¬Q, R}}",
       "c": "{{P, ¬Q, ¬R}, {P, Q, R}, {¬P, ¬Q, R}}"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "Dacă reducem formula matematic pentru a o aduce la forma normală conjunctivă (mulțime de clauze): Membrul stâng e P ∨ (Q ∧ R), iar dreptul e ¬P ∨ ¬Q. Implicația totală devine ¬( P ∨ (Q ∧ R) ) ∨ ¬P ∨ ¬Q. Aplicând De Morgan, avem (¬P ∧ (¬Q ∨ ¬R)) ∨ ¬P ∨ ¬Q. Cum ¬P apare disjunctiv lângă grupul (¬P ∧ ...), grupul cu ȘI este 'absorbit' complet și dispare, rămânând pur și simplu ¬P ∨ ¬Q. Astfel, obținem o singură clauză: {¬P, ¬Q}, corespunzătoare opțiunii A.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Logică computațională, Pb. 10",
     "imagine": ""
@@ -1030,9 +897,7 @@
       "b": "satisfiabilă",
       "c": "nesatisfiabilă"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "O formulă în formă clauzală este satisfiabilă dacă există cel puțin o atribuire de valori (T/F) pentru care TOATE clauzele sunt adevărate simultan. Dacă încercăm P=Adevăraț atunci clauza (2) ne forțează ca R=Adevărat (pentru că ¬P e Fals). Dacă P=Adevărat și R=Adevăraț clauza (4) devine {Falș ¬Q, Fals}, deci ne forțează ca ¬Q să fie Adevăraț adică Q=Fals. Verificăm restul: (1) {Ț F, F} = T. (3) {Ț Ț S} = T. (5) {Ț ¬S} = T. S poate fi orice. Pentru că am găsit un model care funcționează (P=Ț R=Ț Q=F), mulțimea este satisfiabilă.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Logică computațională, Pb. 11",
     "imagine": ""
@@ -1047,10 +912,7 @@
       "b": "când se generează mulțimea vidă de clauze",
       "c": "când nu se pot genera clauze noi, și clauza vidă nu este în mulțimea de clauze"
     },
-    "raspuns_corect": [
-      "b",
-      "c"
-    ],
+    "raspuns_corect": ["b", "c"],
     "explicatie": "Metoda Davis-Putnam (DP) încearcă să demonstreze nesatisfiabilitatea reducând mulțimea de clauze la clauza vidă (care reprezintă o contradicție). Dacă reușește să elimine toate clauzele (rămânând mulțimea vidă de clauze), înseamnă că totul e adevărat și formula e satisfiabilă (b). De asemenea, dacă algoritmul se blochează și nu mai poate deduce nimic nou, dar încă nu a generat clauza vidă (contradicția), înseamnă că sistemul este consistent și, din nou, satisfiabil (c). Dacă ar fi generat clauza vidă (a), ar fi fost nesatisfiabilă.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Logică computațională, Pb. 12",
     "imagine": ""
@@ -1065,9 +927,7 @@
       "b": "se presupune A și se demonstrează G",
       "c": "se presupune ¬A și se demonstrează B și G"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "Aceasta este regula eliminării disjuncției (sau raționamentul prin cazuri). Deoarece știm sigur că măcar unul dintre evenimentele A sau B este adevăraț pentru a demonstra că G decurge din ele, trebuie să demonstrăm G pe ambele ramuri posibile: analizăm cazul în care A este adevărat și deducem G, apoi analizăm separat cazul în care B este adevărat și deducem G.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Logică computațională, Pb. 13",
     "imagine": ""
@@ -1083,10 +943,7 @@
       "c": "(¬P ∧ Q ∧ ¬R) ∨ (((¬P ∧ Q) ∨ P) ∧ R)",
       "d": "((¬P ∧ Q) ∨ (P ∧ ¬Q) ∨ (P ∧ Q))"
     },
-    "raspuns_corect": [
-      "b",
-      "c"
-    ],
+    "raspuns_corect": ["b", "c"],
     "explicatie": "Codificările binare pentru 3 biți (0-7) corespunzătoare numerelor prime (2, 3, 5, 7) sunt: 010, 011, 101, 111. Formula trebuie să dea Adevărat DOAR pentru aceste cazuri. Dacă testăm varianta (b): (¬P ∧ Q) este Adevărat pentru 010 (2) și 011 (3). (P ∧ R) este Adevărat pentru 101 (5) și 111 (7). Cele două acoperă exact numerele prime. Varianta (c) este doar o scriere expandată și logic echivalentă a variantei (b), acoperind aceleași stări.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Logică computațională, Pb. 14",
     "imagine": ""
@@ -1102,9 +959,7 @@
       "c": "aplicarea unui pas de rezoluție",
       "d": "aplicarea regulii clauzei cu un singur literal (folosind ultima clauză)"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "În metoda Davis-Putnam, se caută mai întâi simplificări evidente. Un 'literal pur' este un literal care apare într-o mulțime de clauze doar cu o singură polaritate (fie doar afirmaț fie doar negat). Observăm că 'Q' nu apare deloc ca afirmat (pozitiv) în nicio clauză, ci apare doar sub forma '¬Q' în clauzele 1, 2, 4 și 5. Deci ¬Q este un literal pur, iar DP va simplifica sistemul atribuindu-i valoarea Adevărat. Ultima clauză nu are un singur literal (are doi), deci (d) e falsă.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Logică computațională, Pb. 15",
     "imagine": ""
@@ -1120,10 +975,7 @@
       "c": "L = {a^(i+1) b^i | i ≥ 1}",
       "d": "L = {a^(n+i) b^n | n ≥ 1, i ≥ 0}"
     },
-    "raspuns_corect": [
-      "a",
-      "d"
-    ],
+    "raspuns_corect": ["a", "d"],
     "explicatie": "Regula S → aSb generează a^k S b^k. La un moment daț folosim S → aAb, ceea ce adaugă încă un 'a' și un 'b', dând a^(k+1) A b^(k+1). Regula A → aA generează un număr arbitrar 'i' de litere 'a', iar apoi dispare prin A → λ. Șirul final va avea forma a^(k+1+i) b^(k+1). Notând n = k+1 (unde n ≥ 1), obținem a^(n+i) b^n, cu n ≥ 1, i ≥ 0 (deci D este corectă). Aceasta înseamnă că mereu vom avea cel puțin la fel de mulți 'a' câți 'b', dar numărul de 'b' este de cel puțin 1. Asta e identic cu a afirma că șirul are forma a^m b^n unde m ≥ n ≥ 1 (varianta A corectă).",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Limbaje formale, Pb. 1",
     "imagine": ""
@@ -1139,12 +991,7 @@
       "c": "dependente de context (tip 1)",
       "d": "de tipul 0, 1, 2, 3"
     },
-    "raspuns_corect": [
-      "a",
-      "b",
-      "c",
-      "d"
-    ],
+    "raspuns_corect": ["a", "b", "c", "d"],
     "explicatie": "Regulile sunt de forma Neterminal → Terminal (ex: S → PCR, unde PCR este tratat ca un singur simbol terminal din dicționar). Aceasta corespunde exact regulilor pentru o gramatică regulată (Tipul 3 din ierarhia Chomsky). Întrucât ierarhia Chomsky este inclusivă, orice gramatică de Tip 3 este automat și de Tip 2, Tip 1 și Tip 0.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Limbaje formale, Pb. 2",
     "imagine": ""
@@ -1160,9 +1007,7 @@
       "c": "dependente de context (tip 1)",
       "d": "de tipul 0"
     },
-    "raspuns_corect": [
-      "d"
-    ],
+    "raspuns_corect": ["d"],
     "explicatie": "Reguli precum Ab → bA și bB → Bb au mai multe simboluri (inclusiv terminale) în stânga producției, ceea ce exclude imediat gramaticile de Tip 3 (regulate) și Tip 2 (independente de context). Deși producțiile sunt monotone (nu scurtează șirul), ele nu respectă forma strictă de substituție a gramaticilor dependente de context (Tip 1), care cere înlocuirea unui singur neterminal într-un context specific (αAβ → αyβ). Rămâne exclusiv încadrarea în categoria generală, nerestricționată, de Tipul 0.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Limbaje formale, Pb. 3",
     "imagine": ""
@@ -1178,10 +1023,7 @@
       "c": "0∗11∗",
       "d": "(0|1)∗1(0|1)∗"
     },
-    "raspuns_corect": [
-      "b",
-      "d"
-    ],
+    "raspuns_corect": ["b", "d"],
     "explicatie": "Un șir care conține cel puțin un '1' poate avea orice fel de combinații de 0 și 1 înainte de '1', și orice fel de combinații de 0 și 1 după '1'. Varianta D descrie exact asta: (0|1)* înseamnă orice combinație, apoi urmează obligatoriu un 1, urmat iar de orice combinație (0|1)*. Varianta B o include și pe D în ramura dreaptă a disjuncției, fiind de asemenea complet corectă funcțional.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Limbaje formale, Pb. 4",
     "imagine": ""
@@ -1197,9 +1039,7 @@
       "c": "L = {w ∈ {0, 1}∗ | w începe cu 0}",
       "d": "L = {01^n | n ≥ 0} ∪ {1}"
     },
-    "raspuns_corect": [
-      "d"
-    ],
+    "raspuns_corect": ["d"],
     "explicatie": "Expresia regulată are două ramuri delimitate de operatorul SAU (|). Prima ramură este '01*', care înseamnă un '0' urmat de oricâte cifre de '1' (adică 01^n, cu n ≥ 0). A doua ramură este pur și simplu cifra '1'. Limbajul rezultat este reuniunea acestor două seturi posibile, ceea ce este exprimat perfect de varianta (d).",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Limbaje formale, Pb. 5",
     "imagine": ""
@@ -1215,10 +1055,7 @@
       "c": "L = {w ∈ {0, 1}∗ | w are cel putin un simbol 0}",
       "d": "L = {w ∈ {0, 1}∗ | w are 0 în penultima poziție}"
     },
-    "raspuns_corect": [
-      "b",
-      "d"
-    ],
+    "raspuns_corect": ["b", "d"],
     "explicatie": "Analizăm finalul expresiei regulate: ea se termină cu '0(0|1)'. Asta înseamnă că ultimele două caractere ale oricărui șir generat trebuie să fie '00' sau '01'. Prin urmare, penultimul caracter este obligatoriu '0' (varianta D). Impliciț șirul se termină strict cu grupurile 00 sau 01 (varianta B).",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Limbaje formale, Pb. 6",
     "imagine": ""
@@ -1234,11 +1071,7 @@
       "c": "decidabil",
       "d": "regulat"
     },
-    "raspuns_corect": [
-      "a",
-      "b",
-      "d"
-    ],
+    "raspuns_corect": ["a", "b", "d"],
     "explicatie": "Dacă diferența de limbaje L1 \\ L2 este un limbaj regulaț limbajul L2 poate aparține teoretic oricărei clase din ierarhie (dacă elementele care diferă se elimină în mod convenabil sau pur și simplu nu se suprapun). Dacă L2 este mulțimea vidă (a), L1 \\ ∅ = L1, care știam că e regulat. Poate fi regulat (d). Poate fi independent de context (b) (de ex: un L2 care nu are nicio intersecție cu L1, rezultând din nou tot L1).",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Limbaje formale, Pb. 7",
     "imagine": ""
@@ -1254,9 +1087,7 @@
       "c": "3",
       "d": "6"
     },
-    "raspuns_corect": [
-      "c"
-    ],
+    "raspuns_corect": ["c"],
     "explicatie": "Lema de pompare (Pumping Lemma) pentru limbaje regulate afirmă că orice cuvânt 'w' dintr-un limbaj regulat (care este mai lung decât o constantă 'p') poate fi partiționat în exact 3 părți: w = xyz, cu anumite proprietăți (y nu e vid, iar x(y^n)z aparține limbajului pentru orice n).",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Limbaje formale, Pb. 8",
     "imagine": ""
@@ -1272,9 +1103,7 @@
       "c": "Formă normală Greibach",
       "d": "Formă normală Chomsky"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "O producție unitară (în care un neterminal produce exact un alt neterminal singur) se numește 'regulă de redenumire' (sau producție unitară). În timpul algoritmilor de simplificare a gramaticilor, aceste reguli sunt eliminate prin expandare, tocmai pentru că ele funcționează doar ca un alias.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Limbaje formale, Pb. 9",
     "imagine": ""
@@ -1290,11 +1119,7 @@
       "c": "S → λ",
       "d": "nici una din cele menționate anterior"
     },
-    "raspuns_corect": [
-      "a",
-      "b",
-      "c"
-    ],
+    "raspuns_corect": ["a", "b", "c"],
     "explicatie": "Prin definiție, o gramatică este în Forma Normală Chomsky (FNC) dacă TOATE regulile ei au una dintre cele două forme de bază: un neterminal produce alte două neterminale (A → BC, varianta a), sau un neterminal produce exact un terminal (A → a, varianta b). Adițional, regula S → λ (varianta c) este tolerată și acceptată dacă limbajul respectiv conține cuvântul vid.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Limbaje formale, Pb. 10",
     "imagine": ""
@@ -1310,9 +1135,7 @@
       "c": "S → ABa, A → aab, B → Ac",
       "d": "toate cele menționate anterior"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "Forma Normală Chomsky impune ca orice regulă să se mapaze pe Tipul [Neterminal → Neterminal Neterminal] sau [Neterminal → terminal_simplu]. Varianta (a) respectă 100% regula (ex: A → AB, A → 0). Variantele B și C sunt incorecte deoarece conțin reguli care produc un amestec de peste 2 neterminale sau neterminale combinate cu terminale pe aceeași ramură (ex: S → BCA, S → ABa).",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Limbaje formale, Pb. 11",
     "imagine": ""
@@ -1327,9 +1150,7 @@
       "b": "L nu este limbaj regulat",
       "c": "L este limbaj de programare"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "Analizând gramatica, observăm că A, B și C funcționează ca simple alias-uri pentru 'a', 'b' și 'c'. Dacă le înlocuim mental (ex: S → aX), observăm că la fiecare paș se produce fix un terminal urmat de fix un neterminal. Aceasta este forma strictă a unei gramatici 'regulat-liniare la dreapta', ceea ce implică în mod direct că L este un limbaj regulat.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Limbaje formale, Pb. 12",
     "imagine": ""
@@ -1345,9 +1166,7 @@
       "c": "L = {w ∈ VT∗ | w conține subșirul abc}",
       "d": "L = {λ}"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "Urmărind fluxul regulilor gramaticale: dacă starea curentă emite un 'a' (prin AX care apelează A→a), se duce în starea X. Odată ajuns în starea X, regulile permise sunt doar BY sau CZ (adică va emite un 'b' sau un 'c', dar niciodată un 'a'). Prin urmare, sistemul nu poate produce niciodată două litere identice una după alta.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Limbaje formale, Pb. 13",
     "imagine": ""
@@ -1363,9 +1182,7 @@
       "c": "sn = sn−1 + 2 · sn−2",
       "d": "sn = 3 sn−1 + sn−2"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "La pasul 1, avem 3 opțiuni posibile pentru prima literă a șirului (a, b sau c). După ce a fost aleasă prima literă, pentru a doua poziție ne mai rămân doar 2 opțiuni valabile (pentru a nu avea litere consecutive identice, cum am demonstrat la grila anterioară). Pentru a treia literă avem iar 2 opțiuni (diferite de a doua) și tot așa. Acest lucru înseamnă că pentru a trece de la șirurile de lungime n-1 la cele de lungime n, înmulțim mereu stările cu 2.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Limbaje formale, Pb. 14",
     "imagine": ""
@@ -1382,9 +1199,7 @@
       "d": "81",
       "e": "243"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "Pe baza deducției de la grila anterioară, putem calcula matematic. Pentru prima literă: 3 opțiuni. Pentru a doua literă: 2 opțiuni (deoarece excludem litera aleasă înainte). Pentru a treia literă: 2 opțiuni. Pentru a patra literă: 2 opțiuni. Conform regulii produsului (Principiul combinatoricii), numărul total de șiruri distincte de lungime 4 este: 3 * 2 * 2 * 2 = 24 de șiruri.",
     "referinta_sursa": "Tematica 1: Structuri discrete și algoritmi - Limbaje formale, Pb. 15",
     "imagine": ""
@@ -1402,9 +1217,7 @@
       "d": "Eroare la compilare deoarece funcția este apelată fară argumente",
       "e": "None"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Python, Pb. 1",
     "imagine": ""
@@ -1422,9 +1235,7 @@
       "d": "[i for i in s if i in ’aom’]",
       "e": "”.join([i for i in s if i in ’aom’])"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Python, Pb. 2",
     "imagine": ""
@@ -1442,9 +1253,7 @@
       "d": "108",
       "e": "42"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Python, Pb. 3",
     "imagine": ""
@@ -1462,9 +1271,7 @@
       "d": "Da, deoarece reprezentarea în virgulă mobilă asigură precizia necesară",
       "e": "Da, Python asigură aproximările necesare comparării valorilor de tipfloat"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Python, Pb. 4",
     "imagine": ""
@@ -1481,9 +1288,7 @@
       "c": "d = {’nume’:’valoare’}",
       "d": "d = [’nume’=’valoare’]"
     },
-    "raspuns_corect": [
-      "c"
-    ],
+    "raspuns_corect": ["c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Python, Pb. 5",
     "imagine": ""
@@ -1502,9 +1307,7 @@
       "e": "33",
       "f": "0"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Python, Pb. 6",
     "imagine": ""
@@ -1522,10 +1325,7 @@
       "d": "Persoana(prof1).salut()",
       "e": "Nu putem apela metoda salut() din clasa Persoana deoarece este supraîncărcată în clasa Profesor"
     },
-    "raspuns_corect": [
-      "a",
-      "d"
-    ],
+    "raspuns_corect": ["a", "d"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Python, Pb. 7",
     "imagine": ""
@@ -1542,9 +1342,7 @@
       "c": "Metoda __init__ din clasa A este invocată și se afișează “i from B is 60”.",
       "d": "Metoda __init__ din clasa A este invocată și se afișează “i from B is 90”."
     },
-    "raspuns_corect": [
-      "d"
-    ],
+    "raspuns_corect": ["d"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Python, Pb. 8",
     "imagine": ""
@@ -1562,9 +1360,7 @@
       "d": "doar dacă o anumită condiție specificată este îndeplinită",
       "e": "niciodată"
     },
-    "raspuns_corect": [
-      "c"
-    ],
+    "raspuns_corect": ["c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Python, Pb. 9",
     "imagine": ""
@@ -1582,9 +1378,7 @@
       "d": "output_file = File(\"hello.txt\", \"w\")",
       "e": "output_file = open(\"hello.txt\", encoding=\"utf8\")"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Python, Pb. 10",
     "imagine": ""
@@ -1601,9 +1395,7 @@
       "c": "x=3.75, y=10.0;",
       "d": "x=3.0, y=10.0;"
     },
-    "raspuns_corect": [
-      "c"
-    ],
+    "raspuns_corect": ["c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: C, Pb. 1",
     "imagine": ""
@@ -1620,9 +1412,7 @@
       "c": "locul din textul sursă unde poate fi folosită;",
       "d": "dacă are semn sau nu;"
     },
-    "raspuns_corect": [
-      "c"
-    ],
+    "raspuns_corect": ["c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: C, Pb. 2",
     "imagine": ""
@@ -1638,9 +1428,7 @@
       "b": "2;",
       "c": "0;"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: C, Pb. 3",
     "imagine": ""
@@ -1657,9 +1445,7 @@
       "c": "0;",
       "d": "FALSE;"
     },
-    "raspuns_corect": [
-      "c"
-    ],
+    "raspuns_corect": ["c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: C, Pb. 4",
     "imagine": ""
@@ -1675,9 +1461,7 @@
       "b": "100;",
       "c": "23;"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: C, Pb. 5",
     "imagine": ""
@@ -1696,9 +1480,7 @@
       "e": "33",
       "f": "32"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: C, Pb. 6",
     "imagine": ""
@@ -1717,11 +1499,7 @@
       "e": "prin variabile globale",
       "f": "prin includere"
     },
-    "raspuns_corect": [
-      "c",
-      "d",
-      "e"
-    ],
+    "raspuns_corect": ["c", "d", "e"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: C, Pb. 7",
     "imagine": ""
@@ -1738,9 +1516,7 @@
       "c": "locul din textul sursă în care se apelează",
       "d": "instrucțiunile (definiția funcției)"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: C, Pb. 8",
     "imagine": ""
@@ -1757,9 +1533,7 @@
       "c": "n=10",
       "d": "n=’\\0’-’t’"
     },
-    "raspuns_corect": [
-      "c"
-    ],
+    "raspuns_corect": ["c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: C, Pb. 9",
     "imagine": ""
@@ -1779,9 +1553,7 @@
       "f": "toate",
       "g": "i și iv"
     },
-    "raspuns_corect": [
-      "c"
-    ],
+    "raspuns_corect": ["c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: C, Pb. 10",
     "imagine": ""
@@ -1801,9 +1573,7 @@
       "f": "f",
       "g": "abc"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: C, Pb. 11",
     "imagine": ""
@@ -1822,11 +1592,7 @@
       "e": "Este o funcție membră utilizată pentru a dealoca spațiu de memorie",
       "f": "O clasă nu poate avea mai mult de un constructor"
     },
-    "raspuns_corect": [
-      "a",
-      "c",
-      "d"
-    ],
+    "raspuns_corect": ["a", "c", "d"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: C++, Pb. 1",
     "imagine": ""
@@ -1843,10 +1609,7 @@
       "c": "Template-urile / genericele nu pot fi folosite cu tipuri de date abstracte definite de utilizator.",
       "d": "În afară de template-urile / genericele implicite nu pot fi definite altele noi."
     },
-    "raspuns_corect": [
-      "a",
-      "b"
-    ],
+    "raspuns_corect": ["a", "b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: C++, Pb. 2",
     "imagine": ""
@@ -1863,9 +1626,7 @@
       "c": "O funcție statică nu poate accesa o variabilă membru statică a clasei.",
       "d": "O variabilă membru statică a clasei nu poate fi modificată într-o funcție membră non-statică."
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: C++, Pb. 3",
     "imagine": ""
@@ -1883,10 +1644,7 @@
       "d": "’Aruncate’ folosind instrucțiunea try și ’tratate’ folosind instrucțiunea catch",
       "e": "’Aruncate’ folosind instrucțiunea throw(s) și ’tratate’ în blocuri try - catch (finally)"
     },
-    "raspuns_corect": [
-      "c",
-      "e"
-    ],
+    "raspuns_corect": ["c", "e"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: C++, Pb. 4",
     "imagine": ""
@@ -1903,9 +1661,7 @@
       "c": "Timisoara este ultimul element al listei",
       "d": "Timisoara este primul element al listei"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: C++, Pb. 5",
     "imagine": ""
@@ -1922,9 +1678,7 @@
       "c": "Problemele care apar din cauza codului duplicat",
       "d": "Posibilitatea extinderii claselor și evitarea modificărilor claselor și codului existent"
     },
-    "raspuns_corect": [
-      "d"
-    ],
+    "raspuns_corect": ["d"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: C++, Pb. 6",
     "imagine": ""
@@ -1941,10 +1695,7 @@
       "c": "Nu toți operatorii pot fi supraîncărcați",
       "d": "Operatorii se pot supraîncărca prin intermediul funcțiilor membre clasei și funcții prietene\nclasei."
     },
-    "raspuns_corect": [
-      "a",
-      "b"
-    ],
+    "raspuns_corect": ["a", "b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: C++, Pb. 7",
     "imagine": ""
@@ -1963,11 +1714,7 @@
       "e": "Supraîncărcarea operatorului ==",
       "f": "Un destructor în care se dealocă memoria adresată de membrii de tip pointer ai clasei"
     },
-    "raspuns_corect": [
-      "c",
-      "d",
-      "f"
-    ],
+    "raspuns_corect": ["c", "d", "f"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: C++, Pb. 8",
     "imagine": ""
@@ -1984,9 +1731,7 @@
       "b": "3",
       "c": "4"
     },
-    "raspuns_corect": [
-      "c"
-    ],
+    "raspuns_corect": ["c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: C++, Pb. 9",
     "imagine": ""
@@ -2002,9 +1747,7 @@
       "b": "clasa Rectangle nu poate fi instanțiată deoarece este clasă abstractă",
       "c": "codul se compilează cu succes"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: C++, Pb. 10",
     "imagine": ""
@@ -2021,9 +1764,7 @@
       "c": "Nu, starea obiectelor imutabile nu poate fi modificată de nimeni după ce obiectul a fost creat",
       "d": "Nu, doar proprietarul obiectului imutabil poate să îi schimbe starea."
     },
-    "raspuns_corect": [
-      "c"
-    ],
+    "raspuns_corect": ["c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Java, Pb. 1",
     "imagine": ""
@@ -2040,11 +1781,7 @@
       "c": "O metodă declaratăfinalnu poate fi suprascrisă la subclasare;",
       "d": "Un atribut declaratfinalpoate fi setat doar o singură dată;"
     },
-    "raspuns_corect": [
-      "a",
-      "c",
-      "d"
-    ],
+    "raspuns_corect": ["a", "c", "d"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Java, Pb. 2",
     "imagine": ""
@@ -2062,10 +1799,7 @@
       "d": "O metodă definită în clasa de bază nu poate fi suprascrisă în clasa derivată;",
       "e": "Moștenirea poate fi întotdeauna înlocuită cu compunerea obiectelor."
     },
-    "raspuns_corect": [
-      "a",
-      "c"
-    ],
+    "raspuns_corect": ["a", "c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Java, Pb. 3",
     "imagine": ""
@@ -2081,10 +1815,7 @@
       "b": "Nu există nicio diferență între clasele abstracte și interfețe;",
       "c": "O clasă abstractă poate conține variabile membre care nu sunt constante."
     },
-    "raspuns_corect": [
-      "a",
-      "c"
-    ],
+    "raspuns_corect": ["a", "c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Java, Pb. 4",
     "imagine": ""
@@ -2101,10 +1832,7 @@
       "c": "O clasă este o realizare/instanță a unui obiect;",
       "d": "Nu există nicio legătură între clase și obiecte."
     },
-    "raspuns_corect": [
-      "a",
-      "b"
-    ],
+    "raspuns_corect": ["a", "b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Java, Pb. 5",
     "imagine": ""
@@ -2121,10 +1849,7 @@
       "c": "O clasă poate implementa una sau mai multe interfețe",
       "d": "Subclasele moștenesc atributele, metodele și constructorii clasei de bază"
     },
-    "raspuns_corect": [
-      "b",
-      "d"
-    ],
+    "raspuns_corect": ["b", "d"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Java, Pb. 6",
     "imagine": ""
@@ -2141,10 +1866,7 @@
       "c": "folosirea clasei PreparedStatement evită întotdeauna SQL Injection",
       "d": "SQL Injection poate fi evitat prin folosirea placeholderului \"?\""
     },
-    "raspuns_corect": [
-      "b",
-      "d"
-    ],
+    "raspuns_corect": ["b", "d"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Java, Pb. 7",
     "imagine": ""
@@ -2161,10 +1883,7 @@
       "c": "Tipului variabilelor din lista de variabile",
       "d": "Tipului de return al funcției"
     },
-    "raspuns_corect": [
-      "a",
-      "c"
-    ],
+    "raspuns_corect": ["a", "c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Java, Pb. 8",
     "imagine": ""
@@ -2181,9 +1900,7 @@
       "c": "A a = new A(); a.run( );",
       "d": "new Thread.run( );"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Java, Pb. 9",
     "imagine": ""
@@ -2201,9 +1918,7 @@
       "d": "static block; method; instance block; constructor;",
       "e": "constructor; static block; instance block; method;"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Java, Pb. 10",
     "imagine": ""
@@ -2215,14 +1930,12 @@
     "enunt": "Se consideră următoarea secvență de cod:",
     "cod_sursa": "public class Main {\npublic static void main(String[] args) {\nSet<String> fructe = new TreeSet<>(Arrays.asList(\"mere\", \"pere\",\n\"banane\", \"mere\", \"kiwi\", \"ananas\", \"portocale\"));\nSystem.out.println(fructe);\n}\n}\nCare din variantele de mai jos se va afișa:",
     "variante": {
-      "a": "[mere, pere, banane, kiwi, ananaș portocale]",
-      "b": "[ananaș banane, kiwi, mere, pere, portocale]",
+      "a": "[mere, pere, banane, kiwi, ananas portocale]",
+      "b": "[ananas banane, kiwi, mere, pere, portocale]",
       "c": "[Ljava.lang.String; @15db9742]",
-      "d": "[portocale, ananaș kiwi, mere, banane, pere]\nProiectarea aplicațiilor software"
+      "d": "[portocale, ananas kiwi, mere, banane, pere]\nProiectarea aplicațiilor software"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Java, Pb. 11",
     "imagine": ""
@@ -2241,11 +1954,7 @@
       "e": "testarea în vederea descoperirii existenței erorilor",
       "f": "testarea faptului că software-ul îndeplinește cerințele utilizator"
     },
-    "raspuns_corect": [
-      "a",
-      "d",
-      "e"
-    ],
+    "raspuns_corect": ["a", "d", "e"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Proiectarea aplicațiilor software, Pb. 1",
     "imagine": ""
@@ -2265,10 +1974,7 @@
       "f": "interacțiunile actorilor cu sistemul",
       "g": "fluxul de prelucrare a datelor în sistem"
     },
-    "raspuns_corect": [
-      "b",
-      "c"
-    ],
+    "raspuns_corect": ["b", "c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Proiectarea aplicațiilor software, Pb. 2",
     "imagine": ""
@@ -2286,11 +1992,7 @@
       "d": "Acțiuni periodice de eliminare a complexității din sistem",
       "e": "Modelarea completă a software-lui înainte de scrierea codului"
     },
-    "raspuns_corect": [
-      "a",
-      "b",
-      "d"
-    ],
+    "raspuns_corect": ["a", "b", "d"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Proiectarea aplicațiilor software, Pb. 3",
     "imagine": ""
@@ -2307,10 +2009,7 @@
       "c": "Biblioteci de programe",
       "d": "Șabloane arhitecturale"
     },
-    "raspuns_corect": [
-      "b",
-      "d"
-    ],
+    "raspuns_corect": ["b", "d"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Proiectarea aplicațiilor software, Pb. 4",
     "imagine": ""
@@ -2332,12 +2031,7 @@
       "h": "Clasa ComputerScience moștenește interfața Specialization.",
       "i": "Clasa Tutor definește un agregat de obiecte de tip Masterand."
     },
-    "raspuns_corect": [
-      "a",
-      "c",
-      "e",
-      "f"
-    ],
+    "raspuns_corect": ["a", "c", "e", "f"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Proiectarea aplicațiilor software, Pb. 5",
     "imagine": "diagrame/diagrame_122.png"
@@ -2354,9 +2048,7 @@
       "c": "class Proiect {\nprivate Student student;\nprivate DiagramaUML diagrama;\nprivate CodSursa codul;\n...}",
       "d": "class Proiect {\nprivate Collection <Student> studenti = new ArrayList<>();\nprivate Collecction <DiagramaUML> diagramele;\nprivate CodSursa codul;\n...}"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Proiectarea aplicațiilor software, Pb. 6",
     "imagine": "diagrame/diagrame_123.png"
@@ -2373,9 +2065,7 @@
       "c": "class Revista implements Produs {\nprivate Collection <Articol> articole = new LinkedList<>();\n...}",
       "d": "class Revista extends RevistaOnLine {\nprivate Collection <Articol> articole = new LinkedList<>();\nprivate Produs produs;\n...}"
     },
-    "raspuns_corect": [
-      "c"
-    ],
+    "raspuns_corect": ["c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Proiectarea aplicațiilor software, Pb. 7",
     "imagine": "diagrame/diagrame_124.png"
@@ -2392,9 +2082,7 @@
       "c": "Asociere bidirecțională, între clasele Proiect și CodSursa; agregare între clasele Proiect (agregat) și DiagramaUML (componenta); compoziție între clasele Proiect (agregat) și Student (componenta); realizare între interfața IStudent (implementată) și clasa Student (implementează); generalizare între clasa Student (superclasa) și clasa Bursier (subclasa)",
       "d": "Asociere bidirecțională, între clasele Proiect și CodSursa; compoziție între clasele DiagramaUML (compozit) și Proiect (componenta); agregare între clasele Student (agregat) și Proiect (componenta); realizare între interfața IStudent (implementată) și clasa Student (implementează); generalizare între clasa Student (superclasa) și clasa Bursier (subclasa)"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Proiectarea aplicațiilor software, Pb. 8",
     "imagine": "diagrame/diagrame_125.png"
@@ -2412,9 +2100,7 @@
       "d": "class Proiect {\nprivate Collection <Student> studenti ...}\nclass Student {\nprivate Proiect proiect;\n...}",
       "e": "class Proiect {\nprivate Collection <Student> studenti ...}\nclass Student {\nprivate Collection<Proiect> proiecte;\n...}"
     },
-    "raspuns_corect": [
-      "c"
-    ],
+    "raspuns_corect": ["c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Proiectarea aplicațiilor software, Pb. 9",
     "imagine": "diagrame/diagrame_126.png"
@@ -2433,10 +2119,7 @@
       "e": "addPlan(planCurent)",
       "f": "displayMsg(”OK”)"
     },
-    "raspuns_corect": [
-      "a",
-      "c"
-    ],
+    "raspuns_corect": ["a", "c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Proiectarea aplicațiilor software, Pb. 10",
     "imagine": "diagrame/diagrame_127.png"
@@ -2456,12 +2139,7 @@
       "f": "Plan",
       "g": "planCurent"
     },
-    "raspuns_corect": [
-      "a",
-      "b",
-      "e",
-      "f"
-    ],
+    "raspuns_corect": ["a", "b", "e", "f"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Proiectarea aplicațiilor software, Pb. 11",
     "imagine": "diagrame/diagrame_128.png"
@@ -2480,11 +2158,7 @@
       "e": "ListaCartieste obiect de interacțiune cu actor.",
       "f": "Catalogeste obiectentity."
     },
-    "raspuns_corect": [
-      "a",
-      "d",
-      "f"
-    ],
+    "raspuns_corect": ["a", "d", "f"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Proiectarea aplicațiilor software, Pb. 12",
     "imagine": "diagrame/diagrame_129.png"
@@ -2502,9 +2176,7 @@
       "d": "criterii / alpha states",
       "e": "alpha states / criterii"
     },
-    "raspuns_corect": [
-      "d"
-    ],
+    "raspuns_corect": ["d"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Proiectarea aplicațiilor software, Pb. 13",
     "imagine": ""
@@ -2522,9 +2194,7 @@
       "d": "a – 1, b – 2, c – 3, d – 4, e – 5",
       "e": "a – 3, b – 2, c – 4, d – 5, e –"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Proiectarea aplicațiilor software, Pb. 14",
     "imagine": "diagrame/diagrame_131.png"
@@ -2547,13 +2217,7 @@
       "i": "Verificare valori date de intrare față de domeniul definit cu reguli de intrare",
       "j": "Folosire aserțiuni pentru verificare rezultat de la un serviciu extern"
     },
-    "raspuns_corect": [
-      "a",
-      "c",
-      "e",
-      "f",
-      "h"
-    ],
+    "raspuns_corect": ["a", "c", "e", "f", "h"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Proiectarea aplicațiilor software, Pb. 15",
     "imagine": ""
@@ -2570,9 +2234,7 @@
       "c": "AVG(A) poate să ia valorile 1.5 sau 3, iar MAX(A) valorile 2 sau 4",
       "d": "Dacă MAX(A) = 4 atunci AVG(A) este 1.5"
     },
-    "raspuns_corect": [
-      "c"
-    ],
+    "raspuns_corect": ["c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Baze de date, Pb. 1",
     "imagine": ""
@@ -2589,9 +2251,7 @@
       "c": "π sName (π sID, sName Student − π sID, sName (Student ⋈ π sID(σ major='CS' ∨ major='PH' Apply)))",
       "d": "π sName Student − π sName (Student ⋈ π sID(σ major='CS' ∨ major='PH' Apply))"
     },
-    "raspuns_corect": [
-      "d"
-    ],
+    "raspuns_corect": ["d"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Baze de date, Pb. 2",
     "imagine": ""
@@ -2608,10 +2268,7 @@
       "c": "{A, E}→{D}",
       "d": "{D, E}→{A, B}"
     },
-    "raspuns_corect": [
-      "a",
-      "c"
-    ],
+    "raspuns_corect": ["a", "c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Baze de date, Pb. 3",
     "imagine": "diagrame/diagrame_135.png"
@@ -2628,9 +2285,7 @@
       "c": "{A, E, D}",
       "d": "{A}"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Baze de date, Pb. 4",
     "imagine": ""
@@ -2647,11 +2302,7 @@
       "c": "La o adresă (coloana B) nu pot corespunde valori diferite în coloana A",
       "d": "Nu pot exista două înregistrări în tabela R cu valori diferite în coloana D dacă valorile din\ncoloana A sunt identice"
     },
-    "raspuns_corect": [
-      "b",
-      "c",
-      "d"
-    ],
+    "raspuns_corect": ["b", "c", "d"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Baze de date, Pb. 5",
     "imagine": ""
@@ -2670,11 +2321,7 @@
       "e": "Students(SID, name, CID)",
       "f": "Enroll(SID, CID, grade)"
     },
-    "raspuns_corect": [
-      "a",
-      "b",
-      "f"
-    ],
+    "raspuns_corect": ["a", "b", "f"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Baze de date, Pb. 6",
     "imagine": "diagrame/diagrame_138.png"
@@ -2691,9 +2338,7 @@
       "c": "Două linii",
       "d": "Un alt răspuns"
     },
-    "raspuns_corect": [
-      "c"
-    ],
+    "raspuns_corect": ["c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Baze de date, Pb. 7",
     "imagine": ""
@@ -2710,11 +2355,7 @@
       "c": "SELECT d.department_id, d.department_name\nFROM employees e RIGHT OUTER JOIN departments d\nON (d.department_id=e.department_id) WHERE e.department_id IS NULL;",
       "d": "SELECT department_id, department_name\nFROM departments\nMINUS\nSELECT d.department_id, d.department_name\nFROM employees e JOIN departments d ON e.department_id=d.department_id;"
     },
-    "raspuns_corect": [
-      "a",
-      "c",
-      "d"
-    ],
+    "raspuns_corect": ["a", "c", "d"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Baze de date, Pb. 8",
     "imagine": ""
@@ -2731,9 +2372,7 @@
       "c": "LEFT OUTER JOIN",
       "d": "RIGHT OUTER JOIN"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Baze de date, Pb. 9",
     "imagine": ""
@@ -2750,11 +2389,7 @@
       "c": "Indecșii se recomandă a fi creați pentru coloane care sunt în mod frecvent referite ca parte a\nunei expresii.",
       "d": "Pentru fiecare constrângere de cheie primară sau cheie unică (PRIMARY KEY sau UNIQUE)\ndintr-un tabel se creează automat un index unic."
     },
-    "raspuns_corect": [
-      "a",
-      "b",
-      "d"
-    ],
+    "raspuns_corect": ["a", "b", "d"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Baze de date, Pb. 10",
     "imagine": ""
@@ -2771,9 +2406,7 @@
       "c": "Instrucțiunea ar trebui să utilizeze operatorul logic OR în loc de AND.",
       "d": "Instrucțiunea nu se execută deoarece în clauza SELECT coloana UNIT_PRICE este adău-\ngată după coloana pentru care este utilizată funcția de agregare."
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Baze de date, Pb. 11",
     "imagine": ""
@@ -2791,10 +2424,7 @@
       "d": "SELECT first_name, salary\nFROM employees\nWHERE manager_id = (SELECT manager_id\nFROM employees\nWHERE employee_id = 101)\nAND salary >= (SELECT salary\nFROM employees\nWHERE employee_id = 101)\nAND employee_id <> 101;",
       "e": "SELECT e.first_name, e.salary\nFROM employees e, employees m\nWHERE m.employee_id = 101 AND e.manager_id = m.manager_id\nAND e.salary >= m.salary AND e.employee_id <> m.employee_id;"
     },
-    "raspuns_corect": [
-      "d",
-      "e"
-    ],
+    "raspuns_corect": ["d", "e"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Baze de date, Pb. 12",
     "imagine": ""
@@ -2811,9 +2441,7 @@
       "c": "Ar fi creată și ar folosi un index non-unic creat automat.",
       "d": "Ar fi creată și ar rămâne în stare dezactivată deoarece nu e specificat explicit niciun index\nîn comandă."
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Baze de date, Pb. 13",
     "imagine": ""
@@ -2830,9 +2458,7 @@
       "c": "Dacă studentul cu ID-ul 101 a fost acceptat la cursul de Baze de date II",
       "d": "Dacă studentul cu ID-ul 101 a aplicat la cursul de Algebră (indiferent de starea câmpului\nAccepted)"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 2: Baze de date, Pb. 14",
     "imagine": ""
@@ -2849,9 +2475,7 @@
       "c": "rezultatul operațiilor aritmetice efectuate",
       "d": "adresa de unde va fi extrasă instrucțiunea ce urmează a fi executată"
     },
-    "raspuns_corect": [
-      "d"
-    ],
+    "raspuns_corect": ["d"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Arhitectura calculatoarelor, Pb. 1",
     "imagine": ""
@@ -2868,9 +2492,7 @@
       "c": "timp de acces",
       "d": "timp de răspuns"
     },
-    "raspuns_corect": [
-      "c"
-    ],
+    "raspuns_corect": ["c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Arhitectura calculatoarelor, Pb. 2",
     "imagine": ""
@@ -2887,9 +2509,7 @@
       "c": "BIOS",
       "d": "ROM"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Arhitectura calculatoarelor, Pb. 3",
     "imagine": ""
@@ -2906,9 +2526,7 @@
       "c": "01010101",
       "d": "10101011"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Arhitectura calculatoarelor, Pb. 4",
     "imagine": ""
@@ -2925,10 +2543,7 @@
       "c": "59 10",
       "d": "111100"
     },
-    "raspuns_corect": [
-      "a",
-      "d"
-    ],
+    "raspuns_corect": ["a", "d"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Arhitectura calculatoarelor, Pb. 5",
     "imagine": ""
@@ -2945,9 +2560,7 @@
       "c": "niciunul dintre răspunsuri",
       "d": "transfer prin întreruperi"
     },
-    "raspuns_corect": [
-      "d"
-    ],
+    "raspuns_corect": ["d"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Arhitectura calculatoarelor, Pb. 6",
     "imagine": ""
@@ -2964,9 +2577,7 @@
       "c": "bit",
       "d": "niciuna dintre acestea"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Arhitectura calculatoarelor, Pb. 7",
     "imagine": ""
@@ -2982,9 +2593,7 @@
       "b": "mai mare pentru întregi cu semn",
       "c": "același pentru întregi cu semn și întregi fără semn"
     },
-    "raspuns_corect": [
-      "c"
-    ],
+    "raspuns_corect": ["c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Arhitectura calculatoarelor, Pb. 8",
     "imagine": ""
@@ -3000,10 +2609,7 @@
       "b": "procesoarele RISC prezintă riscuri mai mari în utilizare",
       "c": "procesoarele RISC execută o instrucțiune într-un singur ciclu"
     },
-    "raspuns_corect": [
-      "a",
-      "c"
-    ],
+    "raspuns_corect": ["a", "c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Arhitectura calculatoarelor, Pb. 9",
     "imagine": ""
@@ -3019,9 +2625,7 @@
       "b": "întreruperea funcționării procesorului în urma unui bug software",
       "c": "întreruperea unui circuit de conectare între două sau mai multe componente hardware"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Arhitectura calculatoarelor, Pb. 10",
     "imagine": ""
@@ -3037,11 +2641,7 @@
       "b": "două memorii, una pentru date și una pentru instrucțiuni/program",
       "c": "drept dezavantaj major faptul că magistrala de date este mai ocupată decât magistrala de\nprogram"
     },
-    "raspuns_corect": [
-      "a",
-      "b",
-      "c"
-    ],
+    "raspuns_corect": ["a", "b", "c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Arhitectura calculatoarelor, Pb. 11",
     "imagine": ""
@@ -3057,9 +2657,7 @@
       "b": "nu există o legatură directă între evoluția în timp a unui ciclu de transfer și semnalul de tact\nal ceasului procesorului",
       "c": "se face permanent o sincronizare a acestora cu magistralele asincrone"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Arhitectura calculatoarelor, Pb. 12",
     "imagine": ""
@@ -3075,9 +2673,7 @@
       "b": "un conector care permite preluarea valorilor logice de la utilizator",
       "c": "un dispozitiv hardware capabil să efectueze o anumită operație (logică) asupra unor semnale\nelectrice"
     },
-    "raspuns_corect": [
-      "c"
-    ],
+    "raspuns_corect": ["c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Arhitectura calculatoarelor, Pb. 13",
     "imagine": ""
@@ -3093,10 +2689,7 @@
       "b": "Ieșirile celor două porți logice folosite pentru realizare sunt tot timpul complementare",
       "c": "Setează si resetează în mod continuu valorile numerice stocate"
     },
-    "raspuns_corect": [
-      "a",
-      "b"
-    ],
+    "raspuns_corect": ["a", "b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Arhitectura calculatoarelor, Pb. 14",
     "imagine": ""
@@ -3112,10 +2705,7 @@
       "b": "Este un circuit electric in care informațiile sunt combinate în mod aleator pentru a obține\nvalori aleatoare",
       "c": "Este un circuit care transpus într-un graf nu conține cicluri"
     },
-    "raspuns_corect": [
-      "a",
-      "c"
-    ],
+    "raspuns_corect": ["a", "c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Arhitectura calculatoarelor, Pb. 15",
     "imagine": ""
@@ -3132,9 +2722,7 @@
       "c": "mai puține moduri de adresare a memoriei",
       "d": "execuția mai rapidă a operațiilor aritmetice și logice"
     },
-    "raspuns_corect": [
-      "c"
-    ],
+    "raspuns_corect": ["c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Arhitectura calculatoarelor, Pb. 16",
     "imagine": ""
@@ -3150,9 +2738,7 @@
       "b": "poate stoca o valoare de tip real",
       "c": "poate stoca doar o valoare de tip Boolean"
     },
-    "raspuns_corect": [
-      "c"
-    ],
+    "raspuns_corect": ["c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Arhitectura calculatoarelor, Pb. 17",
     "imagine": ""
@@ -3169,11 +2755,7 @@
       "c": "control și supervizare",
       "d": "verificare semantică a unui program software"
     },
-    "raspuns_corect": [
-      "a",
-      "b",
-      "c"
-    ],
+    "raspuns_corect": ["a", "b", "c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Arhitectura calculatoarelor, Pb. 18",
     "imagine": ""
@@ -3189,10 +2771,7 @@
       "b": "semnale pentru arbitrarea magistralei",
       "c": "semnale de verificare conexiune Internet"
     },
-    "raspuns_corect": [
-      "a",
-      "b"
-    ],
+    "raspuns_corect": ["a", "b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Arhitectura calculatoarelor, Pb. 19",
     "imagine": ""
@@ -3208,9 +2787,7 @@
       "b": "toate dispozitivele conectate la magistrală pot citi linia de sincronizare",
       "c": "doar dispozitivele de intrare conectate la magistrală pot citi linia de sincronizare"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Arhitectura calculatoarelor, Pb. 20",
     "imagine": ""
@@ -3226,10 +2803,7 @@
       "b": "nu poate fi modificat sau citit în mod direct",
       "c": "indică adresa de deplasament plecând de la adresa conținută în registrul CS (adresa de baza)"
     },
-    "raspuns_corect": [
-      "b",
-      "c"
-    ],
+    "raspuns_corect": ["b", "c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Arhitectura calculatoarelor, Pb. 21",
     "imagine": ""
@@ -3246,9 +2820,7 @@
       "c": "Efectuează operații logice",
       "d": "Toate variantele enumerate"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Arhitectura calculatoarelor, Pb. 22",
     "imagine": ""
@@ -3265,9 +2837,7 @@
       "c": "Memoria secundară",
       "d": "Niciuna dintre variantele enumerate"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Arhitectura calculatoarelor, Pb. 23",
     "imagine": ""
@@ -3284,9 +2854,7 @@
       "c": "Registre",
       "d": "Niciuna dintre variantele enumerate"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Arhitectura calculatoarelor, Pb. 24",
     "imagine": ""
@@ -3300,11 +2868,9 @@
     "variante": {
       "a": "1 10000010 10001000000000000000000",
       "b": "1 01111100 10001000000000000000000",
-      "c": "0"
+      "c": "0 10000010 10001000000000000000000"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Arhitectura calculatoarelor, Pb. 25",
     "imagine": ""
@@ -3322,10 +2888,7 @@
       "d": "mecanismul TSL",
       "e": "monitoare"
     },
-    "raspuns_corect": [
-      "a",
-      "e"
-    ],
+    "raspuns_corect": ["a", "e"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Sisteme de operare, Pb. 1",
     "imagine": ""
@@ -3343,11 +2906,7 @@
       "d": "D",
       "e": "niciunul"
     },
-    "raspuns_corect": [
-      "b",
-      "c",
-      "d"
-    ],
+    "raspuns_corect": ["b", "c", "d"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Sisteme de operare, Pb. 2",
     "imagine": ""
@@ -3365,9 +2924,7 @@
       "d": "Problema frizerului",
       "e": "niciuna dintre aceste probleme"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Sisteme de operare, Pb. 3",
     "imagine": ""
@@ -3384,9 +2941,7 @@
       "c": "34, 15",
       "d": "36, 16"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Sisteme de operare, Pb. 4",
     "imagine": ""
@@ -3403,9 +2958,7 @@
       "c": "3,4,5,6,7,14",
       "d": "3,4,6,6,7,14"
     },
-    "raspuns_corect": [
-      "d"
-    ],
+    "raspuns_corect": ["d"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Sisteme de operare, Pb. 5",
     "imagine": ""
@@ -3420,11 +2973,9 @@
       "a": "5 2 0 4",
       "b": "3 4 2 5",
       "c": "2 5 0 3",
-      "d": "5"
+      "d": "5 4 0 2"
     },
-    "raspuns_corect": [
-      "d"
-    ],
+    "raspuns_corect": ["d"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Sisteme de operare, Pb. 6",
     "imagine": ""
@@ -3441,9 +2992,7 @@
       "c": "paginile 5 și 7",
       "d": "paginile 2, 5 și 7"
     },
-    "raspuns_corect": [
-      "c"
-    ],
+    "raspuns_corect": ["c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Sisteme de operare, Pb. 7",
     "imagine": ""
@@ -3458,12 +3007,9 @@
       "a": "A= 5, B= 7",
       "b": "A= 7, B= 5",
       "c": "A=−29, B= 17",
-      "d": "A=−31, B="
+      "d": "A=−31, B= 19"
     },
-    "raspuns_corect": [
-      "b",
-      "d"
-    ],
+    "raspuns_corect": ["b", "d"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Sisteme de operare, Pb. 8",
     "imagine": ""
@@ -3478,11 +3024,9 @@
       "a": "D= 12",
       "b": "D= 14",
       "c": "D= 13",
-      "d": "D="
+      "d": "D= 11"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Sisteme de operare, Pb. 9",
     "imagine": ""
@@ -3497,11 +3041,9 @@
       "a": "D= 11",
       "b": "D= 13",
       "c": "D= 14",
-      "d": "D="
+      "d": "D= 12"
     },
-    "raspuns_corect": [
-      "c"
-    ],
+    "raspuns_corect": ["c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Sisteme de operare, Pb. 10",
     "imagine": ""
@@ -3519,10 +3061,7 @@
       "d": "down",
       "e": "niciuna dintre acestea"
     },
-    "raspuns_corect": [
-      "b",
-      "d"
-    ],
+    "raspuns_corect": ["b", "d"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Sisteme de operare, Pb. 11",
     "imagine": ""
@@ -3539,9 +3078,7 @@
       "c": "într-o manieră atomică",
       "d": "în niciuna dintre situațiile precizate"
     },
-    "raspuns_corect": [
-      "c"
-    ],
+    "raspuns_corect": ["c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Sisteme de operare, Pb. 12",
     "imagine": ""
@@ -3559,9 +3096,7 @@
       "d": "dinamică",
       "e": "niciuna dintre acestea"
     },
-    "raspuns_corect": [
-      "c"
-    ],
+    "raspuns_corect": ["c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Sisteme de operare, Pb. 13",
     "imagine": ""
@@ -3579,9 +3114,7 @@
       "d": "sunt prea complexe pentru programatori",
       "e": "niciuna dintre acestea"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Sisteme de operare, Pb. 14",
     "imagine": ""
@@ -3599,9 +3132,7 @@
       "d": "Oricare dintre variantele a), b), c)",
       "e": "Niciuna dintre variantele a), b), c)"
     },
-    "raspuns_corect": [
-      "d"
-    ],
+    "raspuns_corect": ["d"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Sisteme de operare, Pb. 15",
     "imagine": ""
@@ -3619,9 +3150,7 @@
       "d": "Cel mult de trei ori",
       "e": "Exact o dată"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Sisteme de operare, Pb. 16",
     "imagine": ""
@@ -3638,9 +3167,7 @@
       "c": "5 și 17",
       "d": "9 și 15"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Sisteme de operare, Pb. 17",
     "imagine": ""
@@ -3657,9 +3184,7 @@
       "c": "1 și 2",
       "d": "3 și 4"
     },
-    "raspuns_corect": [
-      "d"
-    ],
+    "raspuns_corect": ["d"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Sisteme de operare, Pb. 18",
     "imagine": ""
@@ -3676,9 +3201,7 @@
       "c": "3 și 7",
       "d": "3 și 11"
     },
-    "raspuns_corect": [
-      "c"
-    ],
+    "raspuns_corect": ["c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Sisteme de operare, Pb. 19",
     "imagine": ""
@@ -3696,9 +3219,7 @@
       "d": "3, 6, 4, 2",
       "e": "2, 4, 6, 3"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Sisteme de operare, Pb. 20",
     "imagine": ""
@@ -3716,9 +3237,7 @@
       "d": "3, 1, 0, 2",
       "e": "3, 0, 1, 5"
     },
-    "raspuns_corect": [
-      "e"
-    ],
+    "raspuns_corect": ["e"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Sisteme de operare, Pb. 21",
     "imagine": ""
@@ -3736,9 +3255,7 @@
       "d": "3, 6, 4, 2",
       "e": "0, 1, 2, 3"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Sisteme de operare, Pb. 22",
     "imagine": ""
@@ -3755,9 +3272,7 @@
       "c": "50%",
       "d": "67%"
     },
-    "raspuns_corect": [
-      "d"
-    ],
+    "raspuns_corect": ["d"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Sisteme de operare, Pb. 23",
     "imagine": ""
@@ -3774,9 +3289,7 @@
       "c": "∼40%",
       "d": "∼10%"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Sisteme de operare, Pb. 24",
     "imagine": ""
@@ -3793,9 +3306,7 @@
       "c": "o stivă pe fir pentru firele de execuție la nivel de kernel, în timp ce firele de execuție la nivel\nde utilizator folosesc o stivă pe proces",
       "d": "o stivă pe proces pentru ambele cazuri"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Sisteme de operare, Pb. 25",
     "imagine": ""
@@ -3812,9 +3323,7 @@
       "c": "pipe-uri",
       "d": "fire de execuție"
     },
-    "raspuns_corect": [
-      "c"
-    ],
+    "raspuns_corect": ["c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Sisteme de operare, Pb. 26",
     "imagine": ""
@@ -3831,9 +3340,7 @@
       "c": "4",
       "d": "8"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Sisteme de operare, Pb. 27",
     "imagine": ""
@@ -3850,9 +3357,7 @@
       "c": "5, 202",
       "d": "20, 202"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Sisteme de operare, Pb. 28",
     "imagine": ""
@@ -3869,9 +3374,7 @@
       "c": "lice\nnță",
       "d": "lice\nnțăe"
     },
-    "raspuns_corect": [
-      "d"
-    ],
+    "raspuns_corect": ["d"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Sisteme de operare, Pb. 29",
     "imagine": ""
@@ -3888,11 +3391,7 @@
       "c": "capetele pipe-ului sunt corect închise în procesul părinte",
       "d": "capetele pipe-ului sunt închise incorect în procesul părinte"
     },
-    "raspuns_corect": [
-      "a",
-      "b",
-      "d"
-    ],
+    "raspuns_corect": ["a", "b", "d"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Sisteme de operare, Pb. 30",
     "imagine": ""
@@ -3909,10 +3408,7 @@
       "c": "Managementul fișierelor",
       "d": "Managementul bazelor de date"
     },
-    "raspuns_corect": [
-      "a",
-      "c"
-    ],
+    "raspuns_corect": ["a", "c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Sisteme de operare, Pb. 31",
     "imagine": ""
@@ -3929,10 +3425,7 @@
       "c": "funcționează dacă datele sunt modificate și programul nu",
       "d": "funcționează dacă programul este modificat și datele nu sunt modificate\nReț ele de calculatoare"
     },
-    "raspuns_corect": [
-      "a",
-      "b"
-    ],
+    "raspuns_corect": ["a", "b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Sisteme de operare, Pb. 32",
     "imagine": ""
@@ -3949,9 +3442,7 @@
       "c": "hash;",
       "d": "padding;"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Rețele de calculatoare, Pb. 1",
     "imagine": ""
@@ -3969,10 +3460,7 @@
       "d": "switch;",
       "e": "hub;"
     },
-    "raspuns_corect": [
-      "a",
-      "d"
-    ],
+    "raspuns_corect": ["a", "d"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Rețele de calculatoare, Pb. 2",
     "imagine": ""
@@ -3989,9 +3477,7 @@
       "c": "algoritmi de criptare simetrici;",
       "d": "suma de control (checksum);"
     },
-    "raspuns_corect": [
-      "d"
-    ],
+    "raspuns_corect": ["d"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Rețele de calculatoare, Pb. 3",
     "imagine": ""
@@ -4008,9 +3494,7 @@
       "c": "date, segmente, pachete, cadre, biți;",
       "d": "date, segmente, cadre, pachete, biți;"
     },
-    "raspuns_corect": [
-      "c"
-    ],
+    "raspuns_corect": ["c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Rețele de calculatoare, Pb. 4",
     "imagine": ""
@@ -4027,10 +3511,7 @@
       "c": "nu folosește sume de control;",
       "d": "asigură segmentare și reasamblare;"
     },
-    "raspuns_corect": [
-      "b",
-      "d"
-    ],
+    "raspuns_corect": ["b", "d"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Rețele de calculatoare, Pb. 5",
     "imagine": ""
@@ -4047,10 +3528,7 @@
       "c": "115.64.8.31;",
       "d": "115.64.5.128;"
     },
-    "raspuns_corect": [
-      "b",
-      "d"
-    ],
+    "raspuns_corect": ["b", "d"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Rețele de calculatoare, Pb. 6",
     "imagine": ""
@@ -4067,9 +3545,7 @@
       "c": "codul de corectare a erorilor;",
       "d": "codul de autentificare;"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Rețele de calculatoare, Pb. 7",
     "imagine": ""
@@ -4085,9 +3561,7 @@
       "b": "crează diferite domenii de coleziune dar un singur domeniu de ibroadcast;",
       "c": "crează diferite domenii de coleziune și diferite domenii de broadcast;"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Rețele de calculatoare, Pb. 8",
     "imagine": ""
@@ -4104,9 +3578,7 @@
       "c": "144.92.256.176;",
       "d": "144,92,43,178;"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Rețele de calculatoare, Pb. 9",
     "imagine": ""
@@ -4123,9 +3595,7 @@
       "c": "Carrier Sense Multiple Access with Collision Detection;",
       "d": "Control Sense Multiple Access with Collision Direction;"
     },
-    "raspuns_corect": [
-      "c"
-    ],
+    "raspuns_corect": ["c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Rețele de calculatoare, Pb. 10",
     "imagine": ""
@@ -4143,9 +3613,7 @@
       "d": "interoghează nodul sursă;",
       "e": "trimite pachetul pe prima interfață de rețea disponibilă;"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Rețele de calculatoare, Pb. 11",
     "imagine": ""
@@ -4162,9 +3630,7 @@
       "c": "Numărul de octeți transmiși de o aplicație;",
       "d": "Timpul necesar biților pentru a parcurge un canal de transmitere de o anumită lungime;"
     },
-    "raspuns_corect": [
-      "d"
-    ],
+    "raspuns_corect": ["d"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Rețele de calculatoare, Pb. 12",
     "imagine": ""
@@ -4182,9 +3648,7 @@
       "d": "timpul suficient pentru a transmite un 8 de biți pe fir;",
       "e": "timpul necesar a transmite un grup de biți peste un fir de o anumita lungime;"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Rețele de calculatoare, Pb. 13",
     "imagine": ""
@@ -4202,9 +3666,7 @@
       "d": "273.008secunde",
       "e": "8∗10 3 milisecunde"
     },
-    "raspuns_corect": [
-      "c"
-    ],
+    "raspuns_corect": ["c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Rețele de calculatoare, Pb. 14",
     "imagine": ""
@@ -4221,10 +3683,7 @@
       "c": "elimină nevoia de switch-uri;",
       "d": "mai puține domenii de broadcast;"
     },
-    "raspuns_corect": [
-      "a",
-      "b"
-    ],
+    "raspuns_corect": ["a", "b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Rețele de calculatoare, Pb. 15",
     "imagine": ""
@@ -4242,9 +3701,7 @@
       "d": "125b",
       "e": "10MB"
     },
-    "raspuns_corect": [
-      "c"
-    ],
+    "raspuns_corect": ["c"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Rețele de calculatoare, Pb. 16",
     "imagine": ""
@@ -4262,9 +3719,7 @@
       "d": "1",
       "e": "9/16"
     },
-    "raspuns_corect": [
-      "e"
-    ],
+    "raspuns_corect": ["e"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Rețele de calculatoare, Pb. 17",
     "imagine": ""
@@ -4282,9 +3737,7 @@
       "d": "Numărul de octeți recepționați după o anumită întârziere;",
       "e": "Viteza cu care sunt transmise datele la o anumită întârziere;"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Rețele de calculatoare, Pb. 18",
     "imagine": ""
@@ -4302,9 +3755,7 @@
       "d": "125b",
       "e": "0.5Mb"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Rețele de calculatoare, Pb. 19",
     "imagine": ""
@@ -4322,9 +3773,7 @@
       "d": "Crearea unei conexiuni între două aplicații",
       "e": "Încapsularea mesajelor primite de la nivelul legătură de date"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Rețele de calculatoare, Pb. 20",
     "imagine": ""
@@ -4342,9 +3791,7 @@
       "d": "stea;",
       "e": "LAN;"
     },
-    "raspuns_corect": [
-      "b"
-    ],
+    "raspuns_corect": ["b"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Rețele de calculatoare, Pb. 21",
     "imagine": ""
@@ -4362,9 +3809,7 @@
       "d": "Nivelul Fizic se preocupă cu codificarea semnalelor sub formă de octeți;",
       "e": "Nivelul Fizic se preocupă cu codificarea semnalului optic sub formă de impulsuri electrice\nbinare;"
     },
-    "raspuns_corect": [
-      "a"
-    ],
+    "raspuns_corect": ["a"],
     "explicatie": "",
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Rețele de calculatoare, Pb. 22",
     "imagine": ""

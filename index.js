@@ -3519,7 +3519,7 @@ const fallbackQuizData = [
       "a": "A= 5, B= 7",
       "b": "A= 7, B= 5",
       "c": "A=−29, B= 17",
-      "d": "A=−31, B="
+      "d": "A=−31, B= 19"
     },
     "raspuns_corect": [
       "b",
@@ -3539,7 +3539,7 @@ const fallbackQuizData = [
       "a": "D= 12",
       "b": "D= 14",
       "c": "D= 13",
-      "d": "D="
+      "d": "D= 11"
     },
     "raspuns_corect": [
       "b"
@@ -3558,7 +3558,7 @@ const fallbackQuizData = [
       "a": "D= 11",
       "b": "D= 13",
       "c": "D= 14",
-      "d": "D="
+      "d": "D= 12"
     },
     "raspuns_corect": [
       "c"
@@ -4430,7 +4430,7 @@ const fallbackQuizData = [
     "referinta_sursa": "Tematica 3: Sisteme de calcul - Rețele de calculatoare, Pb. 22",
     "imagine": ""
   }
-];;
+];;;
 
 // Initialize Application
 document.addEventListener("DOMContentLoaded", () => {
@@ -5270,7 +5270,24 @@ ${currentQuestion.raspuns_corect.join(", ").toUpperCase()}
 Opțiunile pe care le-am selectat eu:
 ${selectedChoices.join(", ").toUpperCase() || "Niciuna"}
 
-Te rog să îmi explici într-un mod didactic, concis si scurt de ce răspunsul corect este cel din barem, cum se execută codul (dacă este cazul) și de ce opțiunile selectate de mine sunt greșite (dacă am greșit). Răspunde direct în limba română, folosește formatare Markdown și păstrează tonul unui asistent universitar pasionat.
+Te rog să explici grila de mai sus respectând cu strictețe următorul șablon Markdown, fără introduceri sau politețuri inutile:
+
+### 1. 💡 Conceptul de Bază
+[Explică pe scurt regula teoretică, standardul sau conceptul testat (ex. IEEE 754, repeatable read în SQL, etc.)]
+
+### 2. 🚶 Pași de Execuție / Calcule
+[Arată trace-ul variabilelor sau calculele matematice/logice pas cu pas, dacă e cazul. Altfel, scrie 'Nu necesită trace.']
+
+### 3. 🔍 Analiza Opțiunilor
+- **Corect:** [De ce opțiunile din barem sunt corecte]
+- **Incorect:** [De ce celelalte opțiuni sunt greșite, punctual pentru fiecare în parte]
+
+### 4. 🎯 Analiza răspunsului meu
+[Dacă opțiunile selectate de mine coincid cu baremul, scrie 'Felicitări, ai răspuns corect!'. Dacă diferă, explică exact unde a apărut confuzia în raționamentul meu]
+
+Reguli suplimentare:
+- Fii extrem de scurt, direct și dens în informație.
+- Nu scrie nicio frază introductivă, începe direct cu '### 1. 💡 Conceptul de Bază'.
   `.trim();
 
   try {
@@ -5286,7 +5303,7 @@ Te rog să îmi explici într-un mod didactic, concis si scurt de ce răspunsul 
           {
             role: "system",
             content:
-              "Ești un asistent universitar expert în Informatică la Universitatea de Vest din Timișoara, specializat în explicarea grilelor pentru examenul de licență.",
+              "Ești un profesor universitar de Informatică la Universitatea de Vest din Timișoara, recunoscut pentru rigoarea științifică și capacitatea de a explica concis concepte dificile. Scopul tău este să explici grilele de licență structurat, fără introduceri sau politețuri inutile.",
           },
           {
             role: "user",
