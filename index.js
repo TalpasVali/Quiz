@@ -4692,6 +4692,7 @@ function loadQuestion() {
     const choiceTextVal = currentQuestion.variante[key];
     const isCode = isCodeString(choiceTextVal);
     const codeClass = isCode ? "code-choice" : "";
+    const cleanText = cleanChoiceText(choiceTextVal);
 
     // Create Button Element
     const button = document.createElement("button");
@@ -4701,7 +4702,7 @@ function loadQuestion() {
     // Build internal HTML structure for nice graphics
     button.innerHTML = `
       <span class="choice-prefix">${key}</span>
-      <span class="choice-text ${codeClass}">${escapeHtml(choiceTextVal)}</span>
+      <span class="choice-text ${codeClass}">${escapeHtml(cleanText)}</span>
       <span class="choice-status-icon"><i class="fa-solid fa-circle-check"></i></span>
     `;
 
@@ -4994,17 +4995,41 @@ function escapeHtml(text) {
 // Helper to check if a string contains programming code structures
 function isCodeString(str) {
   if (!str) return false;
+  
+  // Rule 1: Explicit markdown backtick marker forces code styling
+  if (str.startsWith("`") && str.endsWith("`")) {
+    return true;
+  }
+  
+  // Rule 2: If it contains Romanian diacritics inside parentheses, it's explanatory text
+  if (/\(\s*[^)]*[ăâîșțăâîşţ][^)]*\)/i.test(str)) {
+    return false;
+  }
+  
   const patterns = [
-    /\b(class|new|extends|implements|private|public|void|Thread|String|import|int|char|float|double|null)\b/,
-    /\(\s*\)/,
+    // Strong keywords
+    /\b(class|new|extends|implements|private|public|void|Thread|String|import|int|char|float|double|null|#include|#define)\b/,
+    // Specific pointer or scope operators, comparisons/increments (exclude simple equal '=')
+    /->|::|\+\+|--|\+=|-=|\*=|\/=|==|!=|&&|\|\|/,
+    // Ending statement semicolon
+    /;$/,
+    // Clean function calls (no spaces before parenthesis, no diacritics inside)
+    /\b[a-zA-Z0-9_]+\([a-zA-Z0-9_, *&]*\)/,
+    // Empty structures
     /\[\s*\]/,
     /\{\s*\}/,
-    /[a-zA-Z0-9_]+\s*\([^)]*\)/,
-    /->|::|=|\+=/,
-    /;$/,
-    /^[A-Z][a-zA-Z0-9_]*\([a-zA-Z0-9_, ]*\)$/,
+    // Generic structures
+    /\b(List|Set|Map|Collection|ArrayList|LinkedList|HashMap|HashSet)\s*</,
   ];
   return patterns.some((pattern) => pattern.test(str));
+}
+
+// Helper to strip backticks from explicit code formatting
+function cleanChoiceText(str) {
+  if (typeof str === "string" && str.startsWith("`") && str.endsWith("`")) {
+    return str.slice(1, -1);
+  }
+  return str;
 }
 
 // STUDY MODE LOGIC
@@ -5071,10 +5096,11 @@ function renderStudyQuestions(questions) {
       const correctClass = isCorrectChoice ? "correct" : "";
       const isCode = isCodeString(q.variante[key]);
       const codeClass = isCode ? "code-choice" : "";
+      const cleanText = cleanChoiceText(q.variante[key]);
       choicesHtml += `
         <div class="study-choice-item ${correctClass}">
           <span class="choice-prefix">${key}</span>
-          <span class="choice-text ${codeClass}">${escapeHtml(q.variante[key])}</span>
+          <span class="choice-text ${codeClass}">${escapeHtml(cleanText)}</span>
         </div>
       `;
     });
