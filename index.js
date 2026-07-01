@@ -5057,13 +5057,26 @@ function filterStudyQuestions() {
     const matchesCat = selectedCat === "all" || q.materie === selectedCat;
 
     // Text search filter
+    const cleanSearchText = searchText
+      .replace("#", "")
+      .replace("id:", "")
+      .replace("id", "")
+      .trim();
+    const matchesId = q.id.toString() === cleanSearchText;
+
     const inEnunt = q.enunt.toLowerCase().includes(searchText);
     const inExplicatie = q.explicatie.toLowerCase().includes(searchText);
+    const inReferinta = q.referinta_sursa.toLowerCase().includes(searchText);
     const inVariante = Object.values(q.variante).some((v) =>
       v.toLowerCase().includes(searchText),
     );
     const matchesText =
-      searchText === "" || inEnunt || inExplicatie || inVariante;
+      searchText === "" ||
+      inEnunt ||
+      inExplicatie ||
+      inVariante ||
+      inReferinta ||
+      matchesId;
 
     return matchesCat && matchesText;
   });
