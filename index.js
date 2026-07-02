@@ -51,6 +51,11 @@ const referenceText = document.getElementById("reference-text");
 const aiExplainBtn = document.getElementById("ai-explain-btn");
 const aiExplanationLoading = document.getElementById("ai-explanation-loading");
 const aiExplanationResult = document.getElementById("ai-explanation-result");
+const aiChatInputContainer = document.getElementById("ai-chat-input-container");
+const aiChatInput = document.getElementById("ai-chat-input");
+const aiChatSendBtn = document.getElementById("ai-chat-send-btn");
+
+let aiChatHistory = [];
 
 const finalScore = document.getElementById("final-score");
 const percentageScore = document.getElementById("percentage-score");
@@ -4479,6 +4484,18 @@ document.addEventListener("DOMContentLoaded", () => {
     aiExplainBtn.addEventListener("click", getAIExplanation);
   }
 
+  // Bind AI Chat Send button and input Enter key listener
+  if (aiChatSendBtn) {
+    aiChatSendBtn.addEventListener("click", sendFollowUpAIQuestion);
+  }
+  if (aiChatInput) {
+    aiChatInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        sendFollowUpAIQuestion();
+      }
+    });
+  }
+
   // Bind resume session button listeners
   if (resumeBtn) {
     resumeBtn.addEventListener("click", resumeLearningSession);
@@ -4718,6 +4735,9 @@ function loadQuestion() {
     aiExplanationResult.classList.add("hidden");
     aiExplanationResult.innerHTML = "";
   }
+  if (aiChatInputContainer) aiChatInputContainer.classList.add("hidden");
+  if (aiChatInput) aiChatInput.value = "";
+  aiChatHistory = [];
 }
 
 // Choice Selection Toggle
@@ -5363,15 +5383,117 @@ Reguli suplimentare:
     const data = await response.json();
     const aiText = data.choices[0].message.content;
 
-    // Render markdown text
-    aiExplanationResult.innerHTML = formatAIText(aiText);
+    // Populate chat history with the initial exchange
+    aiChatHistory = [
+      { role: "user", content: promptText },
+      { role: "assistant", content: aiText }
+    ];
+
+    // Render as an assistant chat bubble
+    aiExplanationResult.innerHTML = `<div class="chat-msg assistant">${formatAIText(aiText)}</div>`;
     aiExplanationResult.classList.remove("hidden");
+
+    // Show follow-up input container
+    if (aiChatInputContainer) aiChatInputContainer.classList.remove("hidden");
+    if (aiChatInput) {
+      aiChatInput.value = "";
+      aiChatInput.focus();
+    }
   } catch (error) {
     console.error(error);
     alert(`Eroare la generarea explicației: ${error.message}`);
     aiExplainBtn.classList.remove("hidden");
   } finally {
     aiExplanationLoading.classList.add("hidden");
+  }
+}
+
+// Send follow-up question to DeepSeek in the context of the current chat history
+async function sendFollowUpAIQuestion() {
+  if (!aiChatInput || !aiChatInput.value.trim()) return;
+
+  const userQuestion = aiChatInput.value.trim();
+  aiChatInput.value = ""; // Clear input immediately
+  aiChatInput.disabled = true;
+  if (aiChatSendBtn) aiChatSendBtn.disabled = true;
+
+  // 1. Append User Bubble to UI
+  const userMsgDiv = document.createElement("div");
+  userMsgDiv.className = "chat-msg user";
+  userMsgDiv.innerHTML = `<strong>Tu:</strong> ${escapeHtml(userQuestion)}`;
+  aiExplanationResult.appendChild(userMsgDiv);
+
+  // 2. Append Loading Bubble
+  const loadingDiv = document.createElement("div");
+  loadingDiv.className = "chat-msg assistant loading-bubble";
+  loadingDiv.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Se gândește...`;
+  aiExplanationResult.appendChild(loadingDiv);
+
+  // Scroll to bottom
+  aiExplanationResult.scrollTop = aiExplanationResult.scrollHeight;
+
+  // 3. Push user message to local history
+  aiChatHistory.push({ role: "user", content: userQuestion });
+
+  try {
+    const response = await fetch("https://api.deepseek.com/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${localStorage.getItem("deepseek_api_key")}`
+      },
+      body: JSON.stringify({
+        model: "deepseek-chat",
+        messages: [
+          {
+            role: "system",
+            content: "Ești un profesor universitar de Informatică la Universitatea de Vest din Timișoara, recunoscut pentru rigoarea științifică și capacitatea de a explica concis concepte dificile. Răspunde direct, la obiect, academic și concis, păstrând formatarea Markdown."
+          },
+          ...aiChatHistory
+        ],
+        temperature: 0.2
+      })
+    });
+
+    // Remove loading bubble
+    loadingDiv.remove();
+
+    if (!response.ok) {
+      const errData = await response.json().catch(() => ({}));
+      throw new Error(errData.error?.message || `Eroare HTTP ${response.status}`);
+    }
+
+    const data = await response.json();
+    const aiReply = data.choices[0].message.content;
+
+    // 4. Push reply to history
+    aiChatHistory.push({ role: "assistant", content: aiReply });
+
+    // 5. Append Assistant Bubble to UI
+    const assistantMsgDiv = document.createElement("div");
+    assistantMsgDiv.className = "chat-msg assistant";
+    assistantMsgDiv.innerHTML = formatAIText(aiReply);
+    aiExplanationResult.appendChild(assistantMsgDiv);
+
+  } catch (error) {
+    if (loadingDiv.parentNode) loadingDiv.remove();
+    console.error(error);
+    alert(`Eroare la trimiterea întrebării: ${error.message}`);
+    // Rollback last user message
+    aiChatHistory.pop();
+    
+    // Add warning text bubble
+    const errorDiv = document.createElement("div");
+    errorDiv.className = "chat-msg assistant";
+    errorDiv.style.borderLeftColor = "var(--danger)";
+    errorDiv.innerHTML = `<span style="color: var(--danger)"><i class="fa-solid fa-triangle-exclamation"></i> Trimiterea a eșuat. Încearcă din nou.</span>`;
+    aiExplanationResult.appendChild(errorDiv);
+  } finally {
+    aiChatInput.disabled = false;
+    if (aiChatSendBtn) aiChatSendBtn.disabled = false;
+    aiChatInput.focus();
+    // Scroll to bottom
+    aiExplanationResult.scrollTop = aiExplanationResult.scrollHeight;
   }
 }
 
