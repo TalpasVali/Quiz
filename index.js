@@ -4524,19 +4524,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   setAppTheme(savedTheme);
 
-  // Bind shortcuts guide button listener
-  const kbdBtn = document.querySelector(".keyboard-toggle-btn");
-  if (kbdBtn) {
-    kbdBtn.addEventListener("click", () => {
-      alert(
-        "Scurtături de tastatură disponibile în timpul Quiz-ului:\n\n" +
-          "• Tastele [1] până la [5] sau [A] până la [E] - Selectează opțiunea corespunzătoare\n" +
-          "• Tasta [Enter] - Validează răspunsul (Verifică) sau trece la următoarea întrebare",
-      );
-    });
-  }
-  window.addEventListener("keydown", handleKeyboardShortcuts);
-
   // Check for active session initially
   checkActiveSession();
 
@@ -5534,45 +5521,6 @@ function setAppTheme(theme) {
     document.body.classList.add("theme-sepia");
   }
   localStorage.setItem("uvtQuizTheme", theme);
-}
-
-// Keyboard shortcuts handler
-function handleKeyboardShortcuts(e) {
-  if (quizScreen.classList.contains("hidden")) return;
-  if (
-    document.activeElement.tagName === "INPUT" ||
-    document.activeElement.tagName === "TEXTAREA"
-  )
-    return;
-
-  const key = e.key.toLowerCase();
-  const choiceButtons = choicesContainer.querySelectorAll(".choice-btn");
-  let targetIndex = -1;
-
-  if (key >= "1" && key <= "5") {
-    targetIndex = parseInt(key) - 1;
-  } else if (key >= "a" && key <= "e") {
-    targetIndex = key.charCodeAt(0) - 97;
-  }
-
-  if (targetIndex >= 0 && targetIndex < choiceButtons.length) {
-    e.preventDefault();
-    const btn = choiceButtons[targetIndex];
-    if (btn && !btn.disabled) {
-      const choiceKey = btn.dataset.key;
-      toggleChoiceSelection(btn, choiceKey);
-    }
-    return;
-  }
-
-  if (e.key === "Enter") {
-    e.preventDefault();
-    if (!checkBtn.classList.contains("hidden") && !checkBtn.disabled) {
-      validateAnswer();
-    } else if (!nextBtn.classList.contains("hidden") && !nextBtn.disabled) {
-      nextQuestion();
-    }
-  }
 }
 
 // Render dynamic Statistics & Progress Dashboard
