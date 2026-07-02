@@ -38,6 +38,10 @@
           <i class="fa-solid fa-circle-play"></i>
           <span>Exersare (Quiz)</span>
         </button>
+        <button id="tab-image-study-btn" class="tab-nav-btn">
+          <i class="fa-solid fa-file-image"></i>
+          <span>Studiu (Imagine)</span>
+        </button>
         <button id="tab-study-btn" class="tab-nav-btn">
           <i class="fa-solid fa-book-open"></i>
           <span>Mod Studiu (Întrebări)</span>
@@ -96,6 +100,14 @@
           </select>
         </div>
 
+        <div class="form-group">
+          <label for="format-select"><i class="fa-solid fa-file-image"></i> Format întrebări:</label>
+          <select id="format-select">
+            <option value="text" selected>Text și cod sursă (Standard)</option>
+            <option value="image">Imagine originală din PDF</option>
+          </select>
+        </div>
+
         <div class="form-group" style="margin-top: 15px; border-top: 1px solid var(--border-light); padding-top: 15px;">
           <label for="api-key-input"><i class="fa-solid fa-key"></i> Cheie API DeepSeek (Opțional):</label>
           <input type="password" id="api-key-input" placeholder="sk-..." autocomplete="off" style="width: 100%;" />
@@ -126,6 +138,13 @@
             <span id="quiz-category" class="badge">Materia</span>
             <span id="question-db-id" class="badge badge-db-id">ID: -</span>
             <span id="question-pdf-ref" class="badge badge-pdf-ref">PDF: -</span>
+            
+            <!-- Format Toggle during Quiz -->
+            <div class="format-toggle-container" style="display: flex; background: var(--bg-main); border: 1px solid var(--border-light); border-radius: 20px; padding: 2px; gap: 2px; margin-left: 10px;">
+              <button id="format-text-btn" class="format-toggle-btn active" style="border: none; background: var(--primary); color: white; padding: 4px 10px; border-radius: 15px; font-size: 0.72rem; font-weight: 600; cursor: pointer; transition: all 0.2s;">Text</button>
+              <button id="format-image-btn" class="format-toggle-btn" style="border: none; background: transparent; color: var(--text-muted); padding: 4px 10px; border-radius: 15px; font-size: 0.72rem; font-weight: 600; cursor: pointer; transition: all 0.2s;">Imagine PDF</button>
+            </div>
+            
             <span id="quiz-question-number" class="progress-text" style="margin-left: auto;">Întrebarea 1/10</span>
           </div>
           <div class="progress-bar-container">
@@ -138,6 +157,11 @@
         <!-- Question Body -->
         <div id="question-container">
           <h2 id="question-text">Textul întrebării va apărea aici.</h2>
+          
+          <!-- Image Question display (Alternative for Image Mode) -->
+          <div id="image-question-container" class="hidden" style="margin-bottom: 20px; text-align: center; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 15px; overflow: hidden;">
+            <img id="image-question-img" src="" alt="Grila Originală" style="max-width: 100%; height: auto; border-radius: 8px; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));" />
+          </div>
           
           <!-- Diagram / Image (Conditional display) -->
           <div id="diagram-container" class="hidden" style="margin-bottom: 20px; text-align: center; background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-light); border-radius: 12px; padding: 15px; overflow: hidden;">
@@ -308,6 +332,44 @@
           </div>
         </div>
 
+    </div>
+
+    <!-- IMAGE STUDY TAB CONTENT -->
+    <div id="image-study-tab-content" class="hidden">
+      <div class="card">
+        <div class="brand">
+          <i class="fa-solid fa-file-image logo-icon"></i>
+          <span class="brand-text">STUDIU (IMAGINE)</span>
+        </div>
+        <h1>Grile PDF Originale</h1>
+        <p class="subtitle">Răsfoiește direct decupajele originale din PDF ale întrebărilor de examen, alături de răspunsurile corecte interactive.</p>
+
+        <!-- Filters -->
+        <div class="study-filters">
+          <div class="form-group filter-search">
+            <label for="image-study-search-input"><i class="fa-solid fa-magnifying-glass"></i> Caută:</label>
+            <input type="text" id="image-study-search-input" placeholder="Caută după ID (#144) sau materie..." autocomplete="off" />
+          </div>
+          
+          <div class="form-group filter-select">
+            <label for="image-study-category-select"><i class="fa-solid fa-filter"></i> Filtrează Materie:</label>
+            <select id="image-study-category-select">
+              <option value="all">Toate materiile</option>
+              <option value="Algoritmi și structuri de date">Algoritmi și structuri de date</option>
+              <option value="Teoria grafurilor și combinatorică">Teoria grafurilor și combinatorică</option>
+              <option value="Logică computațională">Logică computațională</option>
+              <option value="Limbaje formale și teoria automatelor">Limbaje formale și teoria automatelor</option>
+              <option value="Limbaje de programare și inginerie software">Limbaje de programare și inginerie software</option>
+              <option value="Sisteme de calcul">Sisteme de calcul</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Questions Accordion Container -->
+        <div id="image-study-questions-list" class="study-list">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
     </div>
 
     <!-- Main Logic Script -->

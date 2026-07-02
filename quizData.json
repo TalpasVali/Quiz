@@ -1776,10 +1776,10 @@
     "enunt": "Care dintre afirmațiile de mai jos este adevărată în relație cu limbajul Java?",
     "cod_sursa": "",
     "variante": {
-      "a": "Specificatorulfinalse aplică la clase, atribute si metode;",
-      "b": "O metodă declaratăfinalpoate apela doar metode declarate final în aceeași clasă;",
-      "c": "O metodă declaratăfinalnu poate fi suprascrisă la subclasare;",
-      "d": "Un atribut declaratfinalpoate fi setat doar o singură dată;"
+      "a": "Specificatorul final se aplică la clase, atribute si metode;",
+      "b": "O metodă declarată final poate apela doar metode declarate final în aceeași clasă;",
+      "c": "O metodă declarată final nu poate fi suprascrisă la subclasare;",
+      "d": "Un atribut declarat final poate fi setat doar o singură dată;"
     },
     "raspuns_corect": ["a", "c", "d"],
     "explicatie": "",
@@ -2151,12 +2151,12 @@
     "enunt": "Fie următoarea diagramă de robustețe.\nCare afirmații sunt adevărate?",
     "cod_sursa": "",
     "variante": {
-      "a": "Home pageeste obiectboundary.",
-      "b": "ExtrageListaCartipoate fi obiect persistent.",
-      "c": "AfiseazaLinkurieste obiect de interacțiune cu actor.",
-      "d": "ExtrageListaCartiar putea fi implementat ca metodă a unei claseentity.",
-      "e": "ListaCartieste obiect de interacțiune cu actor.",
-      "f": "Catalogeste obiectentity."
+      "a": "Home page este obiectboundary.",
+      "b": "ExtrageListaCarti poate fi obiect persistent.",
+      "c": "AfiseazaLinkuri este obiect de interacțiune cu actor.",
+      "d": "ExtrageListaCarti ar putea fi implementat ca metodă a unei clase entity.",
+      "e": "ListaCarti este obiect de interacțiune cu actor.",
+      "f": "Catalog este obiect entity."
     },
     "raspuns_corect": ["a", "d", "f"],
     "explicatie": "",
@@ -3423,7 +3423,7 @@
       "a": "funcționează pentru program dacă programul nu poate fi modificat",
       "b": "funcționează pentru date, dacă datele nu pot fi modificate",
       "c": "funcționează dacă datele sunt modificate și programul nu",
-      "d": "funcționează dacă programul este modificat și datele nu sunt modificate\nReț ele de calculatoare"
+      "d": "funcționează dacă programul este modificat și datele nu sunt modificate"
     },
     "raspuns_corect": ["a", "b"],
     "explicatie": "",

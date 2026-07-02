@@ -55,7 +55,21 @@ const aiChatInputContainer = document.getElementById("ai-chat-input-container");
 const aiChatInput = document.getElementById("ai-chat-input");
 const aiChatSendBtn = document.getElementById("ai-chat-send-btn");
 
+const tabImageStudyBtn = document.getElementById("tab-image-study-btn");
+const imageStudyTabContent = document.getElementById("image-study-tab-content");
+const imageStudySearchInput = document.getElementById("image-study-search-input");
+const imageStudyCategorySelect = document.getElementById("image-study-category-select");
+const imageStudyQuestionsList = document.getElementById("image-study-questions-list");
+
+const formatSelect = document.getElementById("format-select");
+const formatTextBtn = document.getElementById("format-text-btn");
+const formatImageBtn = document.getElementById("format-image-btn");
+const imageQuestionContainer = document.getElementById("image-question-container");
+const imageQuestionImg = document.getElementById("image-question-img");
+
 let aiChatHistory = [];
+let imageStudyQuestions = [];
+let quizFormat = "text";
 
 const finalScore = document.getElementById("final-score");
 const percentageScore = document.getElementById("percentage-score");
@@ -4448,15 +4462,31 @@ document.addEventListener("DOMContentLoaded", () => {
   tabQuizBtn.addEventListener("click", () => {
     tabQuizBtn.classList.add("active");
     tabStudyBtn.classList.remove("active");
+    if (tabImageStudyBtn) tabImageStudyBtn.classList.remove("active");
     quizTabContent.classList.remove("hidden");
     studyTabContent.classList.add("hidden");
+    if (imageStudyTabContent) imageStudyTabContent.classList.add("hidden");
   });
+
+  if (tabImageStudyBtn) {
+    tabImageStudyBtn.addEventListener("click", () => {
+      tabImageStudyBtn.classList.add("active");
+      tabQuizBtn.classList.remove("active");
+      tabStudyBtn.classList.remove("active");
+      quizTabContent.classList.add("hidden");
+      studyTabContent.classList.add("hidden");
+      if (imageStudyTabContent) imageStudyTabContent.classList.remove("hidden");
+      initImageStudyMode();
+    });
+  }
 
   tabStudyBtn.addEventListener("click", () => {
     tabStudyBtn.classList.add("active");
     tabQuizBtn.classList.remove("active");
+    if (tabImageStudyBtn) tabImageStudyBtn.classList.remove("active");
     studyTabContent.classList.remove("hidden");
     quizTabContent.classList.add("hidden");
+    if (imageStudyTabContent) imageStudyTabContent.classList.add("hidden");
     initStudyMode();
   });
 
@@ -4466,6 +4496,52 @@ document.addEventListener("DOMContentLoaded", () => {
 
   studySearchInput.addEventListener("input", filterStudyQuestions);
   studyCategorySelect.addEventListener("change", filterStudyQuestions);
+
+  // Image Study Mode Filters
+  if (imageStudySearchInput) {
+    imageStudySearchInput.addEventListener("input", filterImageStudyQuestions);
+  }
+  if (imageStudyCategorySelect) {
+    imageStudyCategorySelect.addEventListener("change", filterImageStudyQuestions);
+  }
+
+  // Format Toggle during Quiz
+  if (formatTextBtn && formatImageBtn) {
+    formatTextBtn.addEventListener("click", () => {
+      if (quizFormat === "text") return;
+      quizFormat = "text";
+      
+      formatTextBtn.classList.add("active");
+      formatTextBtn.style.background = "var(--primary)";
+      formatTextBtn.style.color = "white";
+      
+      formatImageBtn.classList.remove("active");
+      formatImageBtn.style.background = "transparent";
+      formatImageBtn.style.color = "var(--text-muted)";
+      
+      if (filteredQuestions.length > 0 && quizScreen.classList.contains("hidden") === false) {
+        loadQuestion();
+      }
+    });
+
+    formatImageBtn.addEventListener("click", () => {
+      if (quizFormat === "image") return;
+      quizFormat = "image";
+      
+      formatImageBtn.classList.add("active");
+      formatImageBtn.style.background = "var(--primary)";
+      formatImageBtn.style.color = "white";
+      
+      formatTextBtn.classList.remove("active");
+      formatTextBtn.style.background = "transparent";
+      formatTextBtn.style.color = "var(--text-muted)";
+      
+      if (filteredQuestions.length > 0 && quizScreen.classList.contains("hidden") === false) {
+        loadQuestion();
+      }
+    });
+  }
+
   // Attach Event Listeners
   startBtn.addEventListener("click", initQuiz);
   checkBtn.addEventListener("click", validateAnswer);
@@ -4547,6 +4623,9 @@ function showStartScreen() {
 async function initQuiz() {
   selectedCategory = categorySelect.value;
   gameMode = modeSelect.value; // Read chosen mode
+  if (formatSelect) {
+    quizFormat = formatSelect.value;
+  }
 
   // Save API key
   if (apiKeyInput) {
@@ -4614,6 +4693,31 @@ async function initQuiz() {
   startScreen.classList.add("hidden");
   quizScreen.classList.remove("hidden");
 
+  // Sync format buttons visual state
+  if (quizFormat === "image") {
+    if (formatImageBtn) {
+      formatImageBtn.classList.add("active");
+      formatImageBtn.style.background = "var(--primary)";
+      formatImageBtn.style.color = "white";
+    }
+    if (formatTextBtn) {
+      formatTextBtn.classList.remove("active");
+      formatTextBtn.style.background = "transparent";
+      formatTextBtn.style.color = "var(--text-muted)";
+    }
+  } else {
+    if (formatTextBtn) {
+      formatTextBtn.classList.add("active");
+      formatTextBtn.style.background = "var(--primary)";
+      formatTextBtn.style.color = "white";
+    }
+    if (formatImageBtn) {
+      formatImageBtn.classList.remove("active");
+      formatImageBtn.style.background = "transparent";
+      formatImageBtn.style.color = "var(--text-muted)";
+    }
+  }
+
   loadQuestion();
 }
 
@@ -4667,25 +4771,39 @@ function loadQuestion() {
   progressBarFill.style.width = `${progressPercent}%`;
 
   // Update Question Content
-  questionText.textContent = currentQuestion.enunt;
+  if (quizFormat === "image") {
+    questionText.classList.add("hidden");
+    if (diagramContainer) diagramContainer.classList.add("hidden");
+    if (codeBlockContainer) codeBlockContainer.classList.add("hidden");
 
-  // Diagram / Image Handler
-  if (diagramContainer && diagramImg) {
-    if (currentQuestion.imagine && currentQuestion.imagine.trim() !== "") {
-      diagramImg.src = currentQuestion.imagine;
-      diagramContainer.classList.remove("hidden");
-    } else {
-      diagramImg.src = "";
-      diagramContainer.classList.add("hidden");
+    if (imageQuestionContainer && imageQuestionImg) {
+      imageQuestionImg.src = `grile_pdf/grila_${currentQuestion.id}.png`;
+      imageQuestionContainer.classList.remove("hidden");
     }
-  }
-
-  // Code Block Handler
-  if (currentQuestion.cod_sursa && currentQuestion.cod_sursa.trim() !== "") {
-    codeText.textContent = currentQuestion.cod_sursa;
-    codeBlockContainer.classList.remove("hidden");
   } else {
-    codeBlockContainer.classList.add("hidden");
+    questionText.classList.remove("hidden");
+    questionText.textContent = currentQuestion.enunt;
+
+    // Diagram / Image Handler
+    if (diagramContainer && diagramImg) {
+      if (currentQuestion.imagine && currentQuestion.imagine.trim() !== "") {
+        diagramImg.src = currentQuestion.imagine;
+        diagramContainer.classList.remove("hidden");
+      } else {
+        diagramImg.src = "";
+        diagramContainer.classList.add("hidden");
+      }
+    }
+
+    // Code Block Handler
+    if (currentQuestion.cod_sursa && currentQuestion.cod_sursa.trim() !== "") {
+      codeText.textContent = currentQuestion.cod_sursa;
+      codeBlockContainer.classList.remove("hidden");
+    } else {
+      codeBlockContainer.classList.add("hidden");
+    }
+
+    if (imageQuestionContainer) imageQuestionContainer.classList.add("hidden");
   }
 
   // Generate Choices
@@ -5185,6 +5303,150 @@ function renderStudyQuestions(questions) {
             </div>
             <div class="explanation-body" style="font-size: 0.88rem;">
               <p>${escapeHtml(q.explicatie)}</p>
+              <div class="reference-badge" style="margin-top: 10px;">
+                <i class="fa-solid fa-bookmark"></i>
+                <span>${escapeHtml(q.referinta_sursa)}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    // Add collapse toggle handler
+    const header = card.querySelector(".study-q-header");
+    header.addEventListener("click", () => {
+      card.classList.toggle("expanded");
+    });
+
+    listContainer.appendChild(card);
+  });
+}
+
+async function initImageStudyMode() {
+  try {
+    const response = await fetch("quizData.json");
+    if (!response.ok) throw new Error("Could not fetch");
+    imageStudyQuestions = await response.json();
+  } catch (error) {
+    imageStudyQuestions = [...fallbackQuizData];
+  }
+  filterImageStudyQuestions();
+}
+
+function filterImageStudyQuestions() {
+  const searchText = document
+    .getElementById("image-study-search-input")
+    .value.toLowerCase();
+  const selectedCat = document.getElementById("image-study-category-select").value;
+
+  const filtered = imageStudyQuestions.filter((q) => {
+    // Category filter
+    const matchesCat = selectedCat === "all" || q.materie === selectedCat;
+
+    // Text search filter
+    const cleanSearchText = searchText
+      .replace("#", "")
+      .replace("id:", "")
+      .replace("id", "")
+      .trim();
+    const matchesId = q.id.toString() === cleanSearchText;
+
+    const inEnunt = q.enunt.toLowerCase().includes(searchText);
+    const inExplicatie = q.explicatie.toLowerCase().includes(searchText);
+    const inReferinta = q.referinta_sursa.toLowerCase().includes(searchText);
+    const inVariante = Object.values(q.variante).some((v) =>
+      v.toLowerCase().includes(searchText),
+    );
+    const matchesText =
+      searchText === "" ||
+      inEnunt ||
+      inExplicatie ||
+      inVariante ||
+      inReferinta ||
+      matchesId;
+
+    return matchesCat && matchesText;
+  });
+
+  renderImageStudyQuestions(filtered);
+}
+
+function renderImageStudyQuestions(questions) {
+  const listContainer = document.getElementById("image-study-questions-list");
+  if (!listContainer) return;
+  listContainer.innerHTML = "";
+
+  if (questions.length === 0) {
+    listContainer.innerHTML = `
+      <div style="text-align: center; color: var(--text-muted); padding: 30px 0;">
+        <i class="fa-regular fa-folder-open" style="font-size: 2.5rem; margin-bottom: 10px; display: block; color: var(--secondary)"></i>
+        Nu s-au găsit întrebări care să corespundă criteriilor de căutare.
+      </div>
+    `;
+    return;
+  }
+
+  questions.forEach((q) => {
+    const card = document.createElement("div");
+    card.className = "study-q-card";
+
+    // Generate options HTML list
+    let choicesHtml = "";
+    Object.keys(q.variante).forEach((key) => {
+      const isCorrectChoice = q.raspuns_corect.includes(key);
+      const correctClass = isCorrectChoice ? "correct" : "";
+      const isCode = isCodeString(q.variante[key]);
+      const codeClass = isCode ? "code-choice" : "";
+      const cleanText = cleanChoiceText(q.variante[key]);
+      choicesHtml += `
+        <div class="study-choice-item ${correctClass}">
+          <span class="choice-prefix">${key}</span>
+          <span class="choice-text ${codeClass}">${escapeHtml(cleanText)}</span>
+        </div>
+      `;
+    });
+
+    // Compute PDF reference badge for Study Mode header
+    let pdfRef = "";
+    if (q.referinta_sursa) {
+      const parts = q.referinta_sursa.split(",");
+      if (parts.length > 1) {
+        pdfRef = parts[parts.length - 1].trim();
+      }
+    }
+    const pdfBadgeHtml = pdfRef
+      ? `<span class="badge badge-pdf-ref" style="font-size: 0.65rem; padding: 2px 6px;">PDF: ${pdfRef}</span>`
+      : "";
+
+    card.innerHTML = `
+      <div class="study-q-header">
+        <div class="study-q-title-wrapper">
+          <div class="study-q-meta" style="display: flex; align-items: center; gap: 6px;">
+            <span class="study-q-id">ÎNTREBAREA #${q.id}</span>
+            ${pdfBadgeHtml}
+            <span class="badge" style="font-size: 0.65rem; padding: 2px 6px;">${q.subcategorie ? `${q.materie} (${q.subcategorie})` : q.materie}</span>
+          </div>
+          <span class="study-q-text" style="font-style: italic; color: var(--text-muted);">Apasă pentru a vedea enunțul și codul original din PDF...</span>
+        </div>
+        <i class="fa-solid fa-chevron-down study-q-arrow"></i>
+      </div>
+      <div class="study-q-body">
+        <div class="study-q-content">
+          <!-- PDF Crop Image -->
+          <div style="margin-bottom: 15px; text-align: center; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 10px; overflow: hidden;">
+            <img src="grile_pdf/grila_${q.id}.png" alt="Grila Originală" style="max-width: 100%; height: auto; border-radius: 8px; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.1));" />
+          </div>
+
+          <div class="study-q-choices">
+            ${choicesHtml}
+          </div>
+          <div class="explanation-card correct-feedback" style="background: rgba(0, 230, 118, 0.02); margin-top: 15px; margin-bottom: 0;">
+            <div class="explanation-header" style="color: var(--success); font-size: 0.95rem;">
+              <i class="fa-solid fa-circle-info"></i> Răspuns corect: ${q.raspuns_corect.join(", ").toUpperCase()}
+            </div>
+            <div class="explanation-body" style="font-size: 0.88rem;">
+              <p>${escapeHtml(q.explicatie || "Nu există explicație text adițională.")}</p>
               <div class="reference-badge" style="margin-top: 10px;">
                 <i class="fa-solid fa-bookmark"></i>
                 <span>${escapeHtml(q.referinta_sursa)}</span>
