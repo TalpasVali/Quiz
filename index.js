@@ -5808,18 +5808,20 @@ function renderStatsDashboard() {
   const correctSet = new Set(correctIds);
 
   const categories = [
-    "Algoritmi și structuri de date",
-    "Teoria grafurilor și combinatorică",
-    "Logică computațională",
-    "Limbaje formale și teoria automatelor",
-    "Limbaje de programare și inginerie software",
-    "Sisteme de calcul",
+    { label: "Algoritmi și structuri de date", filter: (q) => q.materie === "Algoritmi și structuri de date" },
+    { label: "Teoria grafurilor și combinatorică", filter: (q) => q.materie === "Teoria grafurilor și combinatorică" },
+    { label: "Logică computațională", filter: (q) => q.materie === "Logică computațională" },
+    { label: "Limbaje formale și teoria automatelor", filter: (q) => q.materie === "Limbaje formale și teoria automatelor" },
+    { label: "Limbaje de programare și inginerie software", filter: (q) => q.materie === "Limbaje de programare și inginerie software" },
+    { label: "Arhitectura calculatoarelor", filter: (q) => q.subcategorie === "Arhitectura calculatoarelor" },
+    { label: "Sisteme de operare", filter: (q) => q.subcategorie === "Sisteme de operare" },
+    { label: "Rețele de calculatoare", filter: (q) => q.subcategorie === "Rețele de calculatoare" }
   ];
 
   statsList.innerHTML = "";
 
-  categories.forEach((cat) => {
-    const catQuestions = fallbackQuizData.filter((q) => q.materie === cat);
+  categories.forEach((catObj) => {
+    const catQuestions = fallbackQuizData.filter(catObj.filter);
     const total = catQuestions.length;
     const correctCount = catQuestions.filter((q) =>
       correctSet.has(q.id),
@@ -5829,7 +5831,7 @@ function renderStatsDashboard() {
     const itemHtml = `
       <div class="stats-item" style="display: flex; flex-direction: column; gap: 4px;">
         <div style="display: flex; justify-content: space-between; font-size: 0.82rem; color: var(--text-main);">
-          <span>${cat}</span>
+          <span>${catObj.label}</span>
           <span style="font-weight: 700; color: var(--primary);">${correctCount}/${total} (${percent}%)</span>
         </div>
         <div class="stats-progress-bg">
