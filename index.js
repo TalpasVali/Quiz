@@ -55,17 +55,17 @@ const aiChatInputContainer = document.getElementById("ai-chat-input-container");
 const aiChatInput = document.getElementById("ai-chat-input");
 const aiChatSendBtn = document.getElementById("ai-chat-send-btn");
 
-const tabImageStudyBtn = document.getElementById("tab-image-study-btn");
-const imageStudyTabContent = document.getElementById("image-study-tab-content");
-const imageStudySearchInput = document.getElementById("image-study-search-input");
-const imageStudyCategorySelect = document.getElementById("image-study-category-select");
-const imageStudyQuestionsList = document.getElementById("image-study-questions-list");
+let tabImageStudyBtn;
+let imageStudyTabContent;
+let imageStudySearchInput;
+let imageStudyCategorySelect;
+let imageStudyQuestionsList;
 
-const formatSelect = document.getElementById("format-select");
-const formatTextBtn = document.getElementById("format-text-btn");
-const formatImageBtn = document.getElementById("format-image-btn");
-const imageQuestionContainer = document.getElementById("image-question-container");
-const imageQuestionImg = document.getElementById("image-question-img");
+let formatSelect;
+let formatTextBtn;
+let formatImageBtn;
+let imageQuestionContainer;
+let imageQuestionImg;
 
 let aiChatHistory = [];
 let imageStudyQuestions = [];
@@ -4453,6 +4453,18 @@ const fallbackQuizData = [
 
 // Initialize Application
 document.addEventListener("DOMContentLoaded", () => {
+  // Assign deferred DOM elements
+  tabImageStudyBtn = document.getElementById("tab-image-study-btn");
+  imageStudyTabContent = document.getElementById("image-study-tab-content");
+  imageStudySearchInput = document.getElementById("image-study-search-input");
+  imageStudyCategorySelect = document.getElementById("image-study-category-select");
+  imageStudyQuestionsList = document.getElementById("image-study-questions-list");
+  formatSelect = document.getElementById("format-select");
+  formatTextBtn = document.getElementById("format-text-btn");
+  formatImageBtn = document.getElementById("format-image-btn");
+  imageQuestionContainer = document.getElementById("image-question-container");
+  imageQuestionImg = document.getElementById("image-question-img");
+
   // Tabs Navigation
   const tabQuizBtn = document.getElementById("tab-quiz-btn");
   const tabStudyBtn = document.getElementById("tab-study-btn");
