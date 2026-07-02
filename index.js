@@ -4672,7 +4672,9 @@ async function initQuiz() {
     }
     filteredQuestions = quizData.filter((q) => mistakes.includes(q.id));
   } else {
-    filteredQuestions = quizData.filter((q) => q.materie === selectedCategory);
+    filteredQuestions = quizData.filter(
+      (q) => q.materie === selectedCategory || q.subcategorie === selectedCategory,
+    );
   }
 
   // Shuffle the filtered questions to make it dynamic
@@ -5191,7 +5193,7 @@ function filterStudyQuestions() {
 
   const filtered = studyQuestions.filter((q) => {
     // Category filter
-    const matchesCat = selectedCat === "all" || q.materie === selectedCat;
+    const matchesCat = selectedCat === "all" || q.materie === selectedCat || q.subcategorie === selectedCat;
 
     // Text search filter
     const cleanSearchText = searchText
@@ -5354,7 +5356,7 @@ function filterImageStudyQuestions() {
 
   const filtered = imageStudyQuestions.filter((q) => {
     // Category filter
-    const matchesCat = selectedCat === "all" || q.materie === selectedCat;
+    const matchesCat = selectedCat === "all" || q.materie === selectedCat || q.subcategorie === selectedCat;
 
     // Text search filter
     const cleanSearchText = searchText
